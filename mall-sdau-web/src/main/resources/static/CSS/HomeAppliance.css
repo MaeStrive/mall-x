@@ -1,0 +1,356 @@
+/* 重塑右侧固定板块的位置 */
+.right-fix{
+	right: 49px;
+}
+
+
+/* 导航栏下，家电详情列表 */
+.nav-bar{
+	border: 1px solid #e0e0e0;
+	border-left: 0;
+	border-right: 0;
+	box-shadow: 0 5px 7px #aaa;
+}
+.fix-bar{
+	position: fixed;
+	top: 0;
+	z-index: 2;
+	background-color: #fff;
+	width: 100%;
+}
+.nav-bar li{
+	cursor: pointer;
+}
+.nav-bar li:hover{
+	color: #FF5C00;
+}
+
+
+.bar-left{
+	line-height: 60px;
+}
+.bar-left li{
+	display: inline-block;
+	font-size: 12px;
+	color: #616161;
+	vertical-align: middle;
+}
+.bar-left :nth-child(1){
+	font-size: 18px;
+	font-weight: 400;
+	color: #424242;
+}
+.bar-left li::after{
+	content: '|';
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 10px;
+	margin: 0 5px 5px 5px;
+}
+.bar-left li:last-child::after{
+	display: none;
+}
+.bar-right{
+	line-height: 60px;
+}
+.bar-right li{
+	display: inline-block;
+	font-size: 14px;
+	color: #616161;
+}
+.bar-right li::after{
+	content: '|';
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 10px;
+	margin: 0 5px 5px 5px;
+}
+.bar-right li:last-child::after{
+	display: none;
+}
+
+
+/* 产品详情 */
+
+/* 切换按钮区 */
+.switch-box div{
+	position: absolute;
+	top: 50%;
+	width: 100%;
+	display: inline-block;
+	margin-top: -20px;
+}
+.switch-box .left,
+.switch-box .right{
+	padding: 25px 13px;
+	border-radius: 5px;
+	display: inline-block;
+	color: #a5a6a9;
+	position: absolute;
+}
+.switch-box .right{
+	margin-left: 520px;
+}
+.switch-box .left:hover{
+	color: #eaebeb;
+	background-color: #7b7b7b;
+}
+.switch-box .right:hover{
+	color: #eaebeb;
+	background-color: #7b7b7b;
+}
+.switch-box .left{
+	margin-left: 0;
+}
+.switch-box >ul{
+	text-align: right;
+	font-size: 0;
+	position: absolute;
+	left: 120px;
+	top: 540px;
+}
+.switch-box >ul li{
+	display: inline-block;
+	width: 50px;
+	height: 3px;
+	background-color: #d6d6d6;
+	margin-left: 10px;
+}
+.switch-box >ul li.select{
+	background-color: #a3a3a3;
+}
+.switch-box >ul li:hover{
+	background-color: #b5b5b5;
+}
+
+
+
+
+
+.product-left{
+	margin-top: 50px;
+	width: 600px;
+	display: inline-block;
+	position: relative;
+}
+.product-left{
+	background: url(../img/HomeAppliance/rotate1.jpg) no-repeat;
+	background-size: contain;
+	width: 560px;
+	height: 560px;
+	transition: all 1s;
+}
+.banner1{
+	background: url(../img/HomeAppliance/rotate2.jpg) no-repeat;
+	background-size: contain;
+	width: 560px;
+	height: 560px;
+	transition: all 1s;
+}
+.banner2{
+	background: url(../img/HomeAppliance/rotate3.jpg) no-repeat;
+	background-size: contain;
+	width: 560px;
+	height: 560px;
+	transition: all 1s;
+}
+.banner3{
+	background: url(../img/HomeAppliance/rotate4.jpg) no-repeat;
+	background-size: contain;
+	width: 560px;
+	height: 560px;
+	transition: all 1s;
+}
+.banner4{
+	background: url(../img/HomeAppliance/rotate5.jpg) no-repeat;
+	background-size: contain;
+	width: 560px;
+	height: 560px;
+	transition: all 1s;
+}
+
+.product-right{
+	margin-top: 50px;
+	margin-left: 50px;
+	display: inline-block;
+	width: 600px;
+	font-size: 14px;
+}
+.product-right h2{
+	font-size: 24px;
+	font-weight: 400;
+	color: #212121;
+}
+.product-right-title{
+	color: #B0B0B0;
+}
+.product-right .product-tilte-desc{
+	color: #FF4a00;
+}
+.product-company-info{
+	color: #FF6700;
+	padding: 14px 0 0;
+}
+.product-price-info{
+	padding: 12px 0;
+	font-size: 18px;
+	color: #FF6700;
+}
+.product-price-info s{
+	padding: 0 10px 0;
+	font-size: 14px;
+	color: #B0B0B0;
+}
+
+.product-address{
+	padding:  30px;
+	background-color: #fafafa;
+	border: 1px solid #e0e0e0;
+}
+.product-address span{
+	padding: 0 2px;
+}
+.product-address span:last-child{
+	color: #FF6700;
+	cursor: pointer;
+}
+.address-bottom{
+	padding-left: 25px;
+	color: #FF6700;
+	cursor: pointer;
+}
+.choice-title{
+	font-size: 18px;
+	color: #333333;
+	padding: 5px 0;
+	margin: 10px 0;
+}
+.choice-list{
+	font-size: 16px;
+	display: inline-block;
+	width: 200px;
+	text-align: center;
+	color: #FF6700;
+	padding: 10px 50px;
+	border: 1px solid #FF6700;
+	margin: 10px 0 0;
+	cursor: pointer;
+}
+
+.menu-title{
+	font-size: 18px;
+	color: #333333;
+	margin: 20px 0 10px 0;
+}
+.menu-title span:last-child{
+	font-size: 14px;
+	color: #FF6700;
+	float: right;
+}
+.menu-title-list{
+	padding: 30px 50px;
+	border: 1px solid #e0e0e0;
+}
+.menu-title-list span,
+.menu-title-list h3,
+.menu-title-list div{
+	display: inline-block;
+	vertical-align: middle;
+	cursor: pointer;
+}
+.menu-title-list .chec{
+	width: 15px;
+	height: 15px;
+	cursor: pointer;
+}
+.menu-title-list img{
+	width: 50px;
+	height: 50px;
+}
+.menu-title-list .em{
+	background-color: #ff6700;
+	color: #ffffff;
+	padding: 5px 10px;
+	border-radius: 20px;
+}
+.menu-title-list .dess{
+	color: #c2b0b7;
+}
+.menu-title-list .dess-money{
+	color: #c2b0b7;
+	float: right;
+	margin-top: 33px;
+}
+
+.select-list{
+	margin: 30px 0;
+	padding: 30px;
+	background-color: #f9f9fa;
+}
+.select-content span{
+	color: #616161;
+	
+}
+.select-content span:last-child{
+	float: right;
+}
+.select-total{
+	font-size: 24px;
+	color: #FF6700;
+	margin: 20px 0 0;
+}
+.btn .addCart{
+	padding: 15px 100px;
+	background-color: #FF6700;
+	border: none;
+	font-size: 18px;
+	outline: none;
+	color: #ffffff;
+	transition: all 0.5s;
+	cursor: pointer;
+}
+.btn .addCart.act{
+	background-color: #f25807;
+}
+.btn .likeCart{
+	padding: 15px 60px;
+	background-color: #b0b0b0;
+	border: none;
+	font-size: 18px;
+	outline: none;
+	color: #ffffff;
+	transition: all 0.5s;
+	cursor: pointer;
+	margin-left: 10px;
+}
+.btn .likeCart.act{
+	background-color: #757575;
+}
+.icon{
+	margin: 20px 0;
+}
+.icon span{
+	font-size: 16px;
+	color: #c2b0b0;
+	padding: 0 10px;
+}
+
+
+/* 价格说明 */
+.descirpt{
+	background-color: #f5f5f5;
+	padding: 30px;
+}
+.descirpt h2{
+	margin: 10px 0 20px;
+	font-weight: 400;
+}
+.descript-des{
+	background-color: #ffffff;
+	padding: 50px 100px;
+	line-height: 35px;
+}
+.descript-des span{
+	font-weight: 550;
+}
+

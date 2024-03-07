@@ -1,0 +1,451 @@
+/* reset重置样式 */
+body,div,ul,li,p,img,dl,dt,dd,h4,h5{
+	margin: 0;
+	padding: 0;
+}
+ul{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	color:#ff782c;
+	cursor: pointer;
+}
+.clearfix::after{
+	clear: both;
+	display: block;
+	content: "";
+}
+/* basic */
+.Container{
+	width: 450px;
+	margin: 0 auto;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+input{
+	background-color: #f9f9f9;
+	border: 1px solid #f9f9f9;
+	border-radius: 10px;
+}
+button{
+	border-radius: 10px;
+}
+/* page */
+/* 小米账号导航栏 */
+.header-bg{
+	position: relative;
+}
+.header-left{
+	display: inline-block;
+	width: 27.5%;
+	margin-left: 0;
+}
+.header-left img{
+	width: 100%;
+}
+.text-type{
+	border: none;
+	outline: none;
+}
+.header-right{
+	width: 68%;
+	display: inline-block;
+	vertical-align: top;
+	padding: 20px;
+	position: relative;
+}
+.one{
+	padding: 0 0 20px 0;
+}
+.header-right a img{
+	width: 40px;
+	vertical-align: middle;
+}
+.header-item-tit{
+	vertical-align: middle;
+	color: #333;
+	font-size: 24px;
+	font-weight: 550;
+	margin-left: 10px;
+	cursor: pointer;
+}
+.header-list-tit{
+	display: inline-block;
+}
+.header-list-tit li{
+	display: inline-block;
+	vertical-align: middle;
+	padding: 10px 15px 11px 15px;
+	font-size: 14px;
+	color: #838383;
+	cursor: pointer;
+}
+.header-list-tit li:hover{
+	color: #FF6700;
+}
+
+/* 顶部右侧   下拉框 */
+.language-title{
+	position: relative;
+}
+.language-title .icon-sanjiaoxing{
+	font-size: 6px;
+}
+.language-title .icon-sanjiaoxing.act{
+	display: inline-block;
+	transform: rotate(180deg);
+	transition: all 0.6s;
+}
+.language-list{
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 40px;
+}
+.language-list ul{
+	background-color: #ffffff;
+	text-align: center;
+}
+.language-list li{
+	padding: 10px 16px;
+}
+.language-list li:hover{
+	color: #333333;
+	transition: all 0.5s;
+	background-color: #fff3e6;
+}
+
+
+/* login */
+.login-box{
+	height: 627px;
+	padding: 20px 0;
+}
+.login{
+	padding: 40px 45px;
+	position: relative;
+	width: 360px;
+	box-shadow: 0 0 15px #aaa;
+}
+.Scan{
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	cursor: pointer;
+    width: 0px;
+    height: 0px;
+    transition: all .3s;
+	border: 30px solid transparent;
+	border-top-color: #ffbe99;
+	border-bottom-color: transparent;
+	border-left-color: transparent;
+	border-right-color: #ffbe99;
+	border-top-right-radius: 5px;
+}
+.Scan .iconfont{
+	font-size: 40px;
+	color: white;
+	position: absolute;
+	top: -20px;
+	right: -20px;
+}
+.Scan:hover{
+	border-top-color: #ff5c00;
+	border-right-color: #ff5c00;
+}
+.Scan-text{
+	position: absolute;
+	top: 15px;
+	right: 75px;
+	display: inline-block;
+	padding: 5px 15px;
+	background-color: #FF5C00;
+	color: #ffffff;
+	border-radius: 5px;
+	font-size: 14px;
+	display: none;
+	transition: all 10s;
+}
+.Scan-text-triangle{
+	position: absolute;
+	top: 22px;
+	right: 61px;
+	cursor: pointer;
+    width: 0px;
+    height: 0px;
+    transition: all .3s;
+	border: 7px solid transparent;
+	border-left-color: #FF5C00;
+	display: none;
+}
+.login-list-tit li{
+	display: inline-block;
+	font-size: 20px;
+	cursor: pointer;
+	margin:0 10px 10px 0;
+	padding-bottom: 3px;
+	color: #959595;
+}
+.login-list-tit .login-active{
+	border-bottom: 3px solid red;
+	color: black;
+	font-weight: 550;
+	color: #000000;
+}
+
+
+/* 登录框  输入框样式 */
+.mobile{
+	position: relative;
+}
+.mobile label{
+	position: absolute;
+	font-size: 20px;
+	left: 20px;
+	top: 10px;
+	color: #959595;
+	line-height: 70px;
+	transition: all 0.5s linear;
+}
+.mobile label.focus{
+	font-size: 12px;
+	line-height: 32px;
+	left: 26px;
+	top: 18px;
+}
+.mobile input{
+	padding: 26px 26px 10px 26px;
+}
+
+/* 密码框  输入框样式 */
+.password{
+	position: relative;
+}
+.password label{
+	position: absolute;
+	font-size: 20px;
+	left: 20px;
+	top: 10px;
+	color: #959595;
+	line-height: 70px;
+	transition: all 0.5s linear;
+}
+.password label.focus{
+	font-size: 12px;
+	line-height: 32px;
+	left: 26px;
+	top: 18px;
+}
+.password input{
+	padding: 26px 26px 10px 26px;
+}
+/* 短信验证码  输入框样式 */
+.message{
+	position: relative;
+}
+.message label{
+	position: absolute;
+	font-size: 20px;
+	left: 20px;
+	top: 0;
+	color: #959595;
+	line-height: 70px;
+	transition: all 0.5s linear;
+}
+.message label.focus{
+	font-size: 12px;
+	line-height: 32px;
+	left: 26px;
+	top: 10px;
+}
+.message input{
+	color: #959595;
+	padding: 26px 26px 10px 26px;
+}
+
+
+
+
+
+
+
+
+/* 登录页面消失 */
+.login-sum{
+	/* display: none; */
+	transition: all 3s;
+	width: 360px;
+}
+.register-sum{
+	display: none;
+	transition: all 3s;
+}
+.scan-sum{
+	display: none;
+}
+#eye1{
+	position: absolute;
+	top: 40px;
+	right: 25px;
+	font-size: 22px;
+}
+
+.login-user,.login-password{
+	padding: 18px 25px;
+	margin: 20px 0;
+	outline: none;
+	width: 300px;
+	font-size: 18px;
+	/* position: relative; */
+}
+.login-button{
+	display: inline-block;
+	text-align: center;
+	padding: 15px 161px;
+	background-color: #ffbe99;
+	color: ghostwhite;
+}
+.login-bottom{
+	width: 355px;
+	color: #ff782c;
+	padding: 20px 0;
+	cursor: pointer;
+}
+.login-bottom span:last-child{
+	margin-left: 189px;
+}
+.login-other-text{
+	width: 352px;
+	margin: 30px 0 20px 0;
+	text-align: center;
+}
+.login-other{
+	width: 353px;
+}
+.login-other li{
+	display: inline-block;
+	margin: 0 20px;
+}
+.login-other .iconfont{
+	font-size: 43px;
+	color: #1989fa;
+}
+.login-other .icon-qq{
+	color: #18acfc;
+	font-size: 48px;
+}
+.login-other .icon-weibo{
+	color: #ea5d5c;
+}
+.login-other .icon-weixin{
+	color: #50b674;
+}
+
+.register-nation select{
+	width: 354px;
+	height: 50px;
+	font-size: 18px;
+	margin: 10px 0;
+	padding-left: 20px;
+	color: #959595;
+}
+
+.register-message-box{
+	position: relative;
+}
+.register-message-number{
+	position: absolute;
+	top: 10px;
+}
+.register-message-number select{
+	font-size: 17px;
+	padding:18px 10px;
+	border: 0;
+	color: #959595;
+	background-color: #f9f9f9;
+	outline: none;
+}
+.register-number,.register-message{
+	padding: 18px 25px;
+	margin: 10px 0;
+	outline: none;
+	width: 300px;
+	font-size: 18px;
+}
+.register-number{
+	padding-left: 80px;
+	width: 245px;
+	color: #959595;
+}
+.register-button{
+	display: inline-block;
+	text-align: center;
+	padding: 15px 161px;
+	background-color: #ffbe99;
+	color: ghostwhite;
+}
+.register-button,.login-button{
+	border-radius: 10px;
+}
+.chec{
+	vertical-align: bottom;
+	width: 20px;
+	height: 14px;
+}
+/* 扫码登录模块 */
+.scan-sum{
+	width: 354px;
+}
+.scan-tit{
+	font-size: 22px;
+	color: #333;
+	font-weight: 550;
+	text-align: center;
+	margin-bottom: 30px;
+}
+.scan-img{
+	text-align: center;
+	cursor: pointer;
+}
+.scan-text{
+	text-align: center;
+	font-size: 14px;
+	color: #333;
+	margin: 30px 0;
+}
+.scan-other{
+	font-size: 17px;
+	color: #aaa;
+	text-align: center;
+}
+.scan-other-list ul{
+	text-align: center;
+	margin: 15px 0;
+}
+.scan-other-list li{
+	display: inline-block;
+	margin: 0 20px;
+	cursor: pointer;
+}
+.scan-other-list li span{
+	display: inline-block;
+}
+.scan-other-list li p{
+	font-size: 12px;
+	color: #aaa;
+}
+
+.desc{
+	text-align: center;
+	position: absolute;
+	font-size: 12px;
+	color: #999999;
+	bottom: 20px;
+	right: 250px;
+}
+

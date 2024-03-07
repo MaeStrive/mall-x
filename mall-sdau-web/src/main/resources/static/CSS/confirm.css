@@ -1,0 +1,238 @@
+/* 顶部导航栏 */
+.header-box{
+	border-bottom: 2px solid #FF5C00;
+	background-color: #ffffff;
+}
+.header-left div{
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 82px;
+}
+.header-left .icon-icon-xiaomiguishu{
+	font-size: 45px;
+	color: #FF6700;
+}
+.header-left :nth-child(2){
+	font-size: 28px;
+	color: #424242;
+	margin-left: 50px;
+}
+.header-left :nth-child(3){
+	font-size: 12px;
+	color: #757575;
+	padding: 20px 0 0 15px;
+}
+.header-right>ul>li{
+	display: inline-block;
+	font-size: 12px;
+	color: #757575;
+	/* line-height: 102px; */
+	text-align: center;
+	padding: 32px 15px;
+}
+.header-right>ul>li:hover{
+	color: #FF5C00;
+}
+.header-right>ul>li a:hover{
+	color: #FF5C00;
+}
+.header-right>ul>li a{
+	color: #757575;
+}
+
+.user-title{
+	position: relative;
+}
+.user-list{
+	position: absolute;
+	left: -15px;
+	top: 62px;
+	height: 0;
+	overflow: hidden;
+	transition: all 0.3s;
+	box-shadow: 0 0 10px #ccc;
+}
+.user-title ul{
+	margin: 10px 0;
+}
+.user-list li{
+	background-color: #ffffff;
+	line-height: 20px;
+	width: 80px;
+	color: #333;
+	text-align: center;
+	padding: 5px 15px;
+}
+.user-title:hover .user-list{
+	display: block;
+	height: 170px;
+}
+.user-list li:hover{
+	color: #FF6700;
+	background-color: #f5f5f5;
+	cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+.add-box{
+	display: inline-block;
+}
+
+.add-box>div{
+	display: inline-block;
+}
+
+
+
+
+/* 中间部分 */
+.orderInfor{
+	background-color: #fff;
+	margin: 50px 0;
+	font-size: 14px;
+	padding: 24px;
+}
+.orderInfor .orderInfor-title{
+	color: #333;
+	font-size: 18px;
+	line-height: 38px;
+	margin: 20px 0 20px;
+}
+.addAddress-box{
+	display: inline-block;
+	vertical-align: middle;
+}
+.address-list{
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0 5px;
+}
+.order-infor{
+	padding: 15px 0;
+}
+.order-infor div{
+	display: inline-block;
+	vertical-align: middle;
+}
+.order-infor-name{
+	width: 650px;
+}
+.order-infor-num{
+	width: 150px;
+	text-align: center;
+}
+.order-infor-status{
+	width: 100px;
+	text-align: center;
+}
+.order-infor-money{
+	width: 190px;
+	text-align: right;
+}
+.mode{
+	padding: 10px 0;
+	border: 1px solid #e0e0e0;
+	border-left: none;
+	border-right: none;
+}
+.mode div{
+	display: inline-block;
+}
+.invoice{
+	color: #FF5700;
+}
+.invoice div{
+	display: inline-block;
+}
+
+/* 伪类改变  设置标题宽度 */
+.mode :first-child,
+.invoice :first-child{
+	width: 150px;
+}
+/* 伪类改变  最后一个元素的颜色 */
+.order-infor :last-child,
+.mode :last-child,
+.invoice :last-child{
+	color: #FF5700;
+}
+
+
+.settlement-box{
+	padding: 20px 0;
+}
+.settlement-left .iconfont{
+	color: #FF5700;
+	font-size: 24px;
+	padding-right: 5px;
+	vertical-align: middle;
+}
+.settlement-left-top,
+.settlement-left-bottom{
+	padding: 20px 0 0 20px;
+	color: #757575;
+}
+.settlement-left-top:hover,
+.settlement-left-bottom:hover{
+	color: #FF5700;
+	cursor: pointer;
+}
+
+.settlement-right table tr td:first-child{
+	color: #757575;
+	text-align: right;
+	padding: 5px 10px;
+}
+.settlement-right table tr td:last-child{
+	color: #ff6700;
+	text-align: right;
+	padding: 0 20px;
+}
+.moneyTotla b{
+	font-size: 30px;
+}
+
+
+.address-bottom-box{
+	border-top: 1px solid #f5f5f5;
+	padding: 20px 20px 0;
+}
+
+
+.address-right button{
+	width: 160px;
+	padding: 10px 40px;
+	outline: none;
+	border: none;
+	margin-left: 20px;
+	cursor: pointer;
+}
+.address-right .return{
+	border: 1px solid #b0b0b0;
+	color: #b0b0b0;
+	background-color: #fff;
+}
+.address-right .buy{
+	color: #fff;
+	background-color: #ff6700;
+	border: 1px solid #ff6700;
+	transition: all 0.3s;
+}
+.address-right a{
+	color: #fff;
+}
+.address-right .buy:hover{
+	background-color: #f25807;
+}
+
+
+.alert-box .invoice{
+	width: 660px;
+}

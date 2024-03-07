@@ -1,0 +1,239 @@
+.header{
+	padding: 20px 20px 0;
+	background-color: #ffffff;
+}
+.header a img{
+	width: 40px;
+	vertical-align: middle;
+}
+.header-list-tit li{
+	padding: 10px 10px 11px 10px;
+}
+
+.language-title{
+	position: relative;
+}
+.language-title .icon-sanjiaoxing{
+	font-size: 6px;
+}
+.language-title .icon-sanjiaoxing.act{
+	display: inline-block;
+	transform: rotate(180deg);
+	transition: all 0.6s;
+}
+.language-list{
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 40px;
+}
+.language-list ul{
+	background-color: #ffffff;
+	text-align: center;
+}
+.language-list li{
+	padding: 10px 16px;
+}
+.language-list li:hover{
+	color: #333333;
+	transition: all 0.5s;
+	background-color: #fff3e6;
+}
+
+
+
+
+
+/* 中间部分 */
+
+.personal-body{
+	margin-bottom: 100px;
+	background-color: #fefefe;
+	margin: 20px 0 40px;
+}
+.personal-left{
+	box-shadow: 0 0 5px #cecece;
+	height: 720px;
+	background-color: #ffffff;
+}
+
+
+.personal-infor{
+	background: url(../img/personal/infor-bg.png) no-repeat;
+	background-size: cover;
+	padding: 40px 20px;
+	display: inline-block;
+	text-align: center;
+}
+.personal-infor img{
+	width: 80px;
+	margin: 0 70px;
+}
+.infor-name,
+.infor-number{
+	font-size: 17px;
+	color: #333333;
+	font-weight: bold;
+	margin: 12px 0;
+}
+
+
+.personal-right{
+	margin-right: 25px;
+	padding: 20px 20px 0;
+	background-color: #ffffff;
+	width: 870px;
+	height: 700px;
+	box-shadow: 0 0 5px #cecece;
+}
+
+/* 切换右侧区块内容   的标题 */
+.personal-list{
+	padding-top: 40px;
+	border-right: none;
+	background-color: #ffffff;
+}
+.personal-list li{
+	cursor: pointer;
+	padding-left: 70px;
+	height: 60px;
+	line-height: 60px;
+	font-size: 17px;
+	font-weight: 550;
+	color: #333;
+	border-left: 5px solid #ffffff;
+}
+.personal-list li.act{
+	background-color: #fff3e6;
+	border-left-color: #ff5700;
+}
+.personal-content{
+	font-size: 18px;
+	color: #333333;
+}
+.personal-content >li{
+	display: none;
+}
+.personal-content li.act{
+	display: block;
+}
+
+/* 行后用伪类写   右箭头 */
+.last-right::after{
+	content: '\e65f';
+	float: right;
+	font-family: iconfont;
+	color: #bfbfbf;
+}
+.login-safe-list li span::after{
+	content: '\e65f';
+	color: #333333;
+	font-family: iconfont;
+	padding-left: 10px;
+}
+
+/* 登录与安全  样式 */
+.login-safe-title{
+	font-size: 18px;
+	font-weight: 550;
+	padding-left: 7px;
+	border-left: 4px solid #333333;
+	margin: 10px 0 10px;
+}
+.login-safe-list{
+	padding: 15px 20px;
+}
+.login-safe-list li{
+	margin: 30px 0;
+	font-size: 16px;
+	vertical-align: middle;
+	clear: both;
+	content: '';
+	display: block;
+	cursor: pointer;
+}
+.login-safe-list li img{
+	width: 30px;
+	vertical-align: middle;
+}
+.login-safe-list li span{
+	float: right;
+}
+
+
+/* 个人信息 样式 */
+.personal-info tr td:first-child{
+	text-align: right;
+}
+.personal-info tr td:last-child{
+	text-align: left;
+}
+.personal-info td{
+	padding: 30px;
+	font-size: 17px;
+	color: #333333;
+}
+.personal-td td{
+	padding: 10px 30px;
+}
+
+
+.input-noActive.input-Active{
+	background-color: #f9f9f9;
+	outline: none;
+	border: 1px solid #ff5c00;
+}
+.input-noActive{
+	transition: all 0.5s;
+	background-color: #ffffff;
+	border-radius: 0;
+	color: #333333;
+	font-size: 17px;
+	border: 1px solid #ffffff;
+	padding: 20px 10px;
+	width: 300px;
+}
+
+#bank-card{
+	color: #FF5700;
+	cursor: pointer;
+}
+
+
+.change-btn{
+	padding: 15px 150px;
+	border: none;
+	border-radius: 5px;
+	color: #ffffff;
+	font-size: 16px;
+	outline: none;
+	background-color: #FF5700;
+	cursor: pointer;
+}
+.change-btn:hover{
+	background-color: #ff7e29 ;
+}
+/* 隐私中心 样式 */
+
+
+/* 绑定授权 样式 */
+
+
+
+/* 帮助中心 样式 */
+
+
+/* 底部一行字 */
+.descr{
+	text-align: center;
+	font-size: 12px;
+	color: #999999;
+	margin-bottom: 20px;
+}
+
+
+
+
+
+
+

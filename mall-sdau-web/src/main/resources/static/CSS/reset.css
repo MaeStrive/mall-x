@@ -1,0 +1,29 @@
+/* reset重置样式 */
+body,div,ul,li,p,img,dl,dt,dd,h2,h3,h4{
+	margin: 0;
+	padding: 0;
+}
+ul{
+	list-style: none;
+}
+a{
+	color: black;
+	text-decoration: none;
+}
+.clearfix::after{
+	clear: both;
+	display: block;
+	content: "";
+}
+/* basic */
+.container{
+	width: 1226px;
+	margin: 0 auto;
+	/* border: 1px solid red; */		/* 设计时打开 */
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}

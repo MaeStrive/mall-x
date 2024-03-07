@@ -1,0 +1,338 @@
+body{
+	background-color: #f5f5f5;
+}
+.header-bg{
+	background-color: #ffffff;
+}
+
+/* 中间部分 */
+.title,
+.title a{
+	padding: 20px 0;
+	font-size: 14px;
+	color: #757575;
+}
+.title a:hover{
+	color: #FF6700;
+}
+.profile-box{
+	margin-bottom: 20px;
+}
+/* 左侧板块 */
+.profile-left{
+	width: 234px;
+	background-color: #ffffff;
+}
+.menu-box{
+	margin: 0 48px 12px;
+}
+.menu-box h3{
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 52px;
+	color: #333;
+	margin: 0;
+	padding: 0;
+}
+.menu-box li,
+.menu-box a{
+	font-size: 14px;
+	color: #757575;
+	padding: 6px 0;
+}
+.menu-box li:hover,
+.menu-box li a:hover{
+	color: #FF5C00;
+	cursor: pointer;
+}
+.profile-left li.act{
+	color: #FF5C00;
+}
+
+
+/* 右侧内容 */
+.profile-right{
+	margin-left: 20px;
+	padding: 36px 48px;
+	background-color: #ffffff;
+	width: 876px;
+}
+.order-title h1{
+	display: inline-block;
+	font-size: 30px;
+	font-weight: 400;
+	color: #757575;
+}
+
+.addAddress-box{
+	width: 270px;
+	height: 180px;
+	border: 1px solid #e0e0e0;
+}
+.addAddress{
+	padding: 60px 90px;
+	color: #e0e0e0;
+	text-align: center;
+	cursor: pointer;
+}
+.addAddress .icon-jiahao-{
+	font-size: 30px;
+	margin-bottom: 10px;
+}
+
+
+/* 收货地址列表 */
+
+.address-list {
+	display: none;
+	/* display: inline-block; */
+	width: 270px;
+	height: 180px;
+	margin: 0 20px;
+	border: 1px solid #e0e0e0;
+}
+.address-list.act{
+	border: 1px solid #ff5c00;
+}
+.addressBox{
+	color: #333333;
+	cursor: pointer;
+	padding: 20px;
+}
+.address-name{
+	font-size: 18px;
+	color: #333333;
+	margin-bottom: 10px;
+}
+.address-label{
+	font-size: 14px;
+	color: #757575;
+	float: right;
+}
+.address-number,
+.address-address,
+.address-detailed{
+	font-size: 14px;
+	color: #757575;
+	margin: 5px 0;
+}
+.address-change{
+	font-size: 14px;
+	color: #FF6700;
+	margin: 22px 0 0 0;
+	text-align: right;
+}
+.address-changeed,
+.address-dele{
+	margin-left: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 添加地址弹出框 */
+.alert-box{
+	display: none;
+	position: fixed;
+	top: 0;
+	z-index: 10;
+	width: 100%;
+	background-color: rgba(123, 123, 123,0.7);
+}
+/* .alert-box.active{
+	display: block;
+	height: 100%;
+	transition: all 1s;
+} */
+.alert{
+	display: inline-block;
+	width: 660px;
+	background-color: #ffffff;
+	margin:100px 25%;
+}
+
+.alert-title{
+	padding: 14px 20px;
+	background-color: #f5f5f5;
+}
+.alert-title .title{
+	font-size: 18px;
+	color: #424242;
+}
+.close{
+	text-align: right;
+	margin: 10px 10px 0 0;
+	cursor: pointer;
+	float: right;
+}
+.closeAddress{
+	text-align: right;
+	margin: 10px 10px 0 0;
+	cursor: pointer;
+	float: right;
+}
+
+.alert-box-content{
+	padding: 20px;
+}
+
+
+
+.alert-bottom-box{
+	position: relative;
+	display: inline-block;
+	margin: 5px 0;
+	color: #bfbfbf;
+}
+.plaLabel{
+	position: absolute;
+	left: 20px;
+	top: 15px;
+	background-color: #ffffff;
+	transition: all 0.3s linear;
+}
+.pla-name.focus,
+.pla-number.focus,
+.pla-address.focus,
+.pla-addressLabel.focus{
+	left: 20px;
+	top: -2px;
+	font-size: 12px;
+	color: #FF6700;
+}
+#input-name.act,
+#input-number.act,
+#input-address.act,
+#input-addressLabel.act{
+	border-color: #FF6700;
+}
+.input{
+	width: 280px;
+	padding: 13px 0 17px 14px;
+	margin: 5px;
+	outline: none;
+	border: 1px solid #dddddd;
+}
+.input-address,
+.input-addressLabel,
+.input-choice{
+	width: 595px;
+}
+.input-address{
+	padding: 13px 0 40px 14px;
+}
+
+.choice-box{
+	position: relative;
+}
+.pla-choice .icon-you{
+	transform: rotate(90deg);
+	
+}
+
+
+
+
+/* 地址弹窗 */
+.choice-alert{
+	position: absolute;
+	display: none;
+	z-index: 4;
+	top: 0;
+	width: 607px;
+	margin-left: 5px;
+	background-color: #ffffff;
+	border: 2px solid #fbaf7c;
+}
+.choice-alert hr{
+	width: 550px;
+	text-align: center;
+	border:1px solid #efefef;
+}
+.lookup-box{
+	position: relative;
+	display: inline-block;
+}
+.lookup-box .icon-chazhaosousuo{
+	font-size: 30px;
+	position: absolute;
+	line-height: 47px;
+	top: 20px;
+	left: 29px;
+	width: 47px;
+	text-align: center;
+}
+.input-lookup{
+	padding: 15px 0 15px 50px;
+	width: 500px;
+	margin: 20px 29px;
+}
+.input-lookup.focus{
+	border-color: #FF6700;
+}
+
+
+
+.address-des,
+.choice-hand{
+	color: #B0B0B0;
+	font-size: 14px;
+	margin: 10px 0 13px 29px;
+}
+.choice-hand{
+	cursor: pointer;
+}
+.choice-hand:hover{
+	color: #FF6700;
+}
+
+
+
+
+
+
+
+
+
+
+
+.alert .determine-box{
+	background-color: #f5f5f5;
+	padding: 20px 40px;
+	text-align: center;
+}
+
+.alert .determine{
+	padding: 10px 60px;
+	background-color: #FF6700;
+	border: 1px;
+	color: #ffffff;
+	margin-right: 10px;
+}
+.alert .cancel{
+	padding: 10px 60px;
+	background-color: #b0b0b0;
+	border: 1px;
+	color: #ffffff;
+}
+
+
+
+
+
+
+
+
+

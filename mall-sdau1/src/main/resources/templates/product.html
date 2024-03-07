@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/lib/layui-v2.6.3/css/layui.css" media="all">
+    <link rel="stylesheet" href="/css/public.css" media="all">
+</head>
+<body>
+<div class="layuimini-container">
+    <div class="layuimini-main">
+
+        <fieldset class="table-search-fieldset">
+            <legend>搜索信息</legend>
+            <div style="margin: 10px 10px 10px 10px">
+                <form class="layui-form layui-form-pane" action="">
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">关键字</label>
+                            <div class="layui-input-inline">
+                                <input type="text" id="keyword" name="username" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <button type="button" id="btn1" class="layui-btn layui-btn-primary" lay-submit
+                                    lay-filter="data-search-btn"><i class="layui-icon"></i> 搜 索
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </fieldset>
+
+        <script type="text/html" id="toolbarDemo">
+            <div class="layui-btn-container">
+                <button class="layui-btn layui-btn-normal layui-btn-sm data-add-btn" lay-event="add"> 添加</button>
+                <button class="layui-btn layui-btn-sm layui-btn-danger data-delete-btn" lay-event="delete"> 删除</button>
+            </div>
+        </script>
+
+        <table class="layui-hide" id="currentTableId" lay-filter="currentTableFilter"></table>
+
+        <script type="text/html" id="currentTableBar">
+            <a class="layui-btn layui-btn-normal layui-btn-xs data-count-edit" lay-event="edit">编辑</a>
+            <a class="layui-btn layui-btn-xs layui-btn-danger data-count-delete" lay-event="delete">删除</a>
+        </script>
+        <script type="text/html" id="formTemplate">
+            <form class="layui-form" action="" lay-filter="userForm">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">产品名称</label>
+                    <div class="layui-input-inline layui-input-wrap">
+                        <input type="text" name="name" lay-verify="required" autocomplete="off" lay-affix="clear"
+                               class="layui-input">
+                        <input type="hidden" name="id" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">一级分类</label>
+                    <div class="layui-input-inline layui-input-wrap">
+                        <select id="sel1" lay-filter="sel1">
+
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">二级分类</label>
+                    <div class="layui-input-inline layui-input-wrap">
+                        <select id="sel2" name="categoryId" lay-filter="sel2">
+
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">颜色</label>
+                    <div class="layui-input-inline layui-input-wrap">
+                        <input type="text" name="color" lay-verify="required" autocomplete="off" lay-affix="clear"
+                               class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">版本</label>
+                    <div class="layui-input-inline layui-input-wrap">
+                        <input type="text" name="edition" lay-verify="required" autocomplete="off" lay-affix="clear"
+                               class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">状态</label>
+                    <div class="layui-input-inline layui-input-wrap">
+                        <input type="hidden" value="0" name="status" lay-verify="required" autocomplete="off" lay-affix="clear"
+                               class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">价格</label>
+                    <div class="layui-input-inline layui-input-wrap">
+                        <input type="text" name="price" lay-verify="required" autocomplete="off" lay-affix="clear"
+                               class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button type="button" id="saveBtn" class="layui-btn" lay-submit lay-filter="demo1">立即提交</button>
+                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    </div>
+                </div>
+            </form>
+        </script>
+    </div>
+</div>
+<script src="/lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
+<script th:inline="none">
+    layui.use(['form', 'table', 'upload'], function () {
+        var $ = layui.jquery,
+            form = layui.form,
+            upload = layui.upload,
+            table = layui.table;
+
+
+        //监听搜索按钮事件
+        $("#btn1").on("click", function () {
+            table.render({
+                elem: '#currentTableId',
+                url: '/product/list',
+                toolbar: '#toolbarDemo',
+                defaultToolbar: ['filter', 'exports', 'print', {
+                    title: '提示',
+                    layEvent: 'LAYTABLE_TIPS',
+                    icon: 'layui-icon-tips'
+                }],
+                cols: [[
+                    {type: "checkbox", width: 50},
+                    {field: 'id', width: 80, title: 'ID', sort: true},
+                    {field: 'name', width: 80, title: '产品名称'},
+                    {field: 'categoryName', width: 180, title: '分类名称'},
+                    {field: 'price', width: 80, title: '排序'},
+                    {field: 'color', width: 80, title: '颜色'},
+                    {field: 'edition', width: 80, title: '版本'},
+                    {title: '操作', minWidth: 150, toolbar: '#currentTableBar', align: "center"}
+                ]],
+                limits: [10, 15, 20, 25, 50, 100],
+                limit: 15,
+                page: true,
+                skin: 'line'
+            });
+        })
+        $("#btn1").click();
+
+        /**
+         * toolbar监听事件
+         */
+        table.on('toolbar(currentTableFilter)', function (obj) {
+            if (obj.event === 'add') {  // 监听添加操作
+                //先取到数据库所有一级分类再弹出
+                $.get("/category/top", function (tops) {
+                    var index = layer.open({
+                        title: '添加商品',
+                        type: 1,
+                        shade: 0.2,
+                        maxmin: true,
+                        shadeClose: true,
+                        area: ['400px', '550px'],
+                        content: $("#formTemplate").html()
+                    });
+                    upload.render({
+                        elem: "#img1",
+                        url: "/upload",
+                        done: function (result) {
+                            $("#icon1").val(result.data);
+                            $("#img1").attr("src", result.data);
+                        }
+                    });
+                    //把取到的tops数据放到下拉框
+                    $.each(tops, function (index, item) {
+                        $("#sel1").append("<option value='" + item.id + "'>" + item.name + "</option>");
+                    });
+                    form.on("select(sel1)", function (data) {
+                        console.log(data.value)
+                        $("#sel2").empty();
+                        $.get("/category/subs?parentId=" + data.value, function (top2) {
+                            // 获取上级id
+                            $.each(top2, function (index, item) {
+                                $("#sel2").append("<option value='" + item.id + "'>" + item.name + "</option>");
+                            });
+                            form.render("select");
+                        });
+                    });
+                    //对表单元素渲染
+                    form.render();
+                    //给保存按钮绑定事件
+                    $("#saveBtn").on("click", function () {
+                        //获取表单中录入的所有数据
+                        var data = form.val("userForm");
+                        console.log(data)
+                        //发送请求
+                        $.post("/product/save", data, function () {
+                            //关窗口
+                            layer.closeAll();
+                            //点查询按钮
+                            $("#btn1").click();
+                        });
+                    });
+                })
+            } else if (obj.event === 'delete') {  // 监听删除操作
+                var checkStatus = table.checkStatus('currentTableId')
+                    , data = checkStatus.data;
+                layer.alert(JSON.stringify(data));
+            }
+        });
+
+
+        //监听表格复选框选择
+        table.on('checkbox(currentTableFilter)', function (obj) {
+            console.log(obj)
+        });
+
+        table.on('tool(currentTableFilter)', function (obj) {
+            var data = obj.data;
+            if (obj.event === 'edit') {
+                //先根据id获取用户所有信息
+                $.get("/category/info?id=" + obj.data.id, function (u) {
+                    var index = layer.open({
+                        title: '编辑用户',
+                        type: 1,
+                        shade: 0.2,
+                        maxmin: true,
+                        shadeClose: true,
+                        area: ['400px', '400px'],
+                        content: $("#formTemplate").html()
+                    });
+                    //对表单元素渲染
+                    form.render();
+                    //把请求道的用户数据放到表单上
+                    form.val("userForm", u);
+                    //给保存按钮绑定事件
+                    $("#saveBtn").on("click", function () {
+                        //获取表单中录入的所有数据
+                        var data = form.val("userForm");
+                        //发送请求
+                        $.post("/category/save", data, function () {
+                            //关窗口
+                            layer.closeAll();
+                            //点查询按钮
+                            $("#btn1").click();
+                        });
+                    });
+                });
+            } else if (obj.event === 'delete') {
+                layer.confirm('真的删除么', function (index) {
+                    //点了确认
+                    //发请求让java删除数据
+                    $.post("/category/del", {Id: obj.data.id}, function () {
+                        //如果删除成功了
+                        layer.closeAll();
+                        //刷新数据-》点一下查询按钮
+                        $("#btn1").click();
+                    });
+                });
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

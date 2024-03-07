@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8">
+	<title>小米商城</title>
+	<link rel="icon" href="img/milogo.ico" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="font/iconfont.css"/>	<!-- 引用图标 -->
+	<link rel="stylesheet" type="text/css" href="CSS/reset.css"/>	<!-- 样式重置 -->
+	<link rel="stylesheet" type="text/css" href="CSS/currency.css"/>
+	<link rel="stylesheet" type="text/css" href="CSS/index.css"/>	<!-- 首页样式 -->
+</head>
+		<body>
+		<th:block th:include="header"></th:block>
+		<!-- banner轮播图 -->
+		<div class="banner-bg">
+			<div class="container banner">
+				<ul class="nav-list">
+					<li th:each="c:${categories}">
+						<p th:text="${c.name}"></p>
+						<div class="item-list">
+							<ul>
+								<li th:each="s:${c.children}">
+									<img th:src="${s.iconPath}" >
+								    <span th:text="${s.name}"></span>
+								</li>
+							</ul>
+						</div>
+					</li>
+
+				</ul>
+				<div class="switch-box">
+					<div class="clearfix">
+						<span class="left iconfont icon-zuo"></span>
+						<span class="fr right iconfont icon-you"></span>
+					</div>
+					<ul class="switch-icons">
+						<li class="first select"></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li class="last"></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- 页面右侧固定版块 -->
+		<div class="right-fix">
+			<ul>
+				<li class="iconfont icon-shouji">
+					<div class="number-qrode">
+						<img src="img/index/download.png" width="90px">
+						<p>扫码领取新<br>人百元礼包</p>
+						<!-- <span class="Scan-text-triangle"></span> -->
+					</div>
+				</li>
+				<li ><a class="iconfont icon-icon-" href="profile.html" target="_blank"></a></li>
+				<li class="iconfont icon-buoumaotubiao46"></li>
+				<li class="iconfont icon-kefu"></li>
+				<li><a class="iconfont icon-gouwuche" href="cart.html" target="_blank"></a></li>
+			</ul>
+		</div>
+		
+		<!-- 四块广告版图 -->
+		<div class="banner-bottom">
+			<div class="container bottom">
+				<ul>
+					<li>
+						<div class="banner-bottom-top">
+							<ul>
+								<li>
+									<p class="iconfont icon-shizhong"></p>
+									<p>保障服务</p>
+								</li>
+								<li>
+									<p class="iconfont icon-icon_xinyong_xianxing_jijin-154"></p>
+									<p>企业团购</p>
+								</li>
+								<li>
+									<p class="iconfont icon-F_round"></p>
+									<p>F 码通道</p>
+								</li>
+							</ul>
+						</div>
+						<div class="banner-bottom-foot">
+							<ul>
+								<li>
+									<p class="iconfont icon-sim"></p>
+									<p>米粉卡</p>
+								</li>
+								<li>
+									<p class="iconfont icon-qian"></p>
+									<p>以旧换新</p>
+								</li>
+								<li>
+									<p class="iconfont icon-24huafei"></p>
+									<p>话费充值</p>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li><img src="./img/index/xiaolong11U.jpg" ></li>
+					<li><img src="img/index/xiaomi11.jpg" ></li>
+					<li><img src="img/index/erjiPro.png" ></li>
+				</ul>
+			</div>
+		</div>
+		<!-- K40手机 -->
+		<div class="K40">
+			<div class="container">
+				<img src="./img/index/K40.jpg" >
+			</div>
+		</div>
+		<!-- 手机专栏 -->
+		<div class="phone-box">
+			<div class="container">
+				<div class="phone-title">
+					<h2>手机</h2>
+					<div class="search-more">
+						查看更多
+						<span class="iconfont icon-you "></span>
+					</div>
+				</div>
+				<div class="phone-left">	<!-- 左侧单独展览 -->
+					<img class="phone-lef" src="img/index/MIXphone.jpg" >
+				</div>
+				<div class="phone-right">	<!-- 右侧分区展览 -->
+					<div class="phone-right-top">
+						<ul class="one" id="phoneUL">
+<!--							<li>-->
+<!--								<img src="img/index/XiaomiMIX4.jpg" >-->
+<!--								<h3>Xiaomi MIX 4</h3>-->
+<!--								<p>CUP全面屏</p>-->
+<!--								<p>4999元起</p>-->
+<!--							</li>-->
+
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		<!-- 家电 -->
+		<div class="appliance-box">
+			<div class="container">
+				<div class="appliance-title">
+					<h2>家电</h2>
+					<div class="appliance-search-more">
+						<ul>
+							<li id="app-one" class="act">热门</li>
+							<li id="app-two">电视影音</li>
+						</ul>
+					</div>
+				</div>
+				<div class="appliance-left">	<!-- 左侧单独展览 -->
+					<ul>
+						<li>
+							<img src="img/index/xiaomidianshi6.jpg" >
+						</li>
+						<li>
+							<img src="img/index/xiaomidianshi7.jpg" >
+						</li>
+					</ul>
+					
+				</div>
+				<div class="appliance-right remen">	<!-- 右侧分区【热门】展览 -->
+					<div class="appliance-right-top">
+						<ul class="one">
+							<li>
+
+								<img src="img/index/家电专栏/1.jpg" >
+								<h3>Xiaomi MIX 4</h3>
+								<p>CUP全面屏</p>
+								<p>7699元起</p>
+
+							</li>
+							<li>
+								<img src="img/index/家电专栏/2.jpg" >
+								<h3>Note 10 Pro</h3>
+								<p>天玑1100年度旗舰芯</p>
+								<p>1599元起 <s>1699元</s></p>
+							</li>
+							<li>
+								<img src="img/index/家电专栏/3.jpg" >
+								<h3>Redmi Note 10 5G</h3>
+								<p>5G小金刚｜旗舰长续航</p>
+								<p>1099元起</p>
+							</li>
+							<li>
+								<img src="img/index/家电专栏/4.jpg" >
+								<h3>小米MIX FOLD</h3>
+								<p>折叠大屏｜自研芯片</p>
+								<p>9999元起</p>
+							</li>
+						</ul>
+						</div>
+					<div class="appliance-right-bottom">
+						<ul class="one">
+							<li>
+								<img src="img/index/家电专栏/5.jpg" >
+								<h3>小米11 Ultra</h3>
+								<p>1/1.12''GN2｜2K四微曲屏</p>
+								<p>5499元起<s>5999元</s></p>
+							</li>
+							<li>
+								<img src="img/index/家电专栏/6.jpg" >
+								<h3>小米11 Pro</h3>
+								<p>1/1.12''GN2｜骁龙888</p>
+								<p>4499元起<s>4999元</s></p>
+							</li>
+							<li>
+								<img src="img/index/家电专栏/7.jpg" >
+								<h3>小米11 青春版</h3>
+								<p>小米11 青春版 轻薄</p>
+								<p>2099元起<s>2299元</s></p>
+							</li>
+							<div class="two">
+								<div class="two-1">
+									<h3>米家互联网烟灶套装（天然气）</h3>
+									<span>2298元</span>
+									<img src="img/index/家电专栏/8.jpg" >
+								</div>
+								<div class="two-2">
+									<p>浏览更多</p>
+									<p>热门</p>
+								</div>
+							</div>
+						</ul>
+					</div>
+				</div>
+				<div class="appliance-right dianshi">	<!-- 右侧分区【电视影音】展览 -->
+					<div class="appliance-right-top">
+						<ul class="one">
+							<li>
+								<img src="img/index/家电/jiadian11.jpg" >
+								<h3>Xiaomi MIX 4</h3>
+								<p>CUP全面屏</p>
+								<p>3299元起</p>
+							</li>
+							<li>
+								<img src="img/index/家电/jiadian12.jpg" >
+								<h3>Note 10 Pro</h3>
+								<p>天玑1100年度旗舰芯</p>
+								<p>1599元起 <s>1699元</s></p>
+							</li>
+							<li>
+								<img src="img/index/家电/jiadian13.jpg" >
+								<h3>Redmi Note 10 5G</h3>
+								<p>5G小金刚｜旗舰长续航</p>
+								<p>1099元起</p>
+							</li>
+							<li>
+								<a href='HomeAppliance.html' target="_blank">
+									<img src="img/index/家电/jiadian14.jpg" >
+									<h3>小米MIX FOLD</h3>
+									<p>折叠大屏｜自研芯片</p>
+									<p>9999元起</p>
+								</a>
+							</li>
+						</ul>
+						</div>
+					<div class="appliance-right-bottom">
+						<ul class="one">
+							<li>
+								<img src="img/index/家电/jiadian15.jpg" >
+								<h3>小米11 Ultra</h3>
+								<p>1/1.12''GN2｜2K四微曲屏</p>
+								<p>5499元起<s>5999元</s></p>
+							</li>
+							<li>
+								<img src="img/index/家电/jiadian16.jpg" >
+								<h3>小米11 Pro</h3>
+								<p>1/1.12''GN2｜骁龙888</p>
+								<p>4499元起<s>4999元</s></p>
+							</li>
+							<li>
+								<img src="img/index/家电/jiadian17.jpg" >
+								<h3>小米11 青春版</h3>
+								<p>小米11 青春版 轻薄</p>
+								<p>2099元起<s>2299元</s></p>
+							</li>
+							<div class="two">
+								<div class="two-1">
+									<h3>米家互联网烟灶套装（天然气）</h3>
+									<span>2298元</span>
+									<img src="img/index/家电/jiadian18.jpg" >
+								</div>
+								<div id="movie" class="two-2" >
+										<a href="Tv.html" target="_blank">
+											<p>浏览更多</p>
+											<p>电视影音</p>
+										</a>
+								</div>
+							</div>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<th:block th:include="footer"/>
+
+
+		<script src="JS/index.js"></script>
+	    <script src="layui/layui.js"></script>
+
+		<script type="text/html" id="phoneTemplate">
+			{{# layui.each(d,function(index,item){    }}
+			<li>
+				<a href="/detail?id={{=item.id}}">
+				 <img src="img/index/XiaomiMIX4.jpg" >
+				 <h3>{{=item.name}}</h3>
+				 <p>CUP全面屏</p>
+				 <p>{{=item.price}}起</p>
+				</a>
+			</li>
+			{{# });  }}
+</script>
+	<script>
+		layui.use(['laytpl'],function(){
+			var laytpl=layui.laytpl;
+			var $=layui.jquery;
+			//查手机数据
+			$.get("/product/telephone",function(phones){
+				laytpl($("#phoneTemplate").html()).render(phones,function(aaa){
+					$("#phoneUL").html(aaa);
+				});
+			});
+		});
+	</script>
+	</body>
+</html>

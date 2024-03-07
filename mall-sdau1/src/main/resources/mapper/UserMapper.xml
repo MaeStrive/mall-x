@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.situ.mallsdau1.mapper.UserMapper">
+
+    <select id="selectUsers" resultType="com.situ.mallsdau1.entity.User" parameterType="java.lang.String">
+        select * from user
+        <if test="keyword !=null and keyword !=''">
+        where  instr(username,#{keyword})>0 or instr(name,#{keyword})>0
+        </if>
+    </select>
+</mapper>

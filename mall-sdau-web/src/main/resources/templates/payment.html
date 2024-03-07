@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>结算页面</title>
+    <link rel="icon" href="/img/milogo.ico" type="/image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/font/iconfont.css"/>
+    <link rel="stylesheet" type="text/css" href="/CSS/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="/CSS/address.css"/>
+    <link rel="stylesheet" type="text/css" href="/CSS/currency.css"/>
+    <link rel="stylesheet" type="text/css" href="/CSS/payment.css"/>
+</head>
+<body>
+<!-- 我的购物车顶部导航栏 -->
+<div class="header-box">
+    <div class="container clearfix">
+        <div class="fl header-left">
+            <div class="iconfont icon-icon-xiaomiguishu"></div>
+            <div>确认订单</div>
+        </div>
+        <div class="fr header-right">
+            <ul>
+                <li class="user-title">
+                    <p>
+                        小二<span class="iconfont icon-xia"></span>
+                    </p>
+                    <div class="user-list">
+                        <ul>
+                            <li>个人中心</li>
+                            <li>评价晒单</li>
+                            <li>我的喜欢</li>
+                            <li>小米账户</li>
+                            <li>退出登录</li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="order.html" target="_blank">我的订单</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div>
+    <div class="container payment-box">
+        <div class="payment clearfix">
+            <div class="iconfont icon-duihao fl"></div>
+            <div class="paymentResult fl">
+                <h2>订单提交成功！去付款咯～</h2>
+                <div>请在<span class="time">0 小时 15 分</span>内完成支付, 超时后将取消订单</div>
+                <div>收货信息：张三 164****7473 山西 阳泉市 平定县 东回镇 发的发个体户</div>
+            </div>
+            <div class="paymentInfor fr">
+                <div>应付总额：<span class="total">1699</span>元</div>
+                <div>订单详情<span class="iconfont icon-xia"></span></div>
+            </div>
+        </div>
+        <div class="payment clearfix">
+            <img th:src="${'https://api.qrserver.com/v1/create-qr-code/?data='+qrCode}">
+        </div>
+    </div>
+</div>
+
+<th:block th:include="footer"/>
+
+<script type="text/javascript" src="/JS/jquery.js"></script>
+<!-- <script type="text/javascript" src="JS/currency.js"></script> -->
+<script type="text/javascript" src="/JS/address.js"></script>
+<script type="text/javascript" src="/JS/payment.js"></script>
+
+<script>
+    //轮询查询支付结果
+
+
+    var selectPayResult = function () {
+        //根据订单ID查询订单结果
+
+        var id = [[${id}]];
+
+        $.get("/order/status?id=" + id, function (s) {
+                if (s.charCodeAt() === "已支付".charCodeAt()) {
+                    window.location.href = "/personal/order";
+                }
+            }
+        )
+    }
+
+    var timer = setInterval(selectPayResult, 1000);
+
+</script>
+</body>
+</html>

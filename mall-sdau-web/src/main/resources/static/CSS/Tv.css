@@ -1,0 +1,141 @@
+body{
+	background-color: #60d5bb;
+	height: 2000px;
+	position: relative;
+}
+.banner-bg{
+	background: url(../img/Tv/bg1.jpg) no-repeat;
+	background-position: center;
+	background-size: cover;
+	height: 800px;
+}
+.banner-bg .icon-icon-xiaomiguishu{
+	color: #ffffff;
+	font-size: 40px;
+}
+/* .one li:hover{
+	box-shadow: 0 0 20px #585858;
+} */
+
+.one li img:hover{
+	width: 410px;
+}
+
+
+
+
+
+.right-fix{
+	position: fixed;
+	right: 40px;
+	bottom: 50px;
+}
+.right-fix li{
+	padding: 10px 5px;
+	border: 1px solid #f5f5f5;
+	background-color: #ffffff;
+}
+.right-fix .iconfont:hover{
+	color: #FF5C00;
+}
+
+.right-fix .icon-shouji{
+	position: relative;
+}
+.right-fix .number-qrode{
+	position: absolute;
+	right: 40px;
+	top: 0;
+	padding: 10px;
+	background-color: #ffffff;
+	z-index: 5;
+}
+.right-fix .number-qrode{
+	display: none;
+}
+.right-fix .number-qrode p{
+	text-align: center;
+	color: #7d7d7d;
+	font-size: 14px;
+}
+
+.one{
+	box-sizing: border-box;
+}
+
+.row-one{
+	padding: 20px 0;
+}
+.row-one li{
+	width: 400px;
+	height: 466px;
+	background-color: #ffffff;
+	text-align: center;
+	display: inline-block;
+	margin:10px 2px 2px 2px;
+	overflow: hidden;
+}
+.row-one .one li :nth-child(1){
+	overflow: hidden;
+	transition: all 0.5s;
+}
+.row-one .one li :nth-child(2){
+	font-weight: 400;
+	font-size: 22px;
+	margin-top: 25px;
+	display: block;
+	color: #242424;
+	cursor: pointer;
+}
+.row-one .one li :nth-child(3){
+	font-size: 14px;
+	line-height: 24px;
+	height: 24px;
+	overflow: hidden;
+	color: #666;
+}
+.row-one .one li :nth-child(4){
+	font-size: 20px;
+	color: #ea625b;
+	margin-top: 7px;
+}
+.row-one .one a{
+	background: #fd5452;
+	border-radius: 2px;
+	width: 160px;
+	height: 44px;
+	line-height: 44px;
+	display: block;
+	color: #fff;
+	font-size: 18px;
+	border: none;
+	margin: 10px auto;
+}
+.row-one .one s{
+	font-size: 14px;
+	color: #666666;
+}
+.row-one img{
+	width: 400px;
+	height: 266px;
+}
+
+
+
+/* 三期免息,打折优惠,浮动块 */
+.rela{
+	position: relative;
+}
+.absolu{
+	position: absolute;
+	display: inline-block;
+	text-align: center;
+	line-height: 80px;
+	top: 170px;
+	right: 20px;
+	width: 80px;
+	height: 80px;
+	border-radius: 90px;
+	color: #ffffff;
+	background-color: rgba(238, 94, 91,0.9);
+}

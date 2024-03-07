@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.situ.mallsdauweb.mapper.CategoryMapper">
+
+
+    <resultMap id="categoryResultMap" type="com.situ.mallsdauweb.vo.CategoryVO">
+        <result property="name" column="name"></result>
+
+        <collection property="children" ofType="com.situ.mallsdauweb.vo.SubCategoryVO">
+            <result property="id" column="id"></result>
+            <result property="name" column="subName"></result>
+            <result property="iconPath" column="icon_path"></result>
+        </collection>
+
+    </resultMap>
+    <select id="categories" resultMap="categoryResultMap">
+        select category.name,sub.id,sub.name 'subName',sub.icon_path
+        from category
+                 left join category sub on sub.parent_id=category.id
+        where category.parent_id=0;</select>
+
+</mapper>

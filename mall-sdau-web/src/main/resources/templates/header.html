@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- 顶部菜单模块 -->
+<div class="menu-list">
+    <div class="container clearfix">
+        <div class="menu-left">
+            <ul>
+                <li>小米商城</li>
+                <li>MIUI</li>
+                <li>loT</li>
+                <li>云服务</li>
+                <li>天星数科</li>
+                <li>有品</li>
+                <li>小爱开放平台</li>
+                <li>企业团购</li>
+                <li>资质证照</li>
+                <li>协议规则</li>
+                <li class="download">
+                    <a href="">下载app</a>
+                    <div class="download-qrode">
+                        <img src="img/index/download.png" width="90px">
+                        <p>小米商城APP</p>
+                    </div>
+                </li>
+                <li>智能生活</li>
+                <li>Select Location</li>
+            </ul>
+        </div>
+        <div class="menu-cart fr">
+            <span class="iconfont icon-gouwuche"></span>
+            <div><a href="/cart" target="_blank">购物车（0）</a></div>
+            <div class="cart-box">购物车里还没有商品哦，赶紧选购吧</div>
+        </div>
+        <div class="menu-right fr">
+            <ul  th:if="${session.current == null}">
+                <li><a href="/login" target="_blank">登录</a></li>
+                <li><a href="/login" target="_blank">注册</a></li>
+                <li>消息通知</li>
+            </ul>
+            <ul th:if="${session.current != null}">
+                <li><a href="" th:text="${session.current.username}"></a></li>
+                <li><a href="/personal/page">个人中心</a></li>
+                <li>消息通知</li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+<!-- 导航栏模块 -->
+<div class="banner header-bg">
+    <div class="container clearfix ">
+        <div class="iconfont icon-icon-xiaomiguishu"></div>
+        <div class="banner-list header">
+            <ul class="ooo">
+                <li class="over-test1 over">
+                    <p class=" header-item-tit">小米手机</p>
+                    <div class="nav-bg">
+                        <ul class="container header-list">
+                            <li>
+                                <p><img src="img/index/小米手机/xiaomi1.jpg" ></p>
+                                <p>Xiaomi MIX 4</p>
+                                <p>4999元起</p>
+                            </li>
+                            <li>
+                                <p><img src="img/index/小米手机/xiaomi2.jpg" ></p>
+                                <p>小米MIX FOLD</p>
+                                <p>9999元起</p>
+                            </li>
+                            <li>
+                                <p><img src="img/index/小米手机/xiaomi3.jpg" ></p>
+                                <p>小米11 Ultra</p>
+                                <p>5499元起</p>
+                            </li>
+                            <li>
+                                <p><img src="img/index/小米手机/xiaomi4.jpg" ></p>
+                                <p>小米11 Pro</p>
+                                <p>4499元起</p>
+                            </li>
+                            <li>
+                                <p><img src="img/index/小米手机/xiaomi5.jpg" ></p>
+                                <p>小米11 青春版</p>
+                                <p>2099元起</p>
+                            </li>
+                            <li>
+                                <p><img src="img/index/小米手机/xiaomi6.jpg" ></p>
+                                <p>小米10S</p>
+                                <p>2999元起</p>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="over-test2 over">
+                    <p class="header-item-tit">Redmi红米</p>
+                    <div class="nav-bg">
+                        <ul class="container header-list">
+                            <li>
+                                <p><img src="img/index/红米手机/hongmi1.jpg" ></p>
+                                <p>Redmi Note 10 Pro</p>
+                                <p>1599元起</p>
+                            </li>
+                            <li>
+                                <p><img src="img/index/红米手机/hongmi2.jpg" ></p>
+                                <p>Redmi Note 10 5G</p>
+                                <p>1099元起</p>
+                            </li>
+                            <li>
+                                <p><img src="img/index/红米手机/hongmi3.jpg" ></p>
+                                <p>K40 游戏增强版</p>
+                                <p>1999元起</p>
+                            </li>
+                            <li>
+                                <p><img src="img/index/红米手机/hongmi4.jpg" ></p>
+                                <p>K40 Pro 系列</p>
+                                <p>2499元起</p>
+                            </li>
+                            <li>
+                                <p><img src="img/index/红米手机/hongmi5.jpg" ></p>
+                                <p>Redmi K40</p>
+                                <p>1999元起</p>
+                            </li>
+                            <li>
+                                <p><img src="img/index/红米手机/hongmi6.jpg" ></p>
+                                <p>Redmi Note 9 4G</p>
+                                <p>899元起</p>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="over-test3">
+                    <p class="over-test3 header-item-tit">电视</p>
+                    <div class="nav-bg">
+                        <ul class="container header-list">
+                            <li>
+                                <p><img src="img/index/电视/dianshi1.jpg" ></p>
+                                <p>小米电视6 55 OLED</p>
+                                <p>5699元</p>
+                            </li>
+                            <li>
+                                <p><img src="img/index/电视/dianshi2.jpg" ></p>
+                                <p>小米电视6 65” OLED</p>
+                                <p>7699元</p>
+                            </li>
+                            <li>
+                                <p><img src="img/index/电视/dianshi3.jpg" ></p>
+                                <p>小米电视 大师 77” OLED</p>
+                                <p>19999元</p>
+                            </li>
+                            <li>
+                                <p><img src="img/index/电视/dianshi4.jpg" ></p>
+                                <p>小米透明电视</p>
+                                <p>49999元</p>
+                            </li>
+                            <li>
+                                <p><img src="img/index/电视/dianshi5.jpg" ></p>
+                                <p>小米电视 大师 65英寸OLED</p>
+                                <p>9999元</p>
+                            </li>
+                            <li>
+                                <p><img src="img/index/电视/dianshi6.jpg" ></p>
+                                <p>Redmi 智能电视 MAX 98''</p>
+                                <p>19999元</p>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="over-test4">
+                    <p class="over-test4 header-item-tit">笔记本</p>
+                    <div class="nav-bg">
+                        <ul class="container header-list">
+                            <li>
+                                <p><img src="img/index/笔记本/bijiben1.jpg" ></p>
+                                <p>小米笔记本 Pro X 15</p>
+                                <p>8499元起</p>
+                            </li>
+                            <li>
+                                <p><img src="img/index/笔记本/bijiben2.jpg" ></p>
+                                <p>Redmibook Pro 14 锐龙版</p>
+                                <p>4499元起</p>
+                            </li>
+                            <li>
+                                <p><img src="img/index/笔记本/bijiben3.jpg" ></p>
+                                <p>Redmibook Pro 锐龙版</p>
+                                <p>4999元起</p>
+                            </li>
+                            <li>
+                                <p><img src="img/index/笔记本/bijiben4.jpg" ></p>
+                                <p>小米笔记本 Pro 15 锐龙版</p>
+                                <p>6799元起</p>
+                            </li>
+                            <li>
+                                <p><img src="img/index/笔记本/bijiben5.jpg" ></p>
+                                <p>小米笔记本 Pro 15</p>
+                                <p>6499元起</p>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="over-test5">
+                    <p class="over-test5 header-item-tit">平板</p>
+                    <div class="nav-bg">
+                        <ul class="container header-list">
+                            <li>
+                                <p><img src="img/index/平板/pingban1.jpg" ></p>
+                                <p>小米平板5</p>
+                                <p>1999元起</p>
+                            </li>
+                            <li>
+                                <p><img src="img/index/平板/pingban2.jpg" ></p>
+                                <p>小米平板5 Pro</p>
+                                <p>2499元起</p>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="over-test6">
+                    <p class="over-test6 header-item-tit">家电</p>
+                    <div class="nav-bg">
+                        <ul class="container header-list">
+                            <li>
+                                <p><img src="img/index/家电/jiadian1.jpg" ></p>
+                                <p>米家风冷对开门冰箱 483L</p>
+                                <p>2399元</p>
+                            </li>
+                            <li>
+                                <p><img src="img/index/家电/jiadian2.jpg" ></p>
+                                <p>米家扫拖机器人1T</p>
+                                <p>1799元</p>
+                            </li>
+                            <li>
+                                <p><img src="img/index/家电/jiadian3.jpg" ></p>
+                                <p>米家互联网洗烘一体机10kg</p>
+                                <p>1899元</p>
+                            </li>
+                            <li>
+                                <p><img src="img/index/家电/jiadian4.jpg" ></p>
+                                <p>小米净水器S1 800G</p>
+                                <p>2199元</p>
+                            </li>
+                            <li>
+                                <p><img src="img/index/家电/jiadian5.jpg" ></p>
+                                <p>米家空气净化器3  高效除菌</p>
+                                <p>799元</p>
+                            </li>
+                            <li>
+                                <p><img src="img/index/家电/jiadian6.jpg" ></p>
+                                <p>Redmi全自动波轮洗衣机1A</p>
+                                <p>849元</p>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="over-test7">
+                    <p class="over-test7 header-item-tit">路由器</p>
+                    <div class="nav-bg">
+                        <ul class="container header-list">
+                            <li>
+                                <p><img src="img/index/路由器/luyouqi1.jpg" ></p>
+                                <p>小米路由器AX6000</p>
+                                <p>599元</p>
+                            </li>
+                            <li>
+                                <p><img src="img/index/路由器/luyouqi2.jpg" ></p>
+                                <p>小米路由器AX9000</p>
+                                <p>1299元</p>
+                            </li>
+                            <li>
+                                <p><img src="img/index/路由器/luyouqi3.jpg" ></p>
+                                <p>Redmi路由器AC2100</p>
+                                <p>169元</p>
+                            </li>
+                            <li>
+                                <p><img src="img/index/路由器/luyouqi4.jpg" ></p>
+                                <p>小米路由器 Mesh</p>
+                                <p>999元</p>
+                            </li>
+                            <li>
+                                <p><img src="img/index/路由器/luyouqi5.jpg" ></p>
+                                <p>小米路由器4A 千兆版</p>
+                                <p>119元</p>
+                            </li>
+                            <li>
+                                <p><img src="img/index/路由器/luyouqi6.jpg" ></p>
+                                <p>小米路由器 4C</p>
+                                <p>59元</p>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="over-test8">
+                    <p class="over-test8 header-item-tit">智能硬件</p>
+                    <div class="nav-bg">
+                        <ul class="container header-list">
+                            <li>
+                                <p><img src="img/index/智能硬件/yingjian1.jpg" ></p>
+                                <p>CyberDog 仿生四足机器人</p>
+                                <p>9999元</p>
+                            </li>
+                            <li>
+                                <p><img src="img/index/智能硬件/yingjian2.jpg" ></p>
+                                <p>小米智能门锁 1S</p>
+                                <p>1299元</p>
+                            </li>
+                            <li>
+                                <p><img src="img/index/智能硬件/yingjian3.jpg" ></p>
+                                <p>Redmi小爱触屏音箱Pro8</p>
+                                <p>599元</p>
+                            </li>
+                            <li>
+                                <p><img src="img/index/智能硬件/yingjian4.jpg" ></p>
+                                <p>Xiaomi Sound</p>
+                                <p>499元</p>
+                            </li>
+                            <li>
+                                <p><img src="img/index/智能硬件/yingjian5.jpg" ></p>
+                                <p>Redmi小爱音箱 Play</p>
+                                <p>89元</p>
+                            </li>
+                            <li>
+                                <p><img src="img/index/智能硬件/yingjian6.jpg" ></p>
+                                <p>查看全部</p>
+                                <p>智能硬件</p>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <p class="header-item-tit">服务</p>
+                </li>
+                <li>
+                    <p class="header-item-tit">社区</p>
+                </li>
+            </ul>
+        </div>
+        <div class="banner-search fr">
+            <input id="search-input" class="acti" type="text" placeholder="黑鲨4" />
+            <a href="search.html"><span id="search-btn" class="iconfont icon-chazhaosousuo"></span></a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

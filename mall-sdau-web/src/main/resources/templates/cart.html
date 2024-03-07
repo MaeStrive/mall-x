@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8">
+		<title>我的购物车-小米商城</title>
+		<link rel="icon" href="img/milogo.ico" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="font/iconfont.css"/>
+		<link rel="stylesheet" type="text/css" href="CSS/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="CSS/currency.css"/>
+		<link rel="stylesheet" type="text/css" href="CSS/cart.css"/>
+		<link rel="stylesheet" type="text/css" href="layui/css/layui.css"/>
+	</head>
+	<body>
+		<!-- 我的购物车顶部导航栏 -->
+		<div class="header-box">
+			<div class="container clearfix">
+				<div class="fl header-left">
+					<div class="iconfont icon-icon-xiaomiguishu"></div>
+					<div>我的购物车</div>
+					<div>温馨提示：产品是否购买成功，以最终下单为准哦，请尽快结算</div>
+				</div>
+				<div class="fr header-right">
+					<ul>
+						<li class="user-title">
+							<p>
+								小二<span class="iconfont icon-xia"></span>
+							</p>
+							<div class="user-list">
+								<ul>
+									<li>个人中心</li>
+									<li>评价晒单</li>
+									<li>我的喜欢</li>
+									<li>小米账户</li>
+									<li>退出登录</li>
+								</ul>
+							</div>
+						</li>
+						<li><a href="/order/order" target="_blank">我的订单</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<!-- 购物车  列表详情 -->
+		<div class="cart-list">
+			<div id="result" class="container">
+				<div class="list-title">
+					<div><input class="allChec" type="checkbox" />全选</div>
+					<div><!-- 商品图片占位 --></div>
+					<div>商品名称</div>
+					<div>单价</div>
+					<div>数量</div>
+					<div>小计</div>
+					<div>操作</div>
+				</div>
+				<div class="list-body"  th:each="cart:${carts}" th:dataid="${cart.id}">
+					<div><input class="chec1" type="checkbox" /></div>
+					<div><img src="" th:src="${cart.imgPath}"></div>
+					<div th:text="${cart.productName}"></div>
+					<div class="price1" th:text="${cart.price}"></div>
+					<div class="num-box">
+						<button  class="num-reduce">-</button>
+						<input  class="num" readonly type="text" th:value="${cart.amount}"/>
+						<button  class="num-add">+</button>
+					</div>
+					<div class="cost1" th:text="${cart.amount*cart.price}"></div>
+					<div><span class='del'>X</span></div>
+				</div>
+				
+
+				
+				
+				
+
+			</div>
+		</div>
+		<!-- 结算界面 -->
+		<form action="/confirm" id="confirmForm">
+			<input id="cartIds" type="hidden" name="cartIds"/>
+			<div class="cart-bottom">
+			<div class="container clearfix">
+				<div class="fl left">
+					<span><a href="/index">继续购物</a></span>
+					<span>共<b id="product-num">0</b> 件商品，已选择 <span id="choice-num">0</span>件</span>
+				</div>
+				<div class="fr">
+					<span>合计<b id="total-num">0</b></span>
+					<button id="confirmBtn" class="" type="button"><a href="javascript:;" >去结算</a></button>
+
+				</div>
+			</div>
+		</div>
+		</form>
+		
+		<!-- 数量为0时的弹出框 -->
+		<div class="alert-box">
+			<div class="alert">
+				<div style="text-align: right;margin: 10px 10px 0 0;">X</div>
+				<div style="font-size: 26px;color: #333333;margin: 70px 10px;">修改数量不能小于0</div>
+				<div style="background-color: #f5f5f5;padding: 20px;"><button id="determine" type="button" style="padding: 10px 50px;background-color: #FF6700;border: 1px;color: #ffffff;">确定</button></div>
+			</div>
+		</div>
+		
+		<!-- 购物车为空时的显示界面 -->
+		<div class="zero">
+			<div class="container clearfix">
+				<img src="img/cart-empty.png" class="fl">
+				<h2>您的购物车还是空的！</h2>
+				<div><button type="button"><a href="index.html">马上去购物</a></button></div>
+			</div>
+		</div>
+
+		<th:block th:include="footer"/>
+		<script src="layui/layui.js"></script>
+
+		<script>
+			layui.use(['layer'],function(){
+				var layer =layui.layer;
+				var $=layui.jquery;
+				//页面一加载完，便利页面上所有购物车数据
+				var total=0;
+
+				$.each($(".list-body"),function(index,item){
+					var amount=$(item).find(".num").val();
+					if (amount=="1") {
+						$(item).find(".num").prev().prop("disabled",true);
+					}
+					total+=parseInt(amount);
+				});
+
+				$("#product-num").html(total);
+                //给reduce按钮绑定事件
+				$(".num-reduce").on("click", function() {
+					var _this = $(this);//_this 就是加号
+					var input=_this.next();//数量文本框
+
+					input.val(parseInt(input.val())-1);
+
+					if(input.val() == "1"){
+						input.prev().prop("disabled",true);
+					}
+
+					//当前行最新的小计
+					var sum=parseFloat(_this.parent().prev().html())*parseInt(input.val());
+
+					_this.parent().next().html(sum);//更新当前行的小计
+
+					var row=input.parent().parent();
+
+					$.post("/cart/amount",{id:row.attr("dataid"),amount:input.val()});
+
+					count();
+				})
+				//给删除按钮绑定事件
+				$(".del").on("click",function(){
+					var _this =$(this);//取到当前点击的元素
+					var row=_this.parent().parent();//当前购物车数据所在的div行
+					layer.confirm("您确定要删除该商品吗？",function(){
+						$.post("/cart/del",{id:row.attr("dataid")},function(){
+							layer.closeAll();
+							row.remove();//删掉整行
+						});
+					});
+					count();
+				});
+				//给add按钮绑定事件
+				$(".num-add").on("click",function(){
+					var _this=$(this);//_this点的加号
+					var input=_this.prev();//数量的文本框
+					input.val(parseInt(input.val())+1);
+
+
+					var sum=parseFloat(_this.parent().prev().html())*parseInt(input.val());
+					_this.parent().next().html(sum);//更新当前小计
+
+
+					var row=input.parent().parent();
+					input.prev().prop("disable",false);
+
+
+					// if(input.val()== "1"){
+					// 	input.prev().prop("disabled",false);//把减号禁用
+					// }
+					$.post("/cart/amount",{id:row.attr("dataid"),amount:input.val()});
+					//统计选中的商品数量和总金额
+
+					count();
+				});
+
+
+				var count =function (){
+					var totalAmount=0;//选中的总数量
+					var totalPrice=0;//选中的总金额
+
+					var cartIds="";
+
+					$.each($(".chec1:checked"),function(index,item){
+						var row =$(item).parent().parent();
+						var amount =row.find(".num").val();
+						totalAmount+=parseInt(amount);
+						var sum =row.find(".cost1").html();
+						totalPrice += parseFloat(sum);
+						if(cartIds!=""){
+							cartIds+=",";
+						}
+						cartIds+=row.attr("dataid");
+					});
+
+					$("#cartIds").val(cartIds);
+					$("#choice-num").html(totalAmount);
+					$("#total-num").html(totalPrice);
+					if(totalAmount>0){
+						$("#confirmBtn").addClass("act");
+					}else{
+						$("#confirmBtn").removeClass("act");
+					}
+				};
+				//给复选框绑定事件
+				$(".chec1").on("click",function() {
+					count();
+					//判断 选中的数量=最大数量
+					if($(".chec1").length==$(".chec1:checked").length){
+						$(".allChec").prop("checked",true);}
+					else{
+						$(".allChec").prop("checked",false);
+					}
+				});
+               //复选框加全选
+				$(".allChec").on("click",function() {
+					$(".chec1").prop("checked",$(".allChec").prop("checked"));
+					count();
+				});
+
+				//结算
+				$("#confirmBtn").on("click",function(){
+					if(!$("#cartIds").val()){
+						layer.msg("请先选择商品" );
+						return false;
+					}
+					$("#confirmForm").submit();
+				});
+			})
+		</script>
+<!--<script src="JS/cart.js"></script>-->
+	</body>
+</html>
