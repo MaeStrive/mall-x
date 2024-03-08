@@ -10,9 +10,9 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 //统计营业额定时任务
-@Component
+//@Component
 public class PriceTask {
-    @Autowired
+//    @Autowired
     private IOrderInfoService orderInfoService;
     //cron表达式
     @Scheduled(cron = "0/5 * * * * ?")

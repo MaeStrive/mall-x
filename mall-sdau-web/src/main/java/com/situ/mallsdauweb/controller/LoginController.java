@@ -1,7 +1,7 @@
 package com.situ.mallsdauweb.controller;
 
 import com.situ.mallsdauweb.service.IMemberService;
-import com.situ.mallsdauweb.util.SendSmsUtil;
+//import com.situ.mallsdauweb.util.SendSmsUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
@@ -80,7 +80,7 @@ public class LoginController {
 
         double d = ((int) (Math.random() * 900000)) + 100000;//大于等于0，小于1
 
-        SendSmsUtil.sendMessge(tel, String.valueOf(d));
+//        SendSmsUtil.sendMessge(tel, String.valueOf(d));
         redisTemplate.opsForValue().set(tel, d);
     }
 

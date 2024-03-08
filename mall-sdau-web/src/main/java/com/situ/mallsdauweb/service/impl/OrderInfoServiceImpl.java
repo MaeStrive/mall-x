@@ -49,8 +49,8 @@ public class OrderInfoServiceImpl extends ServiceImpl<OrderInfoMapper, OrderInfo
     @Autowired
     private MemberAddressMapper memberAddressMapper;
 
-    @Autowired
-    private JmsMessagingTemplate jmsMessagingTemplate;
+//    @Autowired
+//    private JmsMessagingTemplate jmsMessagingTemplate;
 
     @Override
     @Transactional
@@ -102,7 +102,7 @@ public class OrderInfoServiceImpl extends ServiceImpl<OrderInfoMapper, OrderInfo
         }
         //推送消息
         System.out.println(new Date() + "发送一个消息" + oi.getId());
-        delaySend(new ActiveMQQueue("order.save"), oi.getId(), 15 * 60 * 1000L);
+//        delaySend(new ActiveMQQueue("order.save"), oi.getId(), 15 * 60 * 1000L);
         return oi.getId();
     }
 
@@ -141,41 +141,41 @@ public class OrderInfoServiceImpl extends ServiceImpl<OrderInfoMapper, OrderInfo
         return orderVOList;
     }
 
-    private <T extends Serializable> void delaySend(ActiveMQQueue queue, Integer data, Long time) {
-        Connection conn = null;
-        Session session = null;
-        MessageProducer producer = null;
-
-        ConnectionFactory connectionFactory = jmsMessagingTemplate.getConnectionFactory();
-        try {
-            conn = connectionFactory.createConnection();
-            conn.start();
-            session = conn.createSession(Boolean.TRUE, Session.AUTO_ACKNOWLEDGE);
-            //创建一个生产者
-            producer = session.createProducer(queue);
-            producer.setDeliveryMode(JmsProperties.DeliveryMode.PERSISTENT.getValue());
-            ObjectMessage message = session.createObjectMessage(data);
-            message.setLongProperty(ScheduledMessage.AMQ_SCHEDULED_DELAY, time);
-            producer.send(message);
-            session.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (producer != null) {
-                    producer.close();
-                }
-                if (session != null) {
-                    session.close();
-                }
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (Exception ignored) {
-
-            }
-        }
-    }
+//    private <T extends Serializable> void delaySend(ActiveMQQueue queue, Integer data, Long time) {
+//        Connection conn = null;
+//        Session session = null;
+//        MessageProducer producer = null;
+//
+//        ConnectionFactory connectionFactory = jmsMessagingTemplate.getConnectionFactory();
+//        try {
+//            conn = connectionFactory.createConnection();
+//            conn.start();
+//            session = conn.createSession(Boolean.TRUE, Session.AUTO_ACKNOWLEDGE);
+//            //创建一个生产者
+//            producer = session.createProducer(queue);
+//            producer.setDeliveryMode(JmsProperties.DeliveryMode.PERSISTENT.getValue());
+//            ObjectMessage message = session.createObjectMessage(data);
+//            message.setLongProperty(ScheduledMessage.AMQ_SCHEDULED_DELAY, time);
+//            producer.send(message);
+//            session.commit();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        } finally {
+//            try {
+//                if (producer != null) {
+//                    producer.close();
+//                }
+//                if (session != null) {
+//                    session.close();
+//                }
+//                if (conn != null) {
+//                    conn.close();
+//                }
+//            } catch (Exception ignored) {
+//
+//            }
+//        }
+//    }
 
 
 }

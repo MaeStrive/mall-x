@@ -3,7 +3,7 @@ package com.situ.mallsdauweb.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.situ.mallsdauweb.entity.OrderInfo;
 import com.situ.mallsdauweb.service.IOrderInfoService;
-import com.situ.mallsdauweb.service.IPayService;
+//import com.situ.mallsdauweb.service.IPayService;
 import com.situ.mallsdauweb.vo.CartVO;
 import com.situ.mallsdauweb.vo.OrderVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +22,8 @@ import java.util.List;
 public class OrderController {
     @Autowired
     private IOrderInfoService orderInfoService;
-    @Autowired
-    private IPayService payService;
+//    @Autowired
+//    private IPayService payService;
 
 
     @GetMapping("/orders")
@@ -49,17 +49,17 @@ public class OrderController {
         //保存订单成功，获取支付主键
         Integer id = orderInfoService.saveOrder(addId, cartIds);
         //根据主键获取支付二维码
-        try {
-            String qrCode = payService.pay(id);
-
-            System.out.println(qrCode);
-            model.addAttribute("qrCode", qrCode);
-            model.addAttribute("id", id);
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("对接支付宝失败，未能获得二维码");
-        }
-        //提示订单生成成功，可以去付款页面
+//        try {
+//            String qrCode = payService.pay(id);
+//
+//            System.out.println(qrCode);
+//            model.addAttribute("qrCode", qrCode);
+//            model.addAttribute("id", id);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            System.out.println("对接支付宝失败，未能获得二维码");
+//        }
+//        //提示订单生成成功，可以去付款页面
         return "payment";
     }
 
