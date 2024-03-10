@@ -20,6 +20,6 @@ public class SpringMVCConfiguration implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/up/**")
-                .addResourceLocations("file:D:/mall-sdau1/img/");
+                .addResourceLocations("file:D:/mall-x/mall-sdau1/img/");
     }
 }

@@ -1,12 +1,12 @@
 /* body{
 	height: 3000px;
 } */
-/* bannerÂÖ²¥Í¼ */
+/* bannerï¿½Ö²ï¿½Í¼ */
 .banner-bg{
 	background-image: url(../img/index/rotate1.jpg);
 	transition: all 0.6s;
 	background-repeat: no-repeat;
-	background-position: center; 
+	background-position: center;
 	color: white;
 }
 .banner1{
@@ -75,15 +75,15 @@
 	display: none;
 	z-index: 3;
 	box-shadow: 0 0 5px #ccc;
-	/* ¸¡¶¯²Ëµ¥ÁÐ±íÄÚÈÝ¿é×ÝÏòÅÅÁÐ */
+	/* ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½Ð±ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 	writing-mode: vertical-lr;
-	writing-mode: tb-lr;    /* ÐÂÔö */
+	writing-mode: tb-lr;    /* ï¿½ï¿½ï¿½ï¿½ */
 }
 .nav-list .item-list li{
 	padding: 8px 8px 8px 8px;
 	display: inline-block;
 	width: 210px;
-	/* ¸¡¶¯²Ëµ¥ÁÐ±íÄÚÈÝ¿éºáÏòÅÅÁÐ */
+	/* ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½Ð±ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 	writing-mode: horizontal-tb;
 	cursor: pointer;
 }
@@ -103,7 +103,7 @@
 	vertical-align: middle;
 	display: inline-block;
 }
-/* ÇÐ»»°´Å¥Çø */
+/* ï¿½Ð»ï¿½ï¿½ï¿½Å¥ï¿½ï¿½ */
 .switch-box div{
 	position: absolute;
 	top: 50%;
@@ -147,7 +147,7 @@
 	border-radius: 90px;
 	background-color: #5f5f5f;
 	margin-left: 10px;
-	border: 2px solid #a6a99f;/* È¥³ýÒòÎª´óÐ¡²»Ò»,Ä¬ÈÏ×´Ì¬±ä»¯Ê±,Õû¸ö³¤¶ÈÓ°Ïì */
+	border: 2px solid #a6a99f;/* È¥ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½Ð¡ï¿½ï¿½Ò»,Ä¬ï¿½ï¿½×´Ì¬ï¿½ä»¯Ê±,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ */
 }
 .switch-box >ul li.select{
 	background-color: #fafafa;
@@ -194,7 +194,7 @@
 
 
 
-/* ËÄ¿é¹ã¸æ°æÍ¼ */
+/* ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½Í¼ */
 .banner-bottom{
 	font-size: 0;
 	margin: 20px 0 20px 0;
@@ -238,7 +238,7 @@
 	padding: 20px 0 20px 0;
 	background-color: #f5f5f5;
 }
-/* ÊÖ»ú×¨À¸ */
+/* ï¿½Ö»ï¿½×¨ï¿½ï¿½ */
 .phone-box{
 	background-color: #f5f5f5;
 	font-size: 0;
@@ -339,7 +339,7 @@ h2{
 	color: #b0b0b0;
 }
 
-/* ¼Òµç */
+/* ï¿½Òµï¿½ */
 .appliance-box{
 	background-color: #f5f5f5;
 	font-size: 0;

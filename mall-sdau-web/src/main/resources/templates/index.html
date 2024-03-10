@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
 	<meta charset="utf-8">
-	<title>小米商城</title>
+	<title>体育用品商城</title>
 	<link rel="icon" href="img/milogo.ico" type="image/x-icon">
 	<link rel="stylesheet" type="text/css" href="font/iconfont.css"/>	<!-- 引用图标 -->
 	<link rel="stylesheet" type="text/css" href="CSS/reset.css"/>	<!-- 样式重置 -->
@@ -30,8 +30,8 @@
 				</ul>
 				<div class="switch-box">
 					<div class="clearfix">
-						<span class="left iconfont icon-zuo"></span>
-						<span class="fr right iconfont icon-you"></span>
+						<span class="left iconfont icon-zuo" id="leftswitchbox"></span>
+						<span class="fr right iconfont icon-you" id="rightswitchbox"></span>
 					</div>
 					<ul class="switch-icons">
 						<li class="first select"></li>
@@ -321,7 +321,7 @@
 		layui.use(['laytpl'],function(){
 			var laytpl=layui.laytpl;
 			var $=layui.jquery;
-			//查手机数据
+			//查数据
 			$.get("/product/telephone",function(phones){
 				laytpl($("#phoneTemplate").html()).render(phones,function(aaa){
 					$("#phoneUL").html(aaa);

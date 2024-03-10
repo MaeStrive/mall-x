@@ -19,7 +19,7 @@ public class UploadController {
         String oldFileName = file.getOriginalFilename();
         String suffix = oldFileName.substring(oldFileName.lastIndexOf("."));
         String newFilename = System.currentTimeMillis() + suffix;
-        File f = new File("D:/mall-sdau1/img/" + newFilename);
+        File f = new File("D:/mall-x/mall-sdau1/img/" + newFilename);
         try {
             file.transferTo(f);
         } catch (IOException e) {

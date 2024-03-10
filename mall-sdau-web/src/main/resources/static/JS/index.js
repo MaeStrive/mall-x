@@ -11,12 +11,12 @@ document.querySelector('.menu-cart').onmouseleave=function(){
 }
 
 //下载
-document.querySelector('.download').onmouseenter=function(){
-	this.lastElementChild.style.display='block';
-}
-document.querySelector('.download').onmouseleave=function(){
-	this.lastElementChild.style.display='none';
-}
+// document.querySelector('.download').onmouseenter=function(){
+// 	this.lastElementChild.style.display='block';
+// }
+// document.querySelector('.download').onmouseleave=function(){
+// 	this.lastElementChild.style.display='none';
+// }
 
 //查找
 document.querySelector('#search-input').onfocus=function(){
