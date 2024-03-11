@@ -1,0 +1,25 @@
+                                                                               .LLL.   .LL.
+                                                                             LLLLLLLLLLLLLLLL
+                                                             vvvvv           LLLLLLLLLLLLLLLL
+                                                            vvvvvvv           LLLLLLLLLLLLLLL
+                                vvvv                       vvvvvvvv             LLLLLLLLLLL
+                              vvvvvvvvvvvv                vvvvvvvvv               LLLLLLL
+                               vvvvvvvvvvvvvvvvvvv        vvvvvvvvv                 LLL
+               vvvvvv            vvvvvvvvvvvvvvvvvv       vvvvvvvv          vvvvvv
+               vvvvvvv                 vvvvvvvvvvvvv      vvvvvvv          vvvvvvvv
+              vvvvvvvv                     vvvvvvvv       vvvvvvv          vvvvvvvv    vvvv
+              vvvvvvvv                    vvvvvvvv        vvvvvv          vvvvvvvvv   vvvvv
+              vvvvvvv                  vvvvvvv            vvvvv           vvvvvvvv    vvvv
+              vvvvvvv              vvvvvvvvvvvv           vvvvv          vvvvvvvvv   vvvvv
+             vvvvvvv               vvvvvvvvvvvvv          vvvv           vvvvvvv    vvvvv
+             vvvvvvv                        vvvvv         vvv           vvvvvvvv    vvvvv
+             vvvvvv                         vvvvv         vvv           vvvvvvv    vvvvv
+             vvvvv              vvvv       vvvvvv         vvv           vvvvvv     vvvv
+            vvvvvv              vvvvvvvvvvvvvvvv           v            vvvvvvvvvvvvvvvvvvvvv
+            vvvvv                vvvvvvvvvvvvv                            vvvvvvvvvvvvvvvvvvv
+            vvvvv                                                              vvvvvvvv
+            vvvv                                                                  vvvv
+            vvv                                                                   vvvv
+             v                                                                    vvv
+
+

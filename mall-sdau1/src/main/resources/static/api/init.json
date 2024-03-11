@@ -4,8 +4,8 @@
     "href": "page/welcome-1.html?t=1"
   },
   "logoInfo": {
-    "title": "LAYUI MINI",
-    "image": "images/logo.png",
+    "title": "Phy--mall",
+    "image": "images/milogo.ico",
     "href": ""
   },
   "menuInfo": [
@@ -28,7 +28,7 @@
           "target": "_self"
         },
         {
-          "title": "产品管理",
+          "title": "商品管理",
           "href": "/product/page",
           "icon": "fa fa-window-maximize",
           "target": "_self"
@@ -46,56 +46,7 @@
           "target": "_self"
         }
       ]
-    },
-    {
-      "title": "其它管理",
-      "icon": "fa fa-slideshare",
-      "href": "",
-      "target": "_self",
-      "child": [
-        {
-          "title": "多级菜单",
-          "href": "",
-          "icon": "fa fa-meetup",
-          "target": "",
-          "child": [
-            {
-              "title": "按钮1",
-              "href": "page/button.html?v=1",
-              "icon": "fa fa-calendar",
-              "target": "_self",
-              "child": [
-                {
-                  "title": "按钮2",
-                  "href": "page/button.html?v=2",
-                  "icon": "fa fa-snowflake-o",
-                  "target": "_self",
-                  "child": [
-                    {
-                      "title": "按钮3",
-                      "href": "page/button.html?v=3",
-                      "icon": "fa fa-snowflake-o",
-                      "target": "_self"
-                    },
-                    {
-                      "title": "表单4",
-                      "href": "page/form.html?v=1",
-                      "icon": "fa fa-calendar",
-                      "target": "_self"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "title": "失效菜单",
-          "href": "page/error.html",
-          "icon": "fa fa-superpowers",
-          "target": "_self"
-        }
-      ]
     }
+
   ]
 }
