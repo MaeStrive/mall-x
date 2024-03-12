@@ -19,7 +19,7 @@ public interface CategoryMapper extends BaseMapper<Category> {
 
     List<CategoryVO> categories();
 
-    @Select("select * from category where parent_id=#{parentId} order by  sequence limit 0,8 ")
+    @Select("select * from category where parent_id=#{parentId} order by  sequence limit 1,6 ")
     List<Category> latest(int parentId);
 
 }

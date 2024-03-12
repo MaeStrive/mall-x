@@ -30,7 +30,7 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     public List<Product> phones() {
         List<Product> result =new ArrayList<>();
         //先查一下最新的八个系列
-        List<Category> categories=categoryMapper.latest(1);
+        List<Category> categories=categoryMapper.latest(0);
         for(Category c:categories){
             Product p =baseMapper.selectByCategory(c.getId());
             if(p!=null){
