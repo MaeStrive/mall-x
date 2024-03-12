@@ -1,10 +1,12 @@
 package com.situ.mallsdauweb.controller;
 
-
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.situ.mallsdauweb.entity.Product;
 import com.situ.mallsdauweb.service.ICategoryService;
 import com.situ.mallsdauweb.service.IProductService;
+import com.situ.mallsdauweb.vo.ProductIndexVO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -29,7 +31,9 @@ public class ProductController {
 
     @GetMapping("/telephone")
     @ResponseBody
-    public List<Product> phones(){
-        return productService.phones();
+    public List<ProductIndexVO> phones(Model model){
+        List<ProductIndexVO> phones = productService.phones();
+        model.addAttribute("productindexvos",phones);
+        return phones;
     }
 }

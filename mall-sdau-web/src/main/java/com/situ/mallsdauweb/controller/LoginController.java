@@ -95,6 +95,7 @@ public class LoginController {
     @GetMapping("/logout")
     public String logout(){
         RequestUtil.getSession().removeAttribute("current");
+
         return "login";
     }
 }

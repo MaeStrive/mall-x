@@ -2,6 +2,7 @@ package com.situ.mallsdauweb.service;
 
 import com.situ.mallsdauweb.entity.Product;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.situ.mallsdauweb.vo.ProductIndexVO;
 
 import java.util.List;
 
@@ -15,5 +16,5 @@ import java.util.List;
  */
 public interface IProductService extends IService<Product> {
 
-    List<Product> phones();
+    List<ProductIndexVO> phones();
 }
