@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta charset="utf-8">
-		<title>我的购物车-小米商城</title>
+		<title>我的购物车-体育用品商城</title>
 		<link rel="icon" href="img/milogo.ico" type="image/x-icon">
 		<link rel="stylesheet" type="text/css" href="font/iconfont.css"/>
 		<link rel="stylesheet" type="text/css" href="CSS/reset.css"/>
@@ -15,7 +15,10 @@
 		<div class="header-box">
 			<div class="container clearfix">
 				<div class="fl header-left">
-					<div class="iconfont icon-icon-xiaomiguishu"></div>
+<!--					<div class="iconfont icon-icon-xiaomiguishu"></div>-->
+					<div class="iconfont">
+						<img src="img/milogo.ico" style="width: 45px">
+					</div>
 					<div>我的购物车</div>
 					<div>温馨提示：产品是否购买成功，以最终下单为准哦，请尽快结算</div>
 				</div>
@@ -23,15 +26,15 @@
 					<ul>
 						<li class="user-title">
 							<p>
-								小二<span class="iconfont icon-xia"></span>
+								<span class="iconfont icon-xia"  th:text="${session.current.username}"></span>
 							</p>
 							<div class="user-list">
 								<ul>
 									<li>个人中心</li>
 									<li>评价晒单</li>
 									<li>我的喜欢</li>
-									<li>小米账户</li>
-									<li>退出登录</li>
+									<li>我的账户</li>
+									<li><a href="/logout">退出登录</a></li>
 								</ul>
 							</div>
 						</li>

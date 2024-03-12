@@ -2,6 +2,7 @@ package com.situ.mallsdauweb.controller;
 
 import com.situ.mallsdauweb.service.IMemberService;
 //import com.situ.mallsdauweb.util.SendSmsUtil;
+import com.situ.mallsdauweb.util.RequestUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
@@ -94,4 +95,9 @@ public class LoginController {
         return "";
     }
 
+    @GetMapping("/logout")
+    public String logout(){
+        RequestUtil.getSession().removeAttribute("current");
+        return "login";
+    }
 }

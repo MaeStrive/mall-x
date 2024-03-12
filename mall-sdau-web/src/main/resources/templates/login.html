@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title></title>
-		<link rel="icon" href="/img/milogo1.ico" type="/image/x-icon">
+		<link rel="icon" href="/img/milogo.ico" type="/image/x-icon">
 		<link rel="stylesheet" type="text/css" href="/font/iconfont.css" />
 		<link rel="stylesheet" type="text/css" href="/CSS/login.css" />
 		<link rel="stylesheet" type="text/css" href="/layui/css/layui.css" />
@@ -14,8 +14,8 @@
 			<div class="header-left"><img src="/img/login/loginleft.jpg"></div>
 			<div class="header-right Container ">
 				<div class="clearfix one">
-					<a href="https://account.xiaomi.com/fe/service/login"><img src="/img/login/logomi2.png"></a>
-					<span class="header-item-tit">小米账号</span>
+					<a href="https://account.xiaomi.com/fe/service/login"><img src="/img/login/loginph.png"></a>
+					<span class="header-item-tit">体育商城账号</span>
 					<ul class="header-list-tit fr">
 						<li>用户协议</li>
 						<li>隐私政策</li>
@@ -33,9 +33,9 @@
 				</div>
 				<div class="login-box">
 					<div class="login Container">
-						<div class="Scan">
-							<a class="iconfont icon-qrcode-1-copy"></a>
-						</div>
+<!--						<div class="Scan">-->
+<!--							<a class="iconfont icon-qrcode-1-copy"></a>-->
+<!--						</div>-->
 						<div><!-- 扫码登录左侧一行字 -->
 							<span class="Scan-text">扫码登录</span>
 							<span class="Scan-text-triangle"></span>
@@ -50,7 +50,7 @@
 						<div class="login-sum">
 							<form action="/login" method="post" id="loginForm">
 							<div class="mobile">
-								<label for="login-number" class="focus" >邮箱/手机号码/小米ID</label>
+								<label for="login-number" class="focus" >账号</label>
 								<input id="login-number" class="login-user" name="username" type="text"/>
 							</div>
 							<div class="password">
@@ -100,7 +100,7 @@
 							</div>
 							<div><a id="register-button" class="register-button">注册</a></div>
 							<div class="login-bottom"><a href="#"> 收不到验证码？</a></div>
-							<div><input id="register-chec" class="chec" type="checkbox"><label for="register-chec">已阅读并同意小米账号用户协议和隐私政策</label></div>
+							<div><input id="register-chec" class="chec" type="checkbox"><label for="register-chec">已阅读并同意体育商城账号用户协议和隐私政策</label></div>
 							<div class="login-other-text">其他方式登录</div>
 							<div>
 								<ul class="login-other">
@@ -137,7 +137,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="desc">小米公司版权所有-京ICP备10046444-京公网安备11010802020134号-京ICP证110507号</div>
+<!--			<div class="desc">小米公司版权所有-京ICP备10046444-京公网安备11010802020134号-京ICP证110507号</div>-->
 		</div>
 		<script src="/JS/login.js"></script>
 			<script src="/layui/layui.js"></script>
@@ -182,50 +182,50 @@
 			}
 			
 			//扫码登陆
-			var sca = document.querySelector('.Scan');
-			var im  = document.querySelector('.Scan a');
-			var statu = true;
+			// var sca = document.querySelector('.Scan');
+			// var im  = document.querySelector('.Scan a');
+			// var statu = true;
 			
-			sca.onclick=function(){
-				var one = document.querySelector('.resg').classList.contains('login-active');
-				if(statu == true){
-					im.className = 'iconfont icon-diannao';
-					document.querySelector('.scan-sum').style.display = 'block';
-					document.querySelector('.login-list-tit').style.display= 'none';
-					document.querySelector('.Scan-text').innerHTML = '密码登录';
-					document.querySelector('.register-sum').style.display= 'none';
-					document.querySelector('.login-sum').style.display= 'none';
-				}else{
-					im.className = 'iconfont icon-qrcode-1-copy';
-					document.querySelector('.scan-sum').style.display = 'none';
-					document.querySelector('.login-list-tit').style.display= 'block';
-					document.querySelector('.Scan-text').innerHTML = '扫码登录';
-					console.log(one)
-					
-					if(one == true){
-						console.log('1');
-						document.querySelector('.register-sum').style.display= 'block';
-						document.querySelector('.login-sum').style.display= 'none';
-					}else{
-						console.log('2')
-						document.querySelector('.register-sum').style.display= 'none';
-						document.querySelector('.login-sum').style.display= 'block';
-					}
-				}
-				statu = !statu;
-			}
+			// sca.onclick=function(){
+			// 	var one = document.querySelector('.resg').classList.contains('login-active');
+			// 	if(statu == true){
+			// 		im.className = 'iconfont icon-diannao';
+			// 		document.querySelector('.scan-sum').style.display = 'block';
+			// 		document.querySelector('.login-list-tit').style.display= 'none';
+			// 		document.querySelector('.Scan-text').innerHTML = '密码登录';
+			// 		document.querySelector('.register-sum').style.display= 'none';
+			// 		document.querySelector('.login-sum').style.display= 'none';
+			// 	}else{
+			// 		im.className = 'iconfont icon-qrcode-1-copy';
+			// 		document.querySelector('.scan-sum').style.display = 'none';
+			// 		document.querySelector('.login-list-tit').style.display= 'block';
+			// 		document.querySelector('.Scan-text').innerHTML = '扫码登录';
+			// 		console.log(one)
+			//
+			// 		if(one == true){
+			// 			console.log('1');
+			// 			document.querySelector('.register-sum').style.display= 'block';
+			// 			document.querySelector('.login-sum').style.display= 'none';
+			// 		}else{
+			// 			console.log('2')
+			// 			document.querySelector('.register-sum').style.display= 'none';
+			// 			document.querySelector('.login-sum').style.display= 'block';
+			// 		}
+			// 	}
+			// 	statu = !statu;
+			// }
 			
 			//扫码登陆获取焦点时，左侧显示一行字
-			document.querySelector('.Scan').onmouseenter=function(){
-				document.querySelector('.Scan-text').style.display = 'block';
-				document.querySelector('.Scan-text-triangle').style.display = 'block';
-				
-			}
-			document.querySelector('.Scan').onmouseleave=function(){
-				document.querySelector('.Scan-text').style.display = 'none';
-				document.querySelector('.Scan-text-triangle').style.display = 'none';
-				
-			}
+			// document.querySelector('.Scan').onmouseenter=function(){
+			// 	document.querySelector('.Scan-text').style.display = 'block';
+			// 	document.querySelector('.Scan-text-triangle').style.display = 'block';
+			//
+			// }
+			// document.querySelector('.Scan').onmouseleave=function(){
+			// 	document.querySelector('.Scan-text').style.display = 'none';
+			// 	document.querySelector('.Scan-text-triangle').style.display = 'none';
+			//
+			// }
 			
 			
 			//登录按钮   判断条件，符合则进入首页

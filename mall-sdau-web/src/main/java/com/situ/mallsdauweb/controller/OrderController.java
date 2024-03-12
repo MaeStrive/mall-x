@@ -80,5 +80,14 @@ public class OrderController {
         }
     }
 
+    /**
+     * 去订单页面
+     * @return
+     */
+    @GetMapping("/order")
+    public String orderPage(){
+        return "order";
+    }
+
 
 }
