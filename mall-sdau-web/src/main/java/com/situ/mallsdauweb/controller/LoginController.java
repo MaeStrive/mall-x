@@ -3,6 +3,7 @@ package com.situ.mallsdauweb.controller;
 import com.situ.mallsdauweb.service.IMemberService;
 //import com.situ.mallsdauweb.util.SendSmsUtil;
 import com.situ.mallsdauweb.util.RequestUtil;
+import com.situ.mallsdauweb.util.ResultVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
@@ -86,13 +87,9 @@ public class LoginController {
     }
 
     @PostMapping("/register")
-    public String register(String tel, String code, Model model) {
-        Object obj = redisTemplate.opsForValue().get(tel);
-        if (obj != null && ((String) obj).equals(code)) {
-            //调用service注册新账号
-
-        }
-        return "";
+    @ResponseBody
+    public ResultVO<?> register(String username, String password,String tel,String name, Model model) {
+     return memberService.register(username,password,tel,name);
     }
 
     @GetMapping("/logout")

@@ -2,6 +2,7 @@ package com.situ.mallsdauweb.service;
 
 import com.situ.mallsdauweb.entity.Member;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.situ.mallsdauweb.util.ResultVO;
 
 /**
  * <p>
@@ -14,4 +15,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
 public interface IMemberService extends IService<Member> {
 
     boolean check(String username, String password);
+
+    ResultVO<?> register(String username, String password,String tel,String name);
 }

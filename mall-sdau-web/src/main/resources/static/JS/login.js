@@ -2,7 +2,7 @@
 window.onload=function(){
 	document.querySelector('.mobile label').classList.remove('focus');
 	document.querySelector('.password label').classList.remove('focus');
-	document.querySelector('.message label').classList.remove('focus');
+	// document.querySelector('.message label').classList.remove('focus');
 }
 
 
@@ -62,19 +62,19 @@ passwordElement.onblur = function() {
 
 
 //验证码聚焦
-var messageElement = document.querySelector('#register-message');
-messageElement.onfocus = function() {
-	document.querySelector('.message label').classList.add('focus');
-}
-messageElement.onblur = function() {
-	messageElement.value=messageElement.value.trim()
-	if(!messageElement.value.trim()){
-		document.querySelector('.message label').classList.remove('focus');
-		document.querySelector('.message label').style.color='#f15a59';
-		messageElement.style.backgroundColor = '#fcf2f3';
-	}else{
-		document.querySelector('.message label').style.color='#000050';
-		messageElement.style.backgroundColor = '#f9f9f9';
-	}
-	
-}
+// var messageElement = document.querySelector('#register-message');
+// messageElement.onfocus = function() {
+// 	document.querySelector('.message label').classList.add('focus');
+// }
+// messageElement.onblur = function() {
+// 	messageElement.value=messageElement.value.trim()
+// 	if(!messageElement.value.trim()){
+// 		document.querySelector('.message label').classList.remove('focus');
+// 		document.querySelector('.message label').style.color='#f15a59';
+// 		messageElement.style.backgroundColor = '#fcf2f3';
+// 	}else{
+// 		document.querySelector('.message label').style.color='#000050';
+// 		messageElement.style.backgroundColor = '#f9f9f9';
+// 	}
+//
+// }

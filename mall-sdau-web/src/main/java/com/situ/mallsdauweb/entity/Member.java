@@ -32,7 +32,7 @@ public class Member implements Serializable {
 
     private String password;
 
-    private Integer tel;
+    private String tel;
 
     private String name;
 
