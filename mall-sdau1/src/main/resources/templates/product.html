@@ -207,8 +207,29 @@
             } else if (obj.event === 'delete') {  // 监听删除操作
                 var checkStatus = table.checkStatus('currentTableId')
                     , data = checkStatus.data;
-                layer.alert(JSON.stringify(data));
-            }
+                // layer.alert(JSON.stringify(data));
+                layer.confirm('确定删除这'+data.length+'条数据吗？', function (index) {
+                $.ajax({
+                    url: '/product/dellist',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(data),
+                    success: function(response) {
+                        console.log('成功发送List数据');
+                        //     //如果删除成功了
+                        layer.closeAll();
+                        //     //刷新数据-》点一下查询按钮
+                        $("#btn1").click();
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('发送List数据失败');
+                        //     //如果删除成功了
+                        layer.closeAll();
+                        //     //刷新数据-》点一下查询按钮
+                        $("#btn1").click();
+                    }
+                });
+            })}
         });
 
 
@@ -240,7 +261,7 @@
                         //获取表单中录入的所有数据
                         var data = form.val("userForm");
                         //发送请求
-                        $.post("/category/save", data, function () {
+                        $.post("/product/save", data, function () {
                             //关窗口
                             layer.closeAll();
                             //点查询按钮
@@ -252,7 +273,7 @@
                 layer.confirm('真的删除么', function (index) {
                     //点了确认
                     //发请求让java删除数据
-                    $.post("/category/del", {Id: obj.data.id}, function () {
+                    $.post("/product/del", {Id: obj.data.id}, function () {
                         //如果删除成功了
                         layer.closeAll();
                         //刷新数据-》点一下查询按钮

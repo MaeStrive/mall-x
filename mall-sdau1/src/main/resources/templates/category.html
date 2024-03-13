@@ -19,30 +19,6 @@
                 <form class="layui-form layui-form-pane" action="">
                     <div class="layui-form-item">
                         <div class="layui-inline">
-                            <label class="layui-form-label">用户姓名</label>
-                            <div class="layui-input-inline">
-                                <input type="text" name="username" autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-                        <div class="layui-inline">
-                            <label class="layui-form-label">用户性别</label>
-                            <div class="layui-input-inline">
-                                <input type="text" name="sex" autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-                        <div class="layui-inline">
-                            <label class="layui-form-label">用户城市</label>
-                            <div class="layui-input-inline">
-                                <input type="text" name="city" autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-                        <div class="layui-inline">
-                            <label class="layui-form-label">用户职业</label>
-                            <div class="layui-input-inline">
-                                <input type="text" name="classify" autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-                        <div class="layui-inline">
                             <button type="button" id="btn1" class="layui-btn layui-btn-primary"  lay-submit lay-filter="data-search-btn"><i class="layui-icon"></i> 搜 索</button>
                         </div>
                     </div>
@@ -189,7 +165,38 @@
             } else if (obj.event === 'delete') {  // 监听删除操作
                 var checkStatus = table.checkStatus('currentTableId')
                     , data = checkStatus.data;
-                layer.alert(JSON.stringify(data));
+                // layer.alert(JSON.stringify(data));
+                layer.confirm('确定删除这'+data.length+'条数据吗？', function (index) {
+                    //点了确认
+                    //发请求让java删除数据
+                    // $.post("/user/dellist",JSON.stringify(data),function(){
+                    //     //如果删除成功了
+                    //     layer.closeAll();
+                    //     //刷新数据-》点一下查询按钮
+                    //     $("#btn1").click();
+                    // });
+
+                    $.ajax({
+                        url: '/category/dellist',
+                        type: 'POST',
+                        contentType: 'application/json',
+                        data: JSON.stringify(data),
+                        success: function(response) {
+                            console.log('成功发送List数据');
+                            //     //如果删除成功了
+                            layer.closeAll();
+                            //     //刷新数据-》点一下查询按钮
+                            $("#btn1").click();
+                        },
+                        error: function(xhr, status, error) {
+                            console.error('发送List数据失败');
+                            //     //如果删除成功了
+                            layer.closeAll();
+                            //     //刷新数据-》点一下查询按钮
+                            $("#btn1").click();
+                        }
+                    });
+                });
             }
         });
         //监听表格复选框选择

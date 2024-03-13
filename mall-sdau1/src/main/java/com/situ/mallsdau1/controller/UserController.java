@@ -1,17 +1,24 @@
 package com.situ.mallsdau1.controller;
 
 import com.situ.mallsdau1.entity.User;
+import com.situ.mallsdau1.mapper.UserMapper;
 import com.situ.mallsdau1.service.UserService;
 import com.situ.mallsdau1.vo.TableVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.LinkedList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 @RequestMapping("/user")
 @Controller
 public class UserController {
     @Autowired
     private UserService userService;
+    @Autowired
+    private UserMapper userMapper;
     @RequestMapping("/page")
     public String user(){
         return "user";
@@ -28,6 +35,15 @@ public class UserController {
     userService.delete(userId);
 
     }
+
+    @PostMapping("/dellist")
+    @ResponseBody
+    public void dellist(@RequestBody LinkedList<User> data){
+        System.out.println(data);
+        userMapper.deleteBatchIds(data.stream().map((item)->item.getId()).collect(Collectors.toList()));
+
+    }
+
     @PostMapping("/save")
     @ResponseBody
     public void save(User user){
@@ -38,5 +54,13 @@ public class UserController {
     @ResponseBody
     public User selectById(Integer id){
         return userService.selectById(id);
+    }
+
+    @GetMapping("/count")
+    @ResponseBody
+    public Long userCount(){
+
+        Long users = userMapper.selectCount(null);
+        return users;
     }
 }

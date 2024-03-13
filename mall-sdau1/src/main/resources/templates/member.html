@@ -155,8 +155,30 @@
             } else if (obj.event === 'delete') {  // 监听删除操作
                 var checkStatus = table.checkStatus('currentTableId')
                     , data = checkStatus.data;
-                layer.alert(JSON.stringify(data));
-            }
+                // layer.alert(JSON.stringify(data));
+                layer.confirm('确定删除这'+data.length+'条数据吗？', function (index) {
+                $.ajax({
+                    url: '/member/dellist',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(data),
+                    success: function(response) {
+                        console.log('成功发送List数据');
+                        //     //如果删除成功了
+                        layer.closeAll();
+                        //     //刷新数据-》点一下查询按钮
+                        $("#btn1").click();
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('发送List数据失败');
+                        //     //如果删除成功了
+                        layer.closeAll();
+                        //     //刷新数据-》点一下查询按钮
+                        $("#btn1").click();
+                    }
+                });
+
+            })}
         });
 
 

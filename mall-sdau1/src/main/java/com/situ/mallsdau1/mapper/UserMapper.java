@@ -1,13 +1,14 @@
 package com.situ.mallsdau1.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.situ.mallsdau1.entity.User;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
-public interface UserMapper {
+public interface UserMapper extends BaseMapper<User> {
     @Insert("insert into user(username,password,name,age,sex,create_time,status) values(#{username},#{password},#{name},#{age},#{sex},#{createTime},#{status})")
-    void insert(User user);
+    int insert(User user);
 
     //@Select("select * from user where  instr(username,#{keyword})>0 or instr(name,#{keyword})>0")//_一个任意字符，%任意个任意字符
     List<User> selectUsers(String keyword);
