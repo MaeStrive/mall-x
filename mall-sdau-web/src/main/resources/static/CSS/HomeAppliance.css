@@ -134,7 +134,7 @@
 	position: relative;
 }
 .product-left{
-	background: url(../img/HomeAppliance/rotate1.jpg) no-repeat;
+	/*background: url(../img/HomeAppliance/rotate1.jpg) no-repeat;*/
 	background-size: contain;
 	width: 560px;
 	height: 560px;

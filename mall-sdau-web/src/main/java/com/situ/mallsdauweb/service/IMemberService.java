@@ -17,4 +17,6 @@ public interface IMemberService extends IService<Member> {
     boolean check(String username, String password);
 
     ResultVO<?> register(String username, String password,String tel,String name);
+
+    ResultVO<?> updatePassword(String newpsd, String orignpsd,Member member);
 }

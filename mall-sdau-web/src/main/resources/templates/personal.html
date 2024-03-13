@@ -1,159 +1,204 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>个人中心</title>
-		<link rel="icon" href="/img/milogo.ico" type="/image/x-icon">
-		<link rel="stylesheet" type="text/css" href="/font/iconfont.css"/>
-		<link rel="stylesheet" type="text/css" href="/CSS/reset.css"/>
-		<link rel="stylesheet" type="text/css" href="/CSS/login.css"/>
-		<link rel="stylesheet" type="text/css" href="/CSS/personal.css"/>
-	</head>
-	<body>
-		<!-- 小米账号导航栏 -->
-		
-			<div class="header ">
-				<div class="clearfix one">
-					<a href="https://account.xiaomi.com/fe/service/login"><img src="/img/login/logomi2.png"></a>
-					<span class="header-item-tit">小米账号</span>
-					<ul class="header-list-tit fr">
-						<li>用户协议</li>
-						<li>隐私政策</li>
-						<li>帮助中心</li>
-						<li class="language-title">
-							<div>‎中文(简体)‎<span class="iconfont icon-sanjiaoxing"></span></div>
-							<div class="language-list">
-								<ul>
-									<li>‎‎中文(繁體)‎</li>
-									<li>English</li>
-								</ul>
-							</div>
-						</li>
-						<li><a href="login.html">退出</a></li>
-					</ul>
-				</div>
-				
-				
-				
-			</div>
-		
-		
-		<!-- 中间部分 -->
-		<div class="personal-body">
-			<div class="container clearfix">
-				<div class="personal-left fl">
-					<div class="personal-infor">
-						<span><img src="/img/personal/infor.png" ></span>
-						<div class="infor-name">请设置昵称</div>
-						<div class="infor-number">+86 183****3517</div>
-					</div>
-					
-					<div>
-						<ul class="personal-list">
-							<li id="0">登录与安全</li>
-							<li id="1" class="act">个人信息</li>
-							<li id="2">隐私中心</li>
-							<li id="3">绑定授权</li>
-							<li id="4">帮助中心</li>
-						</ul>
-					</div>
-				</div>
-				
-				
-				
-				<div class="personal-right fr">
-					<div>
-						<ul class="personal-content">
-							<li>
-								<div class="login-safe-title">登陆方式</div>
-								<div class="login-safe-list">
-									<ul>
-										<li>
-											<img src="/img/personal/login-safe/1.png" >
-											安全手机
-											<span>+86 183****3517</span>
-										</li>
-										<li>
-											<img src="/img/personal/login-safe/2.png" >
-											安全邮箱
-											<span style="color: #FF5700;">未设置</span>
-										</li>
-										<li>
-											<img src="/img/personal/login-safe/3.png" >
-											修改密码
-											<span></span>
-										</li>
-										<li>
-											<img src="/img/personal/login-safe/4.png" >
-											第三方账号
-											<span></span>
-										</li>
-									</ul>
-								</div>
-								<div class="login-safe-title">账号安全</div>
-								<div class="login-safe-list">
-									<ul>
-										<li>
-											<img src="/img/personal/login-safe/5.png" >
-											密保问题
-											<span style="color: #FF5700;">未设置</span>
-										</li>
-										<li>
-											<img src="/img/personal/login-safe/6.png" >
-											登陆设备管理
-											<span></span>
-										</li>
-										<li>
-											<img src="/img/personal/login-safe/7.png" >
-											登录二次验证
-											<span></span>
-										</li>
-									</ul>
-								</div>
-							</li>
-							<li class="act">
-								<div class="login-safe-title">个人信息</div>
-								<table border="0" cellspacing="0" cellpadding="10">
-									<tbody class="personal-info">
-										<tr class="personal-td">
-											<td>头像</td>
-											<td><img src="/img/personal/infor.png" width="60px" ></td>
-										</tr>
-										<tr class="personal-td">
-											<td>昵称</td>
-											<td><input  th:text="${user.username}"id="input-name" type="text" placeholder="" disabled class="input-noActive"/></td>
-										</tr>
-										<tr class="personal-td">
-											<td>姓名</td>
-											<td><input th:text="${user.name}" id="input-name0" type="text" placeholder="" disabled class="input-noActive"/></td>
-										</tr>
-										<tr>	<td >手机号</td>
-											<td th:text="${user.tel}"></td>
-										</tr>
-										<tr>
-											<td>国家/地区</td>
-											<td>中国</td>
-										</tr>
-										<tr>
-											<td></td>
-											<td><button class="change-btn" type="button">编辑</button></td>
-										</tr>
-									</tbody>
-								</table>
-							</li>
-							<li>隐私中心</li>
-							<li>绑定授权</li>
-							<li>帮助中心</li>
-						</ul>
-					</div>
-					
-				</div>
-			</div>
-		</div>
-		
-		<!-- 底部一行字 -->
-		
-		<div class="descr">小米公司版权所有-京ICP备10046444-京公网安备11010802020134号-京ICP证110507号</div>
-		<script type="text/javascript" src="/JS/personal.js"></script>
-	</body>
+<head>
+    <meta charset="utf-8">
+    <title>个人中心</title>
+    <link rel="icon" href="/img/milogo.ico" type="/image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/font/iconfont.css"/>
+    <link rel="stylesheet" type="text/css" href="/CSS/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="/CSS/login.css"/>
+    <link rel="stylesheet" type="text/css" href="/CSS/personal.css"/>
+</head>
+<body>
+<!-- 小米账号导航栏 -->
+
+<div class="header ">
+    <div class="clearfix one">
+        <a href="https://account.xiaomi.com/fe/service/login">
+            <img src="/img/milogo.ico" style="width: 60px;height:60px;">
+        </a>
+        <span class="header-item-tit">体育商城账号</span>
+        <ul class="header-list-tit fr">
+            <li>用户协议</li>
+            <li>隐私政策</li>
+            <li>帮助中心</li>
+            <li class="language-title">
+                <div>‎中文(简体)‎<span class="iconfont icon-sanjiaoxing"></span></div>
+                <div class="language-list">
+                    <ul>
+                        <li>‎‎中文(繁體)‎</li>
+                        <li>English</li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="/logout">退出</a></li>
+        </ul>
+    </div>
+
+
+</div>
+
+
+<!-- 中间部分 -->
+<div class="personal-body">
+    <div class="container clearfix">
+        <div class="personal-left fl">
+            <div class="personal-infor">
+                <span><img src="/img/personal/infor.png"></span>
+                <div class="infor-name">请设置昵称</div>
+                <div class="infor-number" th:text="${'+86 '+user.tel}">+86 183****3517</div>
+            </div>
+
+            <div>
+                <ul class="personal-list">
+                    <li id="0">登录与安全</li>
+                    <li id="1" class="act">个人信息</li>
+                    <li id="2">修改密码</li>
+                    <li id="3">绑定授权</li>
+                    <li id="4">帮助中心</li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="personal-right fr">
+            <div>
+                <ul class="personal-content">
+                    <li>
+                        <div class="login-safe-title">登陆方式</div>
+                        <div class="login-safe-list">
+                            <ul>
+                                <li>
+                                    <img src="/img/personal/login-safe/1.png">
+                                    安全手机
+                                    <span th:text="${user.tel}">+86 183****3517</span>
+                                </li>
+                                <li>
+                                    <img src="/img/personal/login-safe/2.png">
+                                    安全邮箱
+                                    <span style="color: #FF5700;">未设置</span>
+                                </li>
+                                <li>
+                                    <img src="/img/personal/login-safe/3.png">
+                                    修改密码
+                                    <span></span>
+                                </li>
+                                <li>
+                                    <img src="/img/personal/login-safe/4.png">
+                                    第三方账号
+                                    <span></span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="login-safe-title">账号安全</div>
+                        <div class="login-safe-list">
+                            <ul>
+                                <li>
+                                    <img src="/img/personal/login-safe/5.png">
+                                    密保问题
+                                    <span style="color: #FF5700;">未设置</span>
+                                </li>
+                                <li>
+                                    <img src="/img/personal/login-safe/6.png">
+                                    登陆设备管理
+                                    <span></span>
+                                </li>
+                                <li>
+                                    <img src="/img/personal/login-safe/7.png">
+                                    登录二次验证
+                                    <span></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="act">
+                        <div class="login-safe-title">个人信息</div>
+                        <table border="0" cellspacing="0" cellpadding="10">
+                            <tbody class="personal-info">
+                            <tr class="personal-td">
+                                <td>头像</td>
+                                <td><img src="/img/personal/infor.png" width="60px"></td>
+                            </tr>
+                            <tr class="personal-td">
+                                <td>昵称</td>
+                                <td><input th:text="${user.username}" id="input-name" type="text" placeholder=""
+                                           disabled class="input-noActive"/></td>
+                            </tr>
+                            <tr class="personal-td">
+                                <td>姓名</td>
+                                <td><input th:text="${user.name}" id="input-name0" type="text" placeholder="" disabled
+                                           class="input-noActive"/></td>
+                            </tr>
+                            <tr>
+                                <td>手机号</td>
+                                <td th:text="${user.tel}"></td>
+                            </tr>
+                            <tr>
+                                <td>国家/地区</td>
+                                <td>中国</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <button class="change-btn" type="button">编辑</button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </li>
+                    <li>
+                        <div class="login-safe-title">修改密码</div>
+                        <div>
+                            <input id="orignpsd" name="orignpsd" placeholder="原密码" class="input-noActive"
+                                   type="password">
+                        </div>
+                        <div>
+                            <input id="newpsd" name="newpsd" placeholder="新密码" class="input-noActive" type="password">
+                        </div>
+                        <div>
+                            <button id="savepsd" type="button" class="change-btn">修改</button>
+                        </div>
+                    </li>
+                    <li>绑定授权</li>
+                    <li>帮助中心</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- 底部一行字 -->
+
+<!--		<div class="descr">小米公司版权所有-京ICP备10046444-京公网安备11010802020134号-京ICP证110507号</div>-->
+<script type="text/javascript" src="/JS/personal.js"></script>
+</body>
 </html>
+
+<script src="/layui/layui.js"></script>
+
+<script>
+    layui.use(['laytpl'], function () {
+        var laytpl = layui.laytpl;
+        var $ = layui.jquery;
+        table = layui.table;
+        var laypage = layui.laypage;
+        $("#savepsd").on("click", function () {
+
+            var orignpsd = document.querySelector('#orignpsd').value;
+            var newpsd = document.querySelector('#newpsd').value;
+            let psd = {
+                orignpsd: orignpsd,
+                newpsd: newpsd,
+            }
+            $.post('/updatePassword', psd, function (result) {
+                if(result.code==0){
+                    alert("密码修改成功!")
+                    window.location.href='/logout'
+                }else {
+                    alert(result.msg)
+                }
+            })
+        })
+    })
+</script>

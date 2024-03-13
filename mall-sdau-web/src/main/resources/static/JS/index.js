@@ -176,23 +176,23 @@ document.querySelector('.phone-lef').onmouseleave=function(){
 
 //家电右侧内容区  聚焦切换内容
 
-
-document.querySelector('#app-one').onmouseenter=function(){
-	document.querySelector('#app-two').classList.remove('act');
-	this.classList.add('act');
-	document.querySelector('.dianshi').style.display = 'none';
-	document.querySelector('.remen').style.display = 'inline-block';
-}
-
-
-document.querySelector('#app-two').onmouseenter=function(){
-	document.querySelector('#app-one').classList.remove('act');
-	this.classList.add('act');
-	document.querySelector('.remen').style.display = 'none';	
-	document.querySelector('.dianshi').style.display = 'inline-block';
-}
-
-// //电视影音  查看更多
-document.querySelector('#movie').onclick=function(){
-	document.querySelector('.two-2').href = 'Tv.html';
-}
+//
+// document.querySelector('#app-one').onmouseenter=function(){
+// 	document.querySelector('#app-two').classList.remove('act');
+// 	this.classList.add('act');
+// 	document.querySelector('.dianshi').style.display = 'none';
+// 	document.querySelector('.remen').style.display = 'inline-block';
+// }
+//
+//
+// document.querySelector('#app-two').onmouseenter=function(){
+// 	document.querySelector('#app-one').classList.remove('act');
+// 	this.classList.add('act');
+// 	document.querySelector('.remen').style.display = 'none';
+// 	document.querySelector('.dianshi').style.display = 'inline-block';
+// }
+//
+// // //电视影音  查看更多
+// document.querySelector('#movie').onclick=function(){
+// 	document.querySelector('.two-2').href = 'Tv.html';
+// }

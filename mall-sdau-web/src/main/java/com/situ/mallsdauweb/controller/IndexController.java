@@ -3,6 +3,7 @@ package com.situ.mallsdauweb.controller;
 import com.situ.mallsdauweb.service.ICategoryService;
 import com.situ.mallsdauweb.service.IProductService;
 import com.situ.mallsdauweb.vo.CategoryVO;
+import com.situ.mallsdauweb.vo.ProductIndexVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,7 +23,9 @@ public class IndexController {
     public String index(Model model){
     //带上（产品分类）数据
     List<CategoryVO> list=categoryService.categories();
+    List<ProductIndexVO> phones = productService.phones();
     model.addAttribute("categories",list);
+    model.addAttribute("productindexvos",phones);
     return "index";
 }
 @GetMapping("/detail")

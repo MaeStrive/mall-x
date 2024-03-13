@@ -45,7 +45,7 @@ public class ResultVO<T> {
     }
     public static<T> ResultVO<T> ok(T data,String msg) {
         ResultVO<T> r = new ResultVO<T>();
-        r.setCode(200);
+        r.setCode(0);
         r.setData(data);
         r.setMsg(msg);
         return r;
@@ -53,14 +53,14 @@ public class ResultVO<T> {
 
     public static<T> ResultVO<T> ok(String msg) {
         ResultVO<T> r = new ResultVO<T>();
-        r.setCode(200);
+        r.setCode(0);
         r.setMsg(msg);
         return r;
     }
 
     public static<T> ResultVO<T> ok() {
         ResultVO<T> r = new ResultVO<T>();
-        r.setCode(200);
+        r.setCode(0);
         return r;
     }
 

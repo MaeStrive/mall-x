@@ -32,8 +32,6 @@ public class ProductController {
     @GetMapping("/telephone")
     @ResponseBody
     public List<ProductIndexVO> phones(Model model){
-        List<ProductIndexVO> phones = productService.phones();
-        model.addAttribute("productindexvos",phones);
-        return phones;
+        return productService.phones();
     }
 }

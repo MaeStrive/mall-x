@@ -1,5 +1,6 @@
 package com.situ.mallsdauweb.controller;
 
+import com.situ.mallsdauweb.entity.Member;
 import com.situ.mallsdauweb.service.IMemberService;
 //import com.situ.mallsdauweb.util.SendSmsUtil;
 import com.situ.mallsdauweb.util.RequestUtil;
@@ -97,5 +98,12 @@ public class LoginController {
         RequestUtil.getSession().removeAttribute("current");
 
         return "login";
+    }
+
+    @PostMapping("/updatePassword")
+    @ResponseBody
+    public ResultVO<?> updatePassword(String newpsd,String orignpsd){
+        Member member = (Member) RequestUtil.getSession().getAttribute("current");
+        return  memberService.updatePassword(newpsd,orignpsd,member);
     }
 }

@@ -1,6 +1,7 @@
 package com.situ.mallsdauweb.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.situ.mallsdauweb.entity.Member;
 import com.situ.mallsdauweb.mapper.MemberMapper;
 import com.situ.mallsdauweb.service.IMemberService;
@@ -47,5 +48,19 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> impleme
         member.setCreateTime(LocalDateTime.now());
         baseMapper.insert(member);
         return ResultVO.ok();
+    }
+
+    @Override
+    public ResultVO<?> updatePassword(String newpsd, String orignpsd, Member member) {
+        String password = member.getPassword();
+        if (!password.equals(orignpsd)){
+            return ResultVO.error("原密码输入错误！",-1);
+        }else{
+            UpdateWrapper<Member> updateWrapper=new UpdateWrapper<>();
+            updateWrapper.eq("username",member.getUsername());
+            updateWrapper.set("password",newpsd);
+            baseMapper.update(null,updateWrapper);
+            return ResultVO.ok();
+        }
     }
 }
