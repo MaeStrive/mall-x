@@ -14,5 +14,5 @@ import com.situ.mallsdau1.vo.TableVO;
  */
 public interface ICategoryService extends IService<Category> {
 
-    TableVO selectList(Integer page, Integer limit);
+    TableVO selectList(Integer page, Integer limit,String k);
 }

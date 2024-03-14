@@ -12,6 +12,6 @@ import com.situ.mallsdau1.vo.TableVO;
  */
 public interface IMemberService extends IService<Member> {
 
-    TableVO list(Integer page, Integer limit);
+    TableVO list(Integer page, Integer limit,String k);
 
 }

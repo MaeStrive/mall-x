@@ -1,5 +1,7 @@
 package com.situ.mallsdau1.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.situ.mallsdau1.entity.OrderInfo;
@@ -33,7 +35,7 @@ public class OrderInfoController {
     }
     @RequestMapping("/orderlist")
     @ResponseBody
-    public TableVO orderlist(@RequestParam Integer limit, @RequestParam Integer page ){
+    public TableVO orderlist(@RequestParam Integer limit, @RequestParam Integer page,@RequestParam(value="keyword",required=false) String k ){
 
 
         /**
@@ -43,7 +45,11 @@ public class OrderInfoController {
         *@创建时间：21:42 2024/3/13
         */
         PageHelper.startPage(page,limit);
-        List<OrderInfo> list = orderInfoService.list();
+        LambdaQueryWrapper<OrderInfo> orderInfoLambdaQueryWrapper = new LambdaQueryWrapper<>();
+        if (StringUtils.isNotBlank(k)) {
+            orderInfoLambdaQueryWrapper.like(OrderInfo::getCode,k);
+        }
+        List<OrderInfo> list = orderInfoService.list(orderInfoLambdaQueryWrapper);
         TableVO tableVO = new TableVO();
         tableVO.setData(list);
         tableVO.setCount(new PageInfo<>(list).getTotal());

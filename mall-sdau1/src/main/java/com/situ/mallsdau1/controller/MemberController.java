@@ -45,8 +45,8 @@ public class MemberController {
 
     @RequestMapping("/list")
     @ResponseBody
-    public TableVO list(Integer page, Integer limit) {
-        return memberService.list(page, limit);
+    public TableVO list(Integer page, Integer limit,@RequestParam(value="keyword",required=false) String k) {
+        return memberService.list(page, limit,k);
     }
 
     @PostMapping("/save")

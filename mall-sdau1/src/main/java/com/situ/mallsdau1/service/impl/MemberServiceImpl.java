@@ -1,5 +1,7 @@
 package com.situ.mallsdau1.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -26,10 +28,14 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> impleme
     private MemberMapper memberMapper;
 
     @Override
-    public TableVO list(Integer page, Integer limit) {
+    public TableVO list(Integer page, Integer limit,String k) {
         TableVO vo = new TableVO();
         PageHelper.startPage(page, limit);
-        List<Member> members = memberMapper.selectList(null);
+        LambdaQueryWrapper<Member> memberLambdaQueryWrapper = new LambdaQueryWrapper<>();
+        if (StringUtils.isNotBlank(k)){
+            memberLambdaQueryWrapper.like(Member::getUsername,k) ;
+        }
+        List<Member> members = memberMapper.selectList(memberLambdaQueryWrapper);
         vo.setData(members);
         vo.setCount(new PageInfo<>(members).getTotal());
         vo.setCode(0);

@@ -27,8 +27,8 @@ public class CategoryController {
 
     @RequestMapping("/list")
     @ResponseBody
-    public TableVO list(Integer page, Integer limit) {
-        return categoryService.selectList(page, limit);
+    public TableVO list(Integer page, Integer limit,@RequestParam(value="keyword",required=false) String k) {
+        return categoryService.selectList(page, limit,k);
     }
 
     @PostMapping("/dellist")
