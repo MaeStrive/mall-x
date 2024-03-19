@@ -1,181 +1,182 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-	<meta charset="utf-8">
-	<title>体育用品商城</title>
-	<link rel="icon" href="img/milogo.ico" type="image/x-icon">
-	<link rel="stylesheet" type="text/css" href="font/iconfont.css"/>	<!-- 引用图标 -->
-	<link rel="stylesheet" type="text/css" href="CSS/reset.css"/>	<!-- 样式重置 -->
-	<link rel="stylesheet" type="text/css" href="CSS/currency.css"/>
-	<link rel="stylesheet" type="text/css" href="CSS/index.css"/>	<!-- 首页样式 -->
+    <meta charset="utf-8">
+    <title>体育用品商城</title>
+    <link rel="icon" href="img/milogo.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="font/iconfont.css"/>    <!-- 引用图标 -->
+    <link rel="stylesheet" type="text/css" href="CSS/reset.css"/>    <!-- 样式重置 -->
+    <link rel="stylesheet" type="text/css" href="CSS/currency.css"/>
+    <link rel="stylesheet" type="text/css" href="CSS/index.css"/>    <!-- 首页样式 -->
 </head>
-		<body>
-		<th:block th:include="header"></th:block>
-		<!-- banner轮播图 -->
-		<div class="banner-bg">
-			<div class="container banner">
-				<ul class="nav-list">
-					<li th:each="c:${categories}">
-						<p th:text="${c.name}"></p>
-						<div class="item-list">
-							<ul>
-								<li th:each="s:${c.children}">
-									<img th:src="${s.iconPath}" >
-								    <span th:text="${s.name}"></span>
-								</li>
-							</ul>
-						</div>
-					</li>
+<body>
+<th:block th:include="header"></th:block>
+<!-- banner轮播图 -->
+<div class="banner-bg">
+    <div class="container banner">
+        <ul class="nav-list">
+            <li th:each="c:${categories}">
+                <p th:text="${c.name}"></p>
+                <div class="item-list">
+                    <ul>
+                        <li th:each="s:${c.children}">
+                            <img th:src="${s.iconPath}">
+                            <span th:text="${s.name}"></span>
+                        </li>
+                    </ul>
+                </div>
+            </li>
 
-				</ul>
-				<div class="switch-box">
-					<div class="clearfix">
-						<span class="left iconfont icon-zuo" id="leftswitchbox"></span>
-						<span class="fr right iconfont icon-you" id="rightswitchbox"></span>
-					</div>
-					<ul class="switch-icons">
-						<li class="first select"></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li class="last"></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<!-- 页面右侧固定版块 -->
-		<div class="right-fix">
-			<ul>
-				<li class="iconfont icon-shouji">
-					<div class="number-qrode">
-						<img src="img/index/download.png" width="90px">
-						<p>扫码领取新<br>人百元礼包</p>
-						<!-- <span class="Scan-text-triangle"></span> -->
-					</div>
-				</li>
-				<li ><a class="iconfont icon-icon-" href="profile.html" target="_blank"></a></li>
-				<li class="iconfont icon-buoumaotubiao46"></li>
-				<li class="iconfont icon-kefu"></li>
-				<li><a class="iconfont icon-gouwuche" href="cart.html" target="_blank"></a></li>
-			</ul>
-		</div>
+        </ul>
+        <div class="switch-box">
+            <div class="clearfix">
+                <span class="left iconfont icon-zuo" id="leftswitchbox"></span>
+                <span class="fr right iconfont icon-you" id="rightswitchbox"></span>
+            </div>
+            <ul class="switch-icons">
+                <li class="first select"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li class="last"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- 页面右侧固定版块 -->
+<div class="right-fix">
+    <ul>
+        <li class="iconfont icon-shouji">
+            <div class="number-qrode">
+                <!--						<img src="img/index/download.png" width="90px">-->
+                <p>扫码领取新<br>人百元礼包</p>
+                <!-- <span class="Scan-text-triangle"></span> -->
+            </div>
+        </li>
+        <li><a class="iconfont icon-icon-" href="/personal/page" target="_blank"></a></li>
+        <li class="iconfont icon-buoumaotubiao46"></li>
+        <li class="iconfont icon-kefu"></li>
+        <li><a class="iconfont icon-gouwuche" href="/cart" target="_blank"></a></li>
+    </ul>
+</div>
 
-		<!-- 四块广告版图 -->
-		<div class="banner-bottom">
-			<div class="container bottom">
-				<ul>
-					<li>
-						<div class="banner-bottom-top">
-							<ul>
-								<li>
-									<p class="iconfont icon-shizhong"></p>
-									<p>保障服务</p>
-								</li>
-								<li>
-									<p class="iconfont icon-icon_xinyong_xianxing_jijin-154"></p>
-									<p>企业团购</p>
-								</li>
-								<li>
-									<p class="iconfont icon-F_round"></p>
-									<p>F 码通道</p>
-								</li>
-							</ul>
-						</div>
-						<div class="banner-bottom-foot">
-							<ul>
-								<li>
-									<p class="iconfont icon-sim"></p>
-									<p>会员卡</p>
-								</li>
-								<li>
-									<p class="iconfont icon-qian"></p>
-									<p>以旧换新</p>
-								</li>
-								<li>
-									<p class="iconfont icon-24huafei"></p>
-									<p>话费充值</p>
-								</li>
-							</ul>
-						</div>
-					</li>
-					<li><img src="/img/index/bannerimg1.png" ></li>
-					<li><img src="img/index/bannerimg2.png" ></li>
-					<li><img src="img/index/bannerimg3.png" ></li>
-				</ul>
-			</div>
-		</div>
-		<div class="K40">
-			<div class="container">
-				<img src="./img/index/k40.png" style="height: 250px;width: 1226px">
-			</div>
-		</div>
-		<div class="phone-box" id="phone-box">
-			<div class="container" th:each="cat:${productindexvos}">
-				<div class="phone-title">
-					<h2 th:text="${cat.categoryName}"></h2>
-				</div>
-				<div class="phone-left">	<!-- 左侧单独展览 -->
-<!--					<img class="phone-lef" src="img/index/MIXphone.jpg" >-->
-					<img class="phone-lef" th:src="${cat.iconPath}" >
-				</div>
-				<div class="phone-right">	<!-- 右侧分区展览 -->
-					<div class="phone-right-top">
-						<ul class="one"  th:each="pro:${cat.product}">
-							<li th:id="${pro.id}">
-<!--								<img src="img/index/XiaomiMIX4.jpg" >-->
-<!--								<h3>Xiaomi MIX 4</h3>-->
-<!--								<p>CUP全面屏</p>-->
-<!--								<p>4999元起</p>-->
-                                <img th:src="${pro.imgPath}">
-                                <h3 th:text="${pro.name}"></h3>
-                                <p th:text="${pro.color}"></p>
-                                <p th:text="${pro.price}"></p>
-							</li>
+<!-- 四块广告版图 -->
+<div class="banner-bottom">
+    <div class="container bottom">
+        <ul>
+            <li>
+                <div class="banner-bottom-top">
+                    <ul>
+                        <li>
+                            <p class="iconfont icon-shizhong"></p>
+                            <p>保障服务</p>
+                        </li>
+                        <li>
+                            <p class="iconfont icon-icon_xinyong_xianxing_jijin-154"></p>
+                            <p>企业团购</p>
+                        </li>
+                        <li>
+                            <p class="iconfont icon-F_round"></p>
+                            <p>F 码通道</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="banner-bottom-foot">
+                    <ul>
+                        <li>
+                            <p class="iconfont icon-sim"></p>
+                            <p>会员卡</p>
+                        </li>
+                        <li>
+                            <p class="iconfont icon-qian"></p>
+                            <p>以旧换新</p>
+                        </li>
+                        <li>
+                            <p class="iconfont icon-24huafei"></p>
+                            <p>话费充值</p>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li><img src="/img/index/bannerimg1.png"></li>
+            <li><img src="img/index/bannerimg2.png"></li>
+            <li><img src="img/index/bannerimg3.png"></li>
+        </ul>
+    </div>
+</div>
+<div class="K40">
+    <div class="container">
+        <img src="./img/index/k40.png" style="height: 250px;width: 1226px">
+    </div>
+</div>
+<div class="phone-box" id="phone-box">
+    <div class="container" th:each="cat:${productindexvos}">
+        <div class="phone-title">
+            <h2 th:text="${cat.categoryName}"></h2>
+        </div>
+        <div class="phone-left">    <!-- 左侧单独展览 -->
+            <!--					<img class="phone-lef" src="img/index/MIXphone.jpg" >-->
+            <img class="phone-lef" th:src="${cat.iconPath}">
+        </div>
+        <div class="phone-right">    <!-- 右侧分区展览 -->
+            <div class="phone-right-top">
+                <ul class="one" th:each="pro:${cat.product}">
+                    <li th:id="${pro.id}">
+                        <!--								<img src="img/index/XiaomiMIX4.jpg" >-->
+                        <!--								<h3>Xiaomi MIX 4</h3>-->
+                        <!--								<p>CUP全面屏</p>-->
+                        <!--								<p>4999元起</p>-->
+                        <img th:src="${pro.imgPath}">
+                        <h3 th:text="${pro.name}"></h3>
+                        <p th:text="${pro.color}"></p>
+                        <p th:text="${pro.price}"></p>
+                    </li>
 
-						</ul>
-					</div>
-				</div>
-			</div>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-		</div>
-
-
-		<th:block th:include="footer"/>
+</div>
 
 
-		<script src="JS/index.js"></script>
-	    <script src="layui/layui.js"></script>
+<th:block th:include="footer"/>
 
-		<script type="text/html" id="phoneTemplate">
-			{{# layui.each(d,function(index,item){    }}
-			<li>
-				<a href="/detail?id={{=item.id}}">
-				 <img src="img/index/XiaomiMIX4.jpg" >
-				 <h3>{{=item.name}}</h3>
-				 <p>CUP全面屏</p>
-				 <p>{{=item.price}}起</p>
-				</a>
-			</li>
-			{{# });  }}
+
+<script src="JS/index.js"></script>
+<script src="layui/layui.js"></script>
+
+<script type="text/html" id="phoneTemplate">
+    {{# layui.each(d,function(index,item){    }}
+    <li>
+        <a href="/detail?id={{=item.id}}">
+            <img src="img/index/XiaomiMIX4.jpg">
+            <h3>{{=item.name}}</h3>
+            <p>CUP全面屏</p>
+            <p>{{=item.price}}起</p>
+        </a>
+    </li>
+    {{# });  }}
 </script>
-	<script>
-		layui.use(['laytpl'],function(){
-			var laytpl=layui.laytpl;
-			var $=layui.jquery;
-			//查数据
-			$.get("/product/telephone",function(phones){
-				console.log(phones)
-			});
-			$('#phone-box').on('click', 'ul.one li', function() {
-				// Obter o id do elemento clicado
-				var id = $(this).attr('id');
-				hanleClick(id);
-			});
-			function hanleClick(id){
-				// $.get("/detail",id)
-				window.location.href ="/detail?id="+id
-			}
-		});
-	</script>
-	</body>
+<script>
+    layui.use(['laytpl'], function () {
+        var laytpl = layui.laytpl;
+        var $ = layui.jquery;
+        //查数据
+        $.get("/product/telephone", function (phones) {
+            console.log(phones)
+        });
+        $('#phone-box').on('click', 'ul.one li', function () {
+            // Obter o id do elemento clicado
+            var id = $(this).attr('id');
+            hanleClick(id);
+        });
+
+        function hanleClick(id) {
+            // $.get("/detail",id)
+            window.location.href = "/detail?id=" + id
+        }
+    });
+</script>
+</body>
 </html>
