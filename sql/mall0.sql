@@ -11,7 +11,7 @@
  Target Server Version : 80026
  File Encoding         : 65001
 
- Date: 13/03/2024 20:37:49
+ Date: 21/03/2024 21:10:28
 */
 
 SET NAMES utf8mb4;
@@ -28,7 +28,7 @@ CREATE TABLE `cart`  (
   `amount` int(0) NULL DEFAULT NULL,
   `member_id` int(0) NULL DEFAULT NULL,
   PRIMARY KEY (`Id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 58 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of cart
@@ -101,7 +101,7 @@ CREATE TABLE `member`  (
   `status` int(0) NULL DEFAULT 0,
   `avatar` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`Id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of member
@@ -125,7 +125,7 @@ CREATE TABLE `member_address`  (
   `member_id` int(0) NULL DEFAULT NULL,
   `address` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`Id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of member_address
@@ -148,7 +148,7 @@ CREATE TABLE `order_address`  (
   `member_tel` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `order_id` int(0) NULL DEFAULT NULL,
   PRIMARY KEY (`Id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 54 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 61 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of order_address
@@ -172,6 +172,12 @@ INSERT INTO `order_address` VALUES (51, '山东省', '泰安市', '泰山区', '
 INSERT INTO `order_address` VALUES (52, '山东省', '泰安市', '泰山区', '某某小区', '1', NULL, 52);
 INSERT INTO `order_address` VALUES (53, '山东省', '泰安市', '泰山区', '某某小区', '1', NULL, 53);
 INSERT INTO `order_address` VALUES (54, '山东省', '泰安市', '泰山区', '某某小区', '1', NULL, 54);
+INSERT INTO `order_address` VALUES (55, '山东省', '青岛市', '城阳区', '某某小区', '1', NULL, 55);
+INSERT INTO `order_address` VALUES (56, '山东省', '泰安市', '泰山区', '某某小区', '1', NULL, 56);
+INSERT INTO `order_address` VALUES (57, '山东省', '泰安市', '泰山区', '某某小区', '1', NULL, 57);
+INSERT INTO `order_address` VALUES (58, '山东省', '泰安市', '泰山区', '某某小区', '1', NULL, 58);
+INSERT INTO `order_address` VALUES (59, '1', '1', '1', '1', '1', NULL, 59);
+INSERT INTO `order_address` VALUES (60, '山东省', '青岛市', '城阳区', '某某小区', '1', NULL, 60);
 
 -- ----------------------------
 -- Table structure for order_detail
@@ -184,31 +190,15 @@ CREATE TABLE `order_detail`  (
   `amount` int(0) NULL DEFAULT NULL,
   `price` decimal(10, 2) NULL DEFAULT NULL,
   PRIMARY KEY (`Id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 55 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 64 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of order_detail
 -- ----------------------------
-INSERT INTO `order_detail` VALUES (36, NULL, 1, 2, 2999.00);
-INSERT INTO `order_detail` VALUES (37, 37, 4, 1, 560.00);
-INSERT INTO `order_detail` VALUES (38, 37, 3, 1, 2000.00);
-INSERT INTO `order_detail` VALUES (39, 38, 4, 1, 560.00);
-INSERT INTO `order_detail` VALUES (40, 39, 3, 3, 2000.00);
-INSERT INTO `order_detail` VALUES (41, 40, 4, 1, 560.00);
-INSERT INTO `order_detail` VALUES (42, 41, 4, 1, 560.00);
-INSERT INTO `order_detail` VALUES (43, 42, 3, 1, 2000.00);
-INSERT INTO `order_detail` VALUES (44, 43, 4, 1, 560.00);
-INSERT INTO `order_detail` VALUES (45, 44, 4, 1, 560.00);
-INSERT INTO `order_detail` VALUES (46, 45, 4, 1, 560.00);
-INSERT INTO `order_detail` VALUES (47, 46, 4, 1, 560.00);
-INSERT INTO `order_detail` VALUES (48, 47, 4, 1, 560.00);
-INSERT INTO `order_detail` VALUES (49, 48, 3, 1, 2000.00);
-INSERT INTO `order_detail` VALUES (50, 49, 3, 1, 2000.00);
-INSERT INTO `order_detail` VALUES (51, 50, 3, 1, 2000.00);
-INSERT INTO `order_detail` VALUES (52, 51, 4, 1, 560.00);
-INSERT INTO `order_detail` VALUES (53, 52, 3, 1, 2000.00);
-INSERT INTO `order_detail` VALUES (54, 53, 4, 1, 560.00);
-INSERT INTO `order_detail` VALUES (55, 54, 4, 1, 560.00);
+INSERT INTO `order_detail` VALUES (60, 58, 8, 1, 399.00);
+INSERT INTO `order_detail` VALUES (61, 59, 8, 1, 399.00);
+INSERT INTO `order_detail` VALUES (62, 59, 7, 1, 50.00);
+INSERT INTO `order_detail` VALUES (63, 60, 5, 1, 69.90);
 
 -- ----------------------------
 -- Table structure for order_info
@@ -223,30 +213,14 @@ CREATE TABLE `order_info`  (
   `addid` int(0) NULL DEFAULT NULL,
   `status` varchar(11) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`Id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 54 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 61 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of order_info
 -- ----------------------------
-INSERT INTO `order_info` VALUES (36, '1667069315741978624', '2023-06-09 15:21:12', 2, 5998.00, NULL, '已取消');
-INSERT INTO `order_info` VALUES (37, '1667090987907854336', '2023-06-09 16:47:19', 2, 2560.00, NULL, '已支付 ');
-INSERT INTO `order_info` VALUES (38, '1667102459895496704', '2023-06-09 17:32:54', 2, 560.00, NULL, '已取消');
-INSERT INTO `order_info` VALUES (39, '1667112473343410176', '2023-06-09 18:12:42', 2, 6000.00, NULL, '已支付 ');
-INSERT INTO `order_info` VALUES (40, '1667138863266557952', '2023-06-09 19:57:34', 2, 560.00, NULL, '已取消');
-INSERT INTO `order_info` VALUES (41, '1667139134411538432', '2023-06-09 19:58:38', 2, 560.00, NULL, '已支付 ');
-INSERT INTO `order_info` VALUES (42, '1667141009852628992', '2023-06-09 20:06:05', 2, 2000.00, NULL, '已支付 ');
-INSERT INTO `order_info` VALUES (43, '1667147596826673152', '2023-06-09 20:32:16', 2, 560.00, NULL, '已支付 ');
-INSERT INTO `order_info` VALUES (44, '1667149596544991232', '2023-06-09 20:40:13', 2, 560.00, NULL, '已支付 ');
-INSERT INTO `order_info` VALUES (45, '1667150695960178688', '2023-06-09 20:44:35', 2, 560.00, NULL, '已支付 ');
-INSERT INTO `order_info` VALUES (46, '1667151896131002368', '2023-06-09 20:49:21', 2, 560.00, NULL, '已支付 ');
-INSERT INTO `order_info` VALUES (47, '1667152857654226944', '2023-06-09 20:53:10', 2, 560.00, NULL, '已支付 ');
-INSERT INTO `order_info` VALUES (48, '1667154061700493312', '2023-06-09 20:57:57', 2, 2000.00, NULL, '已支付 ');
-INSERT INTO `order_info` VALUES (49, '1667154539096047616', '2023-06-09 20:59:51', 2, 2000.00, NULL, '已支付 ');
-INSERT INTO `order_info` VALUES (50, '1667324254158430208', '2023-06-10 08:14:14', 2, 2000.00, NULL, '已支付 ');
-INSERT INTO `order_info` VALUES (51, '1667341826664714240', '2023-06-10 09:24:04', 2, 560.00, NULL, '已支付 ');
-INSERT INTO `order_info` VALUES (52, '1667347894694367232', '2023-06-10 09:48:11', 1, 2000.00, NULL, '已支付 ');
-INSERT INTO `order_info` VALUES (53, '1667356080432226304', '2023-06-10 10:20:42', 2, 560.00, NULL, '已取消');
-INSERT INTO `order_info` VALUES (54, '1667356811797209088', '2023-06-10 10:23:37', 2, 560.00, NULL, '已支付 ');
+INSERT INTO `order_info` VALUES (58, '1767907995850719232', '2024-03-13 21:38:07', 2, 399.00, NULL, '待支付');
+INSERT INTO `order_info` VALUES (59, '1767913225732562944', '2024-03-13 21:58:54', 2, 449.00, NULL, '待支付');
+INSERT INTO `order_info` VALUES (60, '1770781012251426816', '2024-03-21 19:54:27', 2, 69.90, NULL, '待支付');
 
 -- ----------------------------
 -- Table structure for product
@@ -262,12 +236,15 @@ CREATE TABLE `product`  (
   `category_id` int(0) NULL DEFAULT NULL,
   `img_path` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`Id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of product
 -- ----------------------------
-INSERT INTO `product` VALUES (5, '斯伯丁篮球', 69.90, '良', '黄色', 0, 39, NULL);
+INSERT INTO `product` VALUES (5, '斯伯丁篮球', 69.90, '良', '黄色', 0, 39, 'img.png');
+INSERT INTO `product` VALUES (6, '哈格钉篮球', 20.00, '优', '红色', 0, 39, 'img_1.png');
+INSERT INTO `product` VALUES (7, '猛男哑铃', 50.00, '差', '黄色', 0, 49, 'img_2.png');
+INSERT INTO `product` VALUES (8, '哈丁跑鞋', 399.00, '优', '红色', 0, 29, 'img_3.png');
 
 -- ----------------------------
 -- Table structure for user
