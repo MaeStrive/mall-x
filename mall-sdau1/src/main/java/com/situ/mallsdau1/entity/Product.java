@@ -39,4 +39,5 @@ public class Product implements Serializable {
     private Integer status;
 
     private Integer categoryId;
+    private String  imgPath;
 }

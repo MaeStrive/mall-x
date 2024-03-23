@@ -8,6 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="/lib/layui-v2.6.3/css/layui.css" media="all">
     <link rel="stylesheet" href="/css/public.css" media="all">
+    <style>
+        /*.laytable-cell-1-0-7{*/
+        /*    width: auto !important;*/
+        /*    height: auto !important;*/
+
+        /*}*/
+    </style>
+
 </head>
 <body>
 <div class="layuimini-container">
@@ -95,6 +103,61 @@
                     </div>
                 </div>
                 <div class="layui-form-item">
+                    <label class="layui-form-label">图片</label>
+                    <div class="layui-upload">
+                        <button type="button" class="layui-btn" id="uploadButton">上传图片</button>
+                        <div class="layui-upload-list">
+                            <img class="layui-upload-img" id="preview">
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">价格</label>
+                    <div class="layui-input-inline layui-input-wrap">
+                        <input type="text" name="price" lay-verify="required" autocomplete="off" lay-affix="clear"
+                               class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button type="button" id="saveBtn" class="layui-btn" lay-submit lay-filter="demo1">立即提交</button>
+                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    </div>
+                </div>
+            </form>
+        </script>
+        <script type="text/html" id="editformTemplate">
+            <form class="layui-form" action="" lay-filter="userForm">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">产品名称</label>
+                    <div class="layui-input-inline layui-input-wrap">
+                        <input type="text" name="name" lay-verify="required" autocomplete="off" lay-affix="clear"
+                               class="layui-input">
+                        <input type="hidden" name="id" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">颜色</label>
+                    <div class="layui-input-inline layui-input-wrap">
+                        <input type="text" name="color" lay-verify="required" autocomplete="off" lay-affix="clear"
+                               class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">版本</label>
+                    <div class="layui-input-inline layui-input-wrap">
+                        <input type="text" name="edition" lay-verify="required" autocomplete="off" lay-affix="clear"
+                               class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">图片</label>
+                    <div class="layui-input-inline layui-input-wrap">
+                        <input type="text" name="imgPath" lay-verify="required" autocomplete="off" lay-affix="clear"
+                               class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
                     <label class="layui-form-label">价格</label>
                     <div class="layui-input-inline layui-input-wrap">
                         <input type="text" name="price" lay-verify="required" autocomplete="off" lay-affix="clear"
@@ -120,6 +183,29 @@
             table = layui.table;
 
 
+            //图片上传接口
+            upload.render({
+                elem: '#uploadButton' //绑定元素
+                , url: '/product/upload/' //改成你的图片上传接口
+                , accept: 'images' //上传图片
+                , multiple: false //允许多文件上传
+                , before: function (obj) {
+                    //do something
+                }
+                , done: function (res) {
+                    //上传完毕回调
+                    if (res.code == 200) { //假设成功返回的code为0
+                        //do something
+                        alert("上传成功")
+                    } else alert("上传失败")
+                }
+                , error: function () {
+                    //请求出错处理
+                }
+            });
+
+
+
         //监听搜索按钮事件
         $("#btn1").on("click", function () {
             table.render({
@@ -139,6 +225,15 @@
                     {field: 'price', width: 80, title: '排序'},
                     {field: 'color', width: 80, title: '颜色'},
                     {field: 'edition', width: 80, title: '版本'},
+                    {field: 'imgPath',width:80 , title: '图片',
+                        templet: function(d){
+                            return '<div style="width: 100px;height: 100px">' +
+                                '<img src="' + d.imgPath + '" alt="' + d.name + '" style="width: 100%">' +
+                                '</div>'
+                        },
+
+
+                    },
                     {title: '操作', minWidth: 150, toolbar: '#currentTableBar', align: "center"}
                 ]],
                 limits: [10, 15, 20, 25, 50, 100],
@@ -242,15 +337,15 @@
             var data = obj.data;
             if (obj.event === 'edit') {
                 //先根据id获取用户所有信息
-                $.get("/category/info?id=" + obj.data.id, function (u) {
+                $.get("/product/info?id=" + obj.data.id, function (u) {
                     var index = layer.open({
-                        title: '编辑用户',
+                        title: '编辑商品',
                         type: 1,
                         shade: 0.2,
                         maxmin: true,
                         shadeClose: true,
                         area: ['400px', '400px'],
-                        content: $("#formTemplate").html()
+                        content: $("#editformTemplate").html()
                     });
                     //对表单元素渲染
                     form.render();
@@ -261,7 +356,7 @@
                         //获取表单中录入的所有数据
                         var data = form.val("userForm");
                         //发送请求
-                        $.post("/product/save", data, function () {
+                        $.post("/product/update", data, function () {
                             //关窗口
                             layer.closeAll();
                             //点查询按钮
@@ -283,6 +378,7 @@
             }
         });
     });
+
 </script>
 
 </body>

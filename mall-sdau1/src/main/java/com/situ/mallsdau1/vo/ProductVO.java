@@ -20,5 +20,5 @@ public class ProductVO {
 
     private Integer status;
 
-    private Integer imgPath;
+    private String imgPath;
 }
