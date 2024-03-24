@@ -5,11 +5,13 @@ import com.situ.mallsdau1.mapper.ProductMapper;
 import com.situ.mallsdau1.vo.ProductVO;
 import com.situ.mallsdau1.vo.TableVO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import com.situ.mallsdau1.service.IProductService;
 import com.situ.mallsdau1.entity.Product;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.multipart.MultipartFile;
+
 
 import java.io.File;
 import java.io.IOException;
@@ -32,6 +34,8 @@ public class ProductController {
     private IProductService prodcutService;
     @Autowired
     private ProductMapper productMapper;
+    @Value("${imgPath}")
+    private String imgPath;
 
     @RequestMapping("/page")
     public String product() {
@@ -82,6 +86,7 @@ public class ProductController {
     @PostMapping("/upload")
     @ResponseBody
     public TableVO handleFileUpload(@RequestParam("file") MultipartFile file) {
+        System.out.println(file);
         TableVO tableVO = new TableVO();
         if (file.isEmpty()) {
             tableVO.setMsg("请先选择文件");
@@ -90,12 +95,12 @@ public class ProductController {
         try {
             byte[] bytes = file.getBytes();
             String fileName = file.getOriginalFilename();
-            File dest = new File("C:\\Users\\jz\\Desktop\\img\\" + fileName);
+            File dest = new File(imgPath + fileName);
             file.transferTo(dest);
             tableVO.setCode(200);
             tableVO.setMsg("上传成功");
             LinkedList<String> objects = new LinkedList<>();
-            objects.set(0,fileName);
+            objects.add(fileName);
             tableVO.setData(objects);
             return tableVO;
         } catch (IOException e) {

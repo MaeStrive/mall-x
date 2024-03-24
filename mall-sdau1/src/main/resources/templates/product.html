@@ -105,11 +105,13 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">图片</label>
                     <div class="layui-upload">
-<!--                        <button type="button" class="layui-btn" id="uploadButton">上传图片</button>-->
-                        <img type="button" class="layui-btn" id="uploadButton"/>上传图片
-                        <div class="layui-upload-list">
-                            <img class="layui-upload-img" id="preview">
+                      <button type="button" class="layui-btn" id="uploadButton">上传图片</button>
+
+                        <div class="layui-upload-list" style="width: 44%;    margin-left: 30%;">
+                            <img class="layui-upload-img" id="preview" style="width: 40px;height: 40px">
                         </div>
+                        <input type="hidden" value="0" id="imgPath" name="imgPath" lay-verify="required" autocomplete="off" lay-affix="clear"
+                               class="layui-input">
                     </div>
                 </div>
                 <div class="layui-form-item">
@@ -245,7 +247,7 @@
                     //图片上传接口
                     upload.render({
                         elem: '#uploadButton' //绑定元素
-                        , url: '/product/upload/' //改成你的图片上传接口
+                        , url: '/product/upload' //改成你的图片上传接口
                         , accept: 'images' //上传图片
                         , multiple: false //允许多文件上传
                         , before: function (obj) {
@@ -255,8 +257,11 @@
                             //上传完毕回调
                             if (res.code == 200) { //假设成功返回的code为0
                                 //do something
-                                alert("上传成功")
-                            } else alert("上传失败")
+                                // alert("上传成功")
+                                layer.msg('上传成功', {icon: 1});
+                                $('#preview').attr('src', '/file/' + res.data[0]);
+                                $('#imgPath').attr('value', '/file/' + res.data[0]);
+                            } else layer.msg('上传失败', {icon: 2});
                         }
                         , error: function () {
                             //请求出错处理
