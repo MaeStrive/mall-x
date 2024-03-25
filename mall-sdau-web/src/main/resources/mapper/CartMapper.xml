@@ -3,7 +3,7 @@
 <mapper namespace="com.situ.mallsdauweb.mapper.CartMapper">
 
     <select id="selectCarts" resultType="com.situ.mallsdauweb.vo.CartVO">
-        select cart.id,cart.amount,product.name 'productName',product.price,product.imgPath
+        select cart.id,cart.amount,product.name 'productName',product.price,product.img_path
 from cart
 inner join product on cart.product_id=product.id
 where cart.id in
