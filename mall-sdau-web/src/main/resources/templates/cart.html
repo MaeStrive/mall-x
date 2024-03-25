@@ -58,7 +58,7 @@
 				</div>
 				<div class="list-body"  th:each="cart:${carts}" th:dataid="${cart.id}">
 					<div><input class="chec1" type="checkbox" /></div>
-					<div><img src="" th:src="${cart.imgPath}"></div>
+					<div><img src="" th:src="${cart.imgPath}" style="width: 100%"></div>
 					<div th:text="${cart.productName}"></div>
 					<div class="price1" th:text="${cart.price}"></div>
 					<div class="num-box">
