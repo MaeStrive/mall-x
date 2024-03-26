@@ -14,14 +14,11 @@
 
 <div class="header ">
     <div class="clearfix one">
-        <a href="https://account.xiaomi.com/fe/service/login">
+        <a href="/index">
             <img src="/img/milogo.ico" style="width: 60px;height:60px;">
         </a>
         <span class="header-item-tit">体育商城账号</span>
         <ul class="header-list-tit fr">
-            <li>用户协议</li>
-            <li>隐私政策</li>
-            <li>帮助中心</li>
             <li class="language-title">
                 <div>‎中文(简体)‎<span class="iconfont icon-sanjiaoxing"></span></div>
                 <div class="language-list">
@@ -45,17 +42,15 @@
         <div class="personal-left fl">
             <div class="personal-infor">
                 <span><img src="/img/personal/infor.png"></span>
-                <div class="infor-name">请设置昵称</div>
+                <div class="infor-name" th:text="${'昵称: '+user.username}">请设置昵称</div>
                 <div class="infor-number" th:text="${'+86 '+user.tel}">+86 183****3517</div>
             </div>
 
             <div>
                 <ul class="personal-list">
-                    <li id="0">登录与安全</li>
+
                     <li id="1" class="act">个人信息</li>
                     <li id="2">修改密码</li>
-                    <li id="3">绑定授权</li>
-                    <li id="4">帮助中心</li>
                 </ul>
             </div>
         </div>
@@ -121,13 +116,13 @@
                             </tr>
                             <tr class="personal-td">
                                 <td>昵称</td>
-                                <td><input th:text="${user.username}" id="input-name" type="text" placeholder=""
-                                           disabled class="input-noActive"/></td>
+                                <td th:text="${user.username}"></td>
+
                             </tr>
                             <tr class="personal-td">
                                 <td>姓名</td>
-                                <td><input th:text="${user.name}" id="input-name0" type="text" placeholder="" disabled
-                                           class="input-noActive"/></td>
+                                <td th:text="${user.name}"></td>
+
                             </tr>
                             <tr>
                                 <td>手机号</td>
@@ -136,12 +131,6 @@
                             <tr>
                                 <td>国家/地区</td>
                                 <td>中国</td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>
-                                    <button class="change-btn" type="button">编辑</button>
-                                </td>
                             </tr>
                             </tbody>
                         </table>

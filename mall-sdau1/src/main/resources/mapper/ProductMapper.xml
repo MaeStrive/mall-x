@@ -6,7 +6,12 @@
         select product.*, category.name 'categoryName'
         from product
                 inner join category on category.Id = product.category_id
-# inner join category c1 on c1.Id =category.parent_id
+        <where>
+            <if test="keyword != null and keyword != ''">
+                and product.name like CONCAT('%', #{keyword}, '%')
+            </if>
+        </where>
+
     </select>
 
 </mapper>

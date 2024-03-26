@@ -53,7 +53,7 @@
 }
 .user-title:hover .user-list{
 	display: block;
-	height: 170px;
+	height: 80px;
 }
 .user-list li:hover{
 	color: #FF6700;
