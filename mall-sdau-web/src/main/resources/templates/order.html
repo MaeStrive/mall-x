@@ -21,9 +21,13 @@
             <div class="cart-box">快来购物车看看吧</div>
         </div>
         <div class="menu-right fr">
-            <ul>
+            <ul  th:if="${session.current == null}">
                 <li><a href="/login" target="_blank">登录</a></li>
                 <li><a href="/login" target="_blank">注册</a></li>
+            </ul>
+            <ul th:if="${session.current != null}">
+                <li><a href="" th:text="${session.current.username}"></a></li>
+                <li><a href="/personal/page">个人中心</a></li>
             </ul>
         </div>
 
