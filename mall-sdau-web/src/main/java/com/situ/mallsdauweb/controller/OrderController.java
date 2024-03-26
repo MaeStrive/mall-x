@@ -1,10 +1,13 @@
 package com.situ.mallsdauweb.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.situ.mallsdauweb.entity.MemberAddress;
 import com.situ.mallsdauweb.entity.OrderInfo;
+import com.situ.mallsdauweb.mapper.MemberAddressMapper;
 import com.situ.mallsdauweb.service.IOrderInfoService;
 //import com.situ.mallsdauweb.service.IPayService;
 import com.situ.mallsdauweb.vo.CartVO;
+import com.situ.mallsdauweb.vo.OrderHhhVO;
 import com.situ.mallsdauweb.vo.OrderVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.annotation.JmsListener;
@@ -22,20 +25,21 @@ import java.util.List;
 public class OrderController {
     @Autowired
     private IOrderInfoService orderInfoService;
-//    @Autowired
+    //    @Autowired
 //    private IPayService payService;
-
+    @Autowired
+    private MemberAddressMapper memberAddressMapper;
 
     @GetMapping("/orders")
     @ResponseBody
-    public List<OrderVO> order(String status){
-        if (status == null){
+    public List<OrderVO> order(String status) {
+        if (status == null) {
             status = "";
-        }else if(status.equals("0")){
+        } else if (status.equals("0")) {
             status = "";
-        }else if (status.equals("2")){
+        } else if (status.equals("2")) {
             status = "已支付";
-        }else if (status.equals("4")){
+        } else if (status.equals("4")) {
             status = "已取消";
         }
         List<OrderVO> orderVOList = orderInfoService.selectByStatus(status);
@@ -46,8 +50,9 @@ public class OrderController {
     @PostMapping("/save")
     //参数一：选择的地址ID，参数二：购物车中选择的IDs
     public String saveOrder(Integer addId, String cartIds, Model model) {
-        //保存订单成功，获取支付主键
-        Integer id = orderInfoService.saveOrder(addId, cartIds);
+        OrderHhhVO orderHhhVO = orderInfoService.saveOrder(addId, cartIds);
+        model.addAttribute("address", orderHhhVO.getMemberAddress());
+        model.addAttribute("price", orderHhhVO.getPrice());
         //根据主键获取支付二维码
 //        try {
 //            String qrCode = payService.pay(id);
@@ -82,10 +87,11 @@ public class OrderController {
 
     /**
      * 去订单页面
+     *
      * @return
      */
     @GetMapping("/order")
-    public String orderPage(){
+    public String orderPage() {
         return "order";
     }
 

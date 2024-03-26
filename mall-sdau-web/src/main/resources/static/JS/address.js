@@ -10,37 +10,37 @@ document.querySelector('.addAddress').onclick=function(){
 
 
 //弹出框的确认按钮—————弹出框的隐藏
-document.querySelector('#determine').onclick=function(){
-	if(!nameElement.value){
-		alert('请输入姓名');
-		return;
-	}else if(numberElement.value.length<11||numberElement.value.length>11){
-			alert('请输入正确手机号');
-			return;
-	}else if(!document.querySelector('.input-lookup').value){
-		alert('请输入地址');
-		return;
-	}else if(!document.querySelector('.input-address').value){
-		alert('请输入详细地址');
-		return;
-	}else if(!document.querySelector('.input-addressLabel').value){
-		alert('请输入地址标签');
-		return;
-	}else{
-		// alert('1')
-		document.querySelector('.address-list').style.display = 'inline-block';
-		document.querySelector('.address-name').innerText = nameElement.value;
-		document.querySelector('.address-label').innerHTML = addressLabelElement.value;
-		document.querySelector('.address-number').innerText = numberElement.value;
-		document.querySelector('.address-address').innerText = lookuplElement.value;
-		document.querySelector('.address-detailed').innerText = document.querySelector('.input-address').value;
-		
-		//清空弹出框的内容
-		
-	}
-	
-	document.querySelector('.alert-box').style.display='none';
-}
+// document.querySelector('#determine').onclick=function(){
+// 	if(!nameElement.value){
+// 		alert('请输入姓名');
+// 		return;
+// 	}else if(numberElement.value.length<11||numberElement.value.length>11){
+// 			alert('请输入正确手机号');
+// 			return;
+// 	}else if(!document.querySelector('.input-lookup').value){
+// 		alert('请输入地址');
+// 		return;
+// 	}else if(!document.querySelector('.input-address').value){
+// 		alert('请输入详细地址');
+// 		return;
+// 	}else if(!document.querySelector('.input-addressLabel').value){
+// 		alert('请输入地址标签');
+// 		return;
+// 	}else{
+// 		// alert('1')
+// 		document.querySelector('.address-list').style.display = 'inline-block';
+// 		document.querySelector('.address-name').innerText = nameElement.value;
+// 		document.querySelector('.address-label').innerHTML = addressLabelElement.value;
+// 		document.querySelector('.address-number').innerText = numberElement.value;
+// 		document.querySelector('.address-address').innerText = lookuplElement.value;
+// 		document.querySelector('.address-detailed').innerText = document.querySelector('.input-address').value;
+//
+// 		//清空弹出框的内容
+//
+// 	}
+//
+// 	document.querySelector('.alert-box').style.display='none';
+// }
 
 
 

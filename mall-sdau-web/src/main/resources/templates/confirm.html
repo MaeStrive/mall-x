@@ -24,7 +24,7 @@
         <div class="fr header-right">
             <ul>
                 <li class="user-title">
-                    <p >
+                    <p>
                         <span th:text="${session.current.username}"></span><span class="iconfont icon-xia"></span>
                     </p>
                     <div class="user-list">
@@ -40,47 +40,49 @@
     </div>
 </div>
 <!--添加收货地址-->
-<div id="formadd" style="display:none;">
-    <form class="layui-form" action="" lay-filter="addForm">
+<div id="formadd66" style="display:none;">
+    <form class="layui-form">
         <div class="layui-form-item">
             <label class="layui-form-label">姓名</label>
             <div class="layui-input-block">
-                <input type="text" name="memberName" required lay-verify="required" placeholder="请输入姓名"
+                <input type="text" name="memberName"   placeholder="请输入姓名"
                        autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">电话</label>
             <div class="layui-input-block">
-                <input type="text" name="memberTel" required lay-verify="required" placeholder="请输入电话"
+                <input type="text" name="memberTel"   placeholder="请输入电话"
                        autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">省份</label>
             <div class="layui-input-block">
-                <input type="text" name="province" required lay-verify="required" placeholder="请输入省份" autocomplete="off"
+                <input type="text" name="province"   placeholder="请输入省份"
+                       autocomplete="off"
                        class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">市</label>
             <div class="layui-input-block">
-                <input type="text" name="city" required lay-verify="required" placeholder="请输入市" autocomplete="off"
+                <input type="text" name="city"   placeholder="请输入市" autocomplete="off"
                        class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">区/县</label>
             <div class="layui-input-block">
-                <input type="text" name="area" required lay-verify="required" placeholder="请输入区/县" autocomplete="off"
+                <input type="text" name="area"   placeholder="请输入区/县"
+                       autocomplete="off"
                        class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">详细地址</label>
             <div class="layui-input-block">
-                <input type="text" name="address" required lay-verify="required" placeholder="请输入详细地址"
+                <input type="text" name="address"   placeholder="请输入详细地址"
                        autocomplete="off" class="layui-input">
             </div>
         </div>
@@ -93,7 +95,7 @@
         </div>
         <div class="layui-form-item">
             <div class="layui-input-block">
-                <button class="layui-btn" id="submitadd" lay-submit lay-filter="formDemo">立即提交</button>
+                <button class="layui-btn" id="submitadd66" type="button" >立即提交</button>
                 <button type="reset" class="layui-btn layui-btn-primary">重置</button>
             </div>
         </div>
@@ -113,8 +115,9 @@
                         <div class="address-address" th:text="${add.province+'  '+add.city+'  '+add.area}"></div>
                         <div class="address-detailed" th:text="${add.address}"></div>
                         <div class="address-change">
-                            <span class="address-changeed">修改</span>
-                            <span class="address-dele">删除</span>
+                            <!--                            <span class="address-changeed" th:attr="data-id=${add.id}" onclick="getAddress(this.getAttribute('data-id'))">修改</span>-->
+                            <span class="address-dele" th:attr="data-id=${add.id}"
+                                  onclick="deleteAddress(this.getAttribute('data-id'))">删除</span>
                         </div>
                     </div>
                 </div>
@@ -163,7 +166,7 @@
                         </tr>
                         <tr>
                             <td>应付总额：</td>
-                            <td class="moneyTotla"  th:text="${cartTotalVO.price}+'元'"><b>1699</b>元</td>
+                            <td class="moneyTotla" th:text="${cartTotalVO.price}+'元'"><b>1699</b>元</td>
                         </tr>
                     </table>
                 </div>
@@ -177,7 +180,8 @@
                     <div class="address-left fl">
                     </div>
                     <div class="address-right fr">
-                        <button class="return" type="button"> <a href="/cart" style="color: black">返回购物车</a></button>
+                        <button class="return" type="button"><a href="/cart" style="color: black">返回购物车</a>
+                        </button>
                         <button class="buy" type="button" id="orderBtn"><a href="javaacript:;">立即下单</a></button>
                     </div>
                 </div>
@@ -196,8 +200,8 @@
 <script type="text/javascript" src="/JS/jquery.js"></script>
 <script type="text/javascript" src="/layui/layui.js"></script>
 <!-- <script type="text/javascript" src="JS/currency.js"></script> -->
-<script type="text/javascript" src="/JS/address.js"></script>
-<script type="text/javascript" src="/JS/confirm.js"></script>
+<!--<script type="text/javascript" src="/JS/address.js"></script>-->
+<!--<script type="text/javascript" src="/JS/confirm.js"></script>-->
 <script>
     //找到地址div，点击绑定事件
     $(".address-list").on("click", function () {
@@ -215,6 +219,14 @@
         $("#orderForm").submit();
     });
 
+    function deleteAddress(id) {
+        if (confirm("您确定要删除吗?"))
+            $.get('/member-address/delete?id=' + id, function (id) {
+                alert("删除成功")
+                window.location.reload();
+            })
+    }
+
     layui.use(['layer', 'form'], function () {
         var layer = layui.layer;
         var form = layui.form;
@@ -224,21 +236,35 @@
             layer.open({
                 type: 1,
                 title: '表单',
-                content: $('#formadd'),
+                content: $('#formadd66'),
                 area: ['500px', '650px'],
-                btn: ['提交', '取消'],
+                btn: [ '取消'],
                 btn2: function (index, layero) {
                     // 取消按钮的回调函数
                 }
             });
         });
-        $("#submitadd").on("click", function () {
+        $("#submitadd66").on("click", function () {
             var data = form.val("addForm");
             $.post('/member-address/save', data, function () {
                 //关窗口
                 layer.closeAll();
             })
         })
+
+        // $(".address-changeed").on("click", function () {
+        //     layer.open({
+        //         type: 1,
+        //         title: '表单',
+        //         content: $('#formadd'),
+        //         area: ['500px', '650px'],
+        //         btn: ['提交', '取消'],
+        //         btn2: function (index, layero) {
+        //             // 取消按钮的回调函数
+        //         }
+        //     });
+        // })
+
     });
 </script>
 

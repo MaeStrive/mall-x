@@ -48,10 +48,13 @@
             <div class="paymentResult fl">
                 <h2>订单提交成功！去付款咯～</h2>
                 <div>请在<span class="time">0 小时 15 分</span>内完成支付, 超时后将取消订单</div>
-                <div>收货信息：张三 164****7473 山西 阳泉市 平定县 东回镇 发的发个体户</div>
+                <div>收货信息：<span th:text="${address.memberName}"></span>&emsp;<span th:text="${address.memberTel}"></span>&emsp;
+                    <span th:text="${address.province}"></span>&emsp;<span th:text="${address.city}"></span>&emsp;<span th:text="${address.area}"></span>&emsp;
+                    <span th:text="${address.address}"></span>&emsp;
+                </div>
             </div>
             <div class="paymentInfor fr">
-                <div>应付总额：<span class="total">1699</span>元</div>
+                <div>应付总额：<span class="total" th:text="${price}"></span>元</div>
                 <div>订单详情<span class="iconfont icon-xia"></span></div>
             </div>
         </div>

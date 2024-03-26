@@ -7,6 +7,7 @@ import com.situ.mallsdauweb.mapper.*;
 import com.situ.mallsdauweb.service.IOrderInfoService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.situ.mallsdauweb.util.RequestUtil;
+import com.situ.mallsdauweb.vo.OrderHhhVO;
 import com.situ.mallsdauweb.vo.OrderVO;
 import org.apache.activemq.ScheduledMessage;
 import org.apache.activemq.command.ActiveMQQueue;
@@ -54,7 +55,7 @@ public class OrderInfoServiceImpl extends ServiceImpl<OrderInfoMapper, OrderInfo
 
     @Override
     @Transactional
-    public Integer saveOrder(Integer addId, String cartIds) {
+    public OrderHhhVO saveOrder(Integer addId, String cartIds) {
         //生成一个OrderInfo
         OrderInfo oi = new OrderInfo();
 
@@ -103,7 +104,7 @@ public class OrderInfoServiceImpl extends ServiceImpl<OrderInfoMapper, OrderInfo
         //推送消息
         System.out.println(new Date() + "发送一个消息" + oi.getId());
 //        delaySend(new ActiveMQQueue("order.save"), oi.getId(), 15 * 60 * 1000L);
-        return oi.getId();
+        return new OrderHhhVO(oi.getId(),ma,total);
     }
 
     @Override

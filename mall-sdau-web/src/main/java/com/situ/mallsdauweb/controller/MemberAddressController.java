@@ -31,6 +31,7 @@ public class MemberAddressController {
     private IMemberAddressService iMemberAddressService;
 
     @PostMapping("/member-address/save")
+    @ResponseBody
     public void save(MemberAddress memberAddress) {
         Member current = RequestUtil.getCurrent();
         memberAddress.setMemberId(current.getId());
@@ -43,5 +44,12 @@ public class MemberAddressController {
 
         model.addAttribute("addressList", addresses);
         return "address";
+    }
+
+    @GetMapping("/member-address/delete")
+    @ResponseBody
+    public Integer delete(Integer id) {
+        iMemberAddressService.removeById(id);
+        return id;
     }
 }
