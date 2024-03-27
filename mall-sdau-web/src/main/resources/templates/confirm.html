@@ -45,21 +45,21 @@
         <div class="layui-form-item">
             <label class="layui-form-label">姓名</label>
             <div class="layui-input-block">
-                <input type="text" name="memberName"   placeholder="请输入姓名"
+                <input type="text" name="memberName" required lay-verify="required"   placeholder="请输入姓名"
                        autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">电话</label>
             <div class="layui-input-block">
-                <input type="text" name="memberTel"   placeholder="请输入电话"
+                <input type="text" name="memberTel" required lay-verify="required"   placeholder="请输入电话"
                        autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">省份</label>
             <div class="layui-input-block">
-                <input type="text" name="province"   placeholder="请输入省份"
+                <input type="text" name="province"  required lay-verify="required"  placeholder="请输入省份"
                        autocomplete="off"
                        class="layui-input">
             </div>
@@ -67,14 +67,14 @@
         <div class="layui-form-item">
             <label class="layui-form-label">市</label>
             <div class="layui-input-block">
-                <input type="text" name="city"   placeholder="请输入市" autocomplete="off"
+                <input type="text" name="city" required lay-verify="required"  placeholder="请输入市" autocomplete="off"
                        class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">区/县</label>
             <div class="layui-input-block">
-                <input type="text" name="area"   placeholder="请输入区/县"
+                <input type="text" name="area" required lay-verify="required"   placeholder="请输入区/县"
                        autocomplete="off"
                        class="layui-input">
             </div>
@@ -82,7 +82,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label">详细地址</label>
             <div class="layui-input-block">
-                <input type="text" name="address"   placeholder="请输入详细地址"
+                <input type="text" name="address"  required lay-verify="required" placeholder="请输入详细地址"
                        autocomplete="off" class="layui-input">
             </div>
         </div>
@@ -95,7 +95,7 @@
         </div>
         <div class="layui-form-item">
             <div class="layui-input-block">
-                <button class="layui-btn" id="submitadd66" lay-submit type="button" >立即提交</button>
+                <button class="layui-btn" id="submitadd66" lay-submit type="button" lay-filter="formDemo">立即提交</button>
                 <button type="reset" class="layui-btn layui-btn-primary">重置</button>
             </div>
         </div>
