@@ -319,9 +319,9 @@
         }
         $.post('/register', data, function (result) {
             console.log(result)
-            if(result.code!=200){
+            if(result.code!=0){
                 alert(result.msg)
-            }else if(result.code==200){
+            }else if(result.code==0){
                 alert('注册成功');
                 var Logi = document.querySelector('.log');
                 var Resgi = document.querySelector('.resg');
