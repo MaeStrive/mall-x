@@ -35,7 +35,7 @@ public class MemberAddress implements Serializable {
 
     private String memberName;
 
-    private Integer memberTel;
+    private String memberTel;
 
     private String tag;
     private String address;

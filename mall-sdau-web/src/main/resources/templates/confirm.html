@@ -250,6 +250,7 @@
             $.post('/member-address/save', data, function () {
                 //关窗口
                 layer.closeAll();
+                window.location.reload();
             })
         })
     });
