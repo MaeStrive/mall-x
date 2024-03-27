@@ -32,7 +32,7 @@ public class MemberAddressController {
 
     @PostMapping("/member-address/save")
     @ResponseBody
-    public void save(MemberAddress memberAddress) {
+    public void save(@RequestBody MemberAddress memberAddress) {
         Member current = RequestUtil.getCurrent();
         memberAddress.setMemberId(current.getId());
         iMemberAddressService.save(memberAddress);
