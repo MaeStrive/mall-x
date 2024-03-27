@@ -87,6 +87,13 @@
             </div>
         </div>
         <div class="layui-form-item">
+            <label class="layui-form-label">标签</label>
+            <select name="tag">
+                <option value="家">家</option>
+                <option value="公司">公司</option>
+            </select>
+        </div>
+        <div class="layui-form-item">
             <div class="layui-input-block">
                 <button class="layui-btn" id="submitadd" lay-submit type="button" lay-filter="formDemo">立即提交
                 </button>
@@ -224,24 +231,30 @@
     layui.use(['layer', 'form'], function () {
         var layer = layui.layer;
         var form = layui.form;
-        layer.open({
-            type: 1,
-            title: '表单',
-            content: $('#formadd'),
-            area: ['500px', '650px'],
-            btn: ['提交', '取消'],
-            btn2: function (index, layero) {
-                // 取消按钮的回调函数
-            }
+
+        // 点击按钮弹出表单
+        $('#formbtn').on('click', function () {
+            layer.open({
+                type: 1,
+                title: '表单',
+                content: $('#formadd'),
+                area: ['500px', '650px'],
+                btn: ['提交', '取消'],
+                btn2: function (index, layero) {
+                    // 取消按钮的回调函数
+                }
+            });
         });
-    });
-    $("#submitadd").on("click", function () {
-        var data = form.val("addForm");
-        $.post('/member-address/save', data, function () {
-            //关窗口
-            layer.closeAll();
+        $("#submitadd").on("click", function () {
+            var data = form.val("addForm");
+            $.post('/member-address/save', data, function () {
+                //关窗口
+                layer.closeAll();
+            })
         })
-    })</script>
+    });
+
+</script>
 
 </body>
 </html>
