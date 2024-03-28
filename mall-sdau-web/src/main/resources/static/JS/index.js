@@ -37,14 +37,14 @@ document.querySelector('#search-btn').onmouseleave=function(){
 }
 
 
-//右侧固定显示
-document.querySelector('.icon-shouji').onmouseenter=function(){
-	document.querySelector('.number-qrode').style.display='block';
-}
-document.querySelector('.icon-shouji').onmouseleave=function(){
-	document.querySelector('.number-qrode').style.display='none';
-}
-
+// //右侧固定显示
+// document.querySelector('.icon-shouji').onmouseenter=function(){
+// 	document.querySelector('.number-qrode').style.display='block';
+// }
+// document.querySelector('.icon-shouji').onmouseleave=function(){
+// 	document.querySelector('.number-qrode').style.display='none';
+// }
+//
 
 
 

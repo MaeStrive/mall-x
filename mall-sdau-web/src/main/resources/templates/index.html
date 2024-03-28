@@ -26,7 +26,6 @@
                     </ul>
                 </div>
             </li>
-
         </ul>
         <div class="switch-box">
             <div class="clearfix">
@@ -108,17 +107,12 @@
             <h2 th:text="${cat.categoryName}"></h2>
         </div>
         <div class="phone-left">    <!-- 左侧单独展览 -->
-            <!--					<img class="phone-lef" src="img/index/MIXphone.jpg" >-->
             <img class="phone-lef" th:src="${cat.iconPath}">
         </div>
         <div class="phone-right">    <!-- 右侧分区展览 -->
             <div class="phone-right-top">
                 <ul class="one" th:each="pro:${cat.product}">
                     <li th:id="${pro.id}">
-                        <!--								<img src="img/index/XiaomiMIX4.jpg" >-->
-                        <!--								<h3>Xiaomi MIX 4</h3>-->
-                        <!--								<p>CUP全面屏</p>-->
-                        <!--								<p>4999元起</p>-->
                         <!--                        虚拟路径-->
                         <img th:src="${pro.imgPath}">
                         <h3 th:text="${pro.name}"></h3>
@@ -139,27 +133,11 @@
 
 <script src="JS/index.js"></script>
 <script src="layui/layui.js"></script>
-
-<script type="text/html" id="phoneTemplate">
-    {{# layui.each(d,function(index,item){    }}
-    <li>
-        <a href="/detail?id={{=item.id}}">
-            <img src="img/index/XiaomiMIX4.jpg">
-            <h3>{{=item.name}}</h3>
-            <p>CUP全面屏</p>
-            <p>{{=item.price}}起</p>
-        </a>
-    </li>
-    {{# });  }}
-</script>
 <script>
     layui.use(['laytpl'], function () {
         var laytpl = layui.laytpl;
         var $ = layui.jquery;
-        //查数据
-        $.get("/product/telephone", function (phones) {
-            console.log(phones)
-        });
+
         $('#phone-box').on('click', 'ul.one li', function () {
             // Obter o id do elemento clicado
             var id = $(this).attr('id');

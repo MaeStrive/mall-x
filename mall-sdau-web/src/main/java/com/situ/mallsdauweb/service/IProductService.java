@@ -17,4 +17,6 @@ import java.util.List;
 public interface IProductService extends IService<Product> {
 
     List<ProductIndexVO> phones();
+
+    List<Product> listProductByCategoryId(Integer categoryId);
 }

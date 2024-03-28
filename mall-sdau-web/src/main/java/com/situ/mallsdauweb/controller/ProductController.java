@@ -34,4 +34,10 @@ public class ProductController {
     public List<ProductIndexVO> phones(Model model){
         return productService.phones();
     }
+
+    @GetMapping("/listProductByCategoryId")
+    @ResponseBody
+    public List<Product> listProductByCategoryId(Integer categoryId){
+        return productService.listProductByCategoryId(categoryId);
+    }
 }

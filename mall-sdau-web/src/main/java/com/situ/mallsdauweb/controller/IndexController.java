@@ -28,6 +28,9 @@ public class IndexController {
     model.addAttribute("productindexvos",phones);
     return "index";
 }
+
+
+
 @GetMapping("/detail")
     public String detail(Integer id,Model model){
 //带上当前这款商品的数据

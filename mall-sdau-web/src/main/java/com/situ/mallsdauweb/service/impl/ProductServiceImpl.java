@@ -10,13 +10,14 @@ import com.situ.mallsdauweb.vo.ProductIndexVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 /**
  * <p>
- *  服务实现类
+ * 服务实现类
  * </p>
  *
  * @author author
@@ -32,16 +33,16 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
 
     @Override
     public List<ProductIndexVO> phones() {
-        List<ProductIndexVO> result=new LinkedList<>();
-        //先查一下最新的3个系列
-        List<Category> categories=categoryMapper.latest(0);
-        for (Category category: categories) {
-            LambdaQueryWrapper<Category> queryWrap=new LambdaQueryWrapper<>();
-            queryWrap.eq(Category::getParentId,category.getId()).orderByAsc(Category::getSequence).last("limit 1");
+        List<ProductIndexVO> result = new LinkedList<>();
+        //先查一下最新的6个系列
+        List<Category> categories = categoryMapper.latest(0);
+        for (Category category : categories) {
+            LambdaQueryWrapper<Category> queryWrap = new LambdaQueryWrapper<>();
+            queryWrap.eq(Category::getParentId, category.getId()).orderByAsc(Category::getSequence).last("limit 1");
             Category category0 = categoryMapper.selectOne(queryWrap);
-            LambdaQueryWrapper<Product> queryWrapper=new LambdaQueryWrapper<>();
-            queryWrapper.eq(Product::getCategoryId,category0.getId());
-            ProductIndexVO productIndexVO=new ProductIndexVO();
+            LambdaQueryWrapper<Product> queryWrapper = new LambdaQueryWrapper<>();
+            queryWrapper.eq(Product::getCategoryId, category0.getId());
+            ProductIndexVO productIndexVO = new ProductIndexVO();
             List<Product> products = productMapper.selectList(queryWrapper);
             productIndexVO.setProduct(products);
             productIndexVO.setCategoryId(category0.getId());
@@ -52,5 +53,10 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
         return result;
     }
 
-
+    @Override
+    public List<Product> listProductByCategoryId(Integer categoryId) {
+        LambdaQueryWrapper<Product> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(Product::getCategoryId, categoryId);
+        return productMapper.selectList(queryWrapper);
+    }
 }
