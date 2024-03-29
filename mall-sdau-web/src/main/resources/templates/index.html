@@ -19,11 +19,13 @@
                 <p th:text="${c.name}"></p>
                 <div class="item-list">
                     <ul>
-                        <li th:each="s:${c.children}">
+                        <li th:each="s:${c.children}" th:data-id="${s.id}">
                             <img th:src="${s.iconPath}">
                             <span th:text="${s.name}"></span>
                         </li>
                     </ul>
+                    <div style="position: absolute;left: 260px;display: none" class="divvv">
+                    </div>
                 </div>
             </li>
         </ul>
@@ -101,31 +103,31 @@
         <img src="./img/index/k40.png" style="height: 250px;width: 1226px">
     </div>
 </div>-->
-<div class="phone-box" id="phone-box">
-    <div class="container" th:each="cat:${productindexvos}">
-        <div class="phone-title">
-            <h2 th:text="${cat.categoryName}"></h2>
-        </div>
-        <div class="phone-left">    <!-- 左侧单独展览 -->
-            <img class="phone-lef" th:src="${cat.iconPath}">
-        </div>
-        <div class="phone-right">    <!-- 右侧分区展览 -->
-            <div class="phone-right-top">
-                <ul class="one" th:each="pro:${cat.product}">
-                    <li th:id="${pro.id}">
-                        <!--                        虚拟路径-->
-                        <img th:src="${pro.imgPath}">
-                        <h3 th:text="${pro.name}"></h3>
-                        <p th:text="${pro.color}"></p>
-                        <p th:text="${pro.price}"></p>
-                    </li>
+<!--<div class="phone-box" id="phone-box">-->
+<!--    <div class="container" th:each="cat:${productindexvos}">-->
+<!--        <div class="phone-title">-->
+<!--            <h2 th:text="${cat.categoryName}"></h2>-->
+<!--        </div>-->
+<!--        <div class="phone-left">    &lt;!&ndash; 左侧单独展览 &ndash;&gt;-->
+<!--            <img class="phone-lef" th:src="${cat.iconPath}">-->
+<!--        </div>-->
+<!--        <div class="phone-right">    &lt;!&ndash; 右侧分区展览 &ndash;&gt;-->
+<!--            <div class="phone-right-top">-->
+<!--                <ul class="one" th:each="pro:${cat.product}">-->
+<!--                    <li th:id="${pro.id}">-->
+<!--                        &lt;!&ndash;                        虚拟路径&ndash;&gt;-->
+<!--                        <img th:src="${pro.imgPath}">-->
+<!--                        <h3 th:text="${pro.name}"></h3>-->
+<!--                        <p th:text="${pro.color}"></p>-->
+<!--                        <p th:text="${pro.price}"></p>-->
+<!--                    </li>-->
 
-                </ul>
-            </div>
-        </div>
-    </div>
+<!--                </ul>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
 
-</div>
+<!--</div>-->
 
 
 <th:block th:include="footer"/>
@@ -148,6 +150,32 @@
             // $.get("/detail",id)
             window.location.href = "/detail?id=" + id
         }
+
+        $('.item-list li').click(function () {
+                var itemId = $(this).data('id');
+                console.log(itemId)
+                $.get("/product/listProductByCategoryId?categoryId=" + itemId).then(res => {
+                    console.log(res)
+                    var divvv = $('.divvv');
+                    divvv.empty();
+                    $.each(res, function (index, item) {
+                        var li = $('<li>').attr('id', 'product_' + item.id)
+                            .css({ border: '1px solid rgba(255,174,0,0.31)', borderRadius: '10px', margin: '5px' })
+                            .html('<span>' + item.name + '</span><img src="' + item.imgPath + '" /><span>' + item.price + '元起</span>');
+                        divvv.append(li);
+                    });
+                    $('.divvv').css('display', 'block');
+                })
+            },
+            // function () {
+            //     $('.divvv').css('display', 'none');
+            // }
+        )
+        $('.divvv').on('click', 'li', function() {
+            var itemId = $(this).attr('id').replace('product_', '');
+            window.location.href = "/detail?id=" + itemId;
+        });
+
     });
 </script>
 </body>
