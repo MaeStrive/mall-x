@@ -45,7 +45,7 @@
             <a class="layui-btn layui-btn-normal layui-btn-xs data-count-edit" lay-event="edit">编辑</a>
             <a class="layui-btn layui-btn-xs layui-btn-danger data-count-delete" lay-event="delete">删除</a>
         </script>
-<script type="text/html" id="formTemplate">
+        <script type="text/html" id="formTemplate">
             <form class="layui-form" action="" lay-filter="userForm">
                 <div class="layui-form-item">
                     <label class="layui-form-label">分类名称</label>
@@ -214,34 +214,56 @@
         table.on('tool(currentTableFilter)', function (obj) {
             var data = obj.data;
             if (obj.event === 'edit') {
-                //先根据id获取用户所有信息
-                $.get("/category/info?id="+obj.data.id,function(u){
-                    var index = layer.open({
-                        title: '编辑用户',
-                        type: 1,
-                        shade: 0.2,
-                        maxmin:true,
-                        shadeClose: true,
-                        area: ['400px', '400px'],
-                        content: $("#formTemplate").html()
-                    });
-                    //对表单元素渲染
-                    form.render();
-                    //把请求道的用户数据放到表单上
-                    form.val("userForm",u);
-                    //给保存按钮绑定事件
-                    $("#saveBtn").on("click",function(){
-                        //获取表单中录入的所有数据
-                        var data=form.val("userForm");
-                        //发送请求
-                        $.post("/category/save",data,function(){
-                            //关窗口
-                            layer.closeAll();
-                            //点查询按钮
-                            $("#btn1").click();
+
+                //把取到的tops数据放到下拉框
+                $.get("/category/top",function(tops){
+
+
+                    //先根据id获取用户所有信息
+                    $.get("/category/info?id="+obj.data.id,function(u){
+                        var index = layer.open({
+                            title: '编辑商品',
+                            type: 1,
+                            shade: 0.2,
+                            maxmin:true,
+                            shadeClose: true,
+                            area: ['400px', '400px'],
+                            content: $("#formTemplate").html()
+                        });
+
+                        $.each(tops,function(index,item){
+                            $("#sel1").append("<option value='"+item.id+"'>"+item.name+"</option>");
+                            console.log(item)
+                        });
+                        //对表单元素渲染
+                        form.render();
+                        //把请求道的用户数据放到表单上
+                        form.val("userForm",u);
+
+
+                        // 绑定上传图片事件
+                        upload.render({
+                            elem:"#img1",
+                            url:"/upload",
+                            done:function(result){
+                                $("#icon1").val(result.data);
+                                $("#img1").attr("src",result.data);
+                            }
+                        });
+                        //给保存按钮绑定事件
+                        $("#saveBtn").on("click",function(){
+                            //获取表单中录入的所有数据
+                            var data=form.val("userForm");
+                            //发送请求
+                            $.post("/category/save",data,function(){
+                                //关窗口
+                                layer.closeAll();
+                                //点查询按钮
+                                $("#btn1").click();
+                            });
                         });
                     });
-                });
+                })
             } else if (obj.event === 'delete') {
                 layer.confirm('真的删除么', function (index) {
                    //点了确认
