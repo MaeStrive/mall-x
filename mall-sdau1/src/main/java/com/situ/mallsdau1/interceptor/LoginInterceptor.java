@@ -12,7 +12,7 @@ public class LoginInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         //返回 true就是允许进入 controller
         //session
-Object obj=request.getSession().getAttribute("mark");
+        Object obj=request.getSession().getAttribute("mark");
         //返回 false 不允许
         if(obj!=null){
             return true;
